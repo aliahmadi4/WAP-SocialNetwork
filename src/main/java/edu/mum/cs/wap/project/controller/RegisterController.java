@@ -1,17 +1,16 @@
 package edu.mum.cs.wap.project.controller;
 
-import edu.mum.cs.wap.project.dao.PostDAO;
-import edu.mum.cs.wap.project.dao.RegisterDAO;
-import net.bytebuddy.asm.Advice;
+import edu.mum.cs.wap.project.dao.UserDAO;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
+@WebServlet("/register")
 public class RegisterController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     protected void doPost(HttpServletRequest request,
@@ -31,7 +30,7 @@ public class RegisterController extends HttpServlet {
         String gender = request.getParameter("gender");
 
         try{
-            RegisterDAO registerDAO = new RegisterDAO();
+            UserDAO registerDAO = new UserDAO();
             registerDAO.registerUser(firstName, lastName, email, username, password, dob, state, city, country, gender);
             response.sendRedirect("login.jsp");
         }catch (Exception e){

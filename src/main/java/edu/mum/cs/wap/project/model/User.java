@@ -2,11 +2,10 @@ package edu.mum.cs.wap.project.model;
 
 import sun.security.util.Password;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
+
 @Entity
 public class User {
     @Id
@@ -22,7 +21,9 @@ public class User {
     private String city;
     private String country;
     private String gender;
-
+    private String role;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Post> postList;
 
     public User(String firstName, String lastName, String email, String username, String password, LocalDate dob, String state, String city, String country, String gender) {
         this.firstName = firstName;
@@ -124,5 +125,11 @@ public class User {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+    public String getRole(){
+        return role;
+    }
+    public void setRole(String role){
+        this.role = role;
     }
 }

@@ -11,7 +11,7 @@ import org.hibernate.service.ServiceRegistry;
 
 import java.time.LocalDate;
 
-public class RegisterDAO {
+public class UserDAO {
     private static SessionFactory sessionFactory;
 
     public void registerUser(String firstName, String lastName, String email, String username, String password,
@@ -20,12 +20,16 @@ public class RegisterDAO {
             Session session = getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
             User user = new User(firstName, lastName, email, username, password, dob, state, city, country, gender);
+            user.setRole("ROLE_USER");
             session.save(user);
             transaction.commit();
             System.out.println("User registered");
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+    public static User findUserByUsernamePassword(String userName, String password){
+        return new User();
     }
     public static SessionFactory getSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File
