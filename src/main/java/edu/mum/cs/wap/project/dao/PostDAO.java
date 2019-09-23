@@ -2,6 +2,8 @@ package edu.mum.cs.wap.project.dao;
 
 
 
+import com.fasterxml.classmate.AnnotationConfiguration;
+import com.fasterxml.classmate.AnnotationInclusion;
 import edu.mum.cs.wap.project.model.Post;
 import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -10,6 +12,7 @@ import org.hibernate.jpa.HibernateQuery;
 import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 
+import java.lang.annotation.Annotation;
 import java.util.List;
 
 public class PostDAO {
@@ -38,12 +41,13 @@ public void savePost(String title, String description){
        // post= null;
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
+
         Transaction tx=null;
         Post post  =null;
         try{
                 tx=session.getTransaction();
                 tx.begin();
-                Query query = (Query) session.createQuery("from edu.mum.cs.wap.project.model.Post where userId='"+userId+"'").list();
+                Query query = (Query) session.createQuery ("from edu.mum.cs.wap.project.model.Post where userId='"+userId+"'").list();
                 post= (Post)query.uniqueResult();
                 tx.commit();
         }
@@ -66,8 +70,10 @@ public void savePost(String title, String description){
         try{
                 tx=session.getTransaction();
                 tx.begin();
+
                 Query query = (Query) session.createQuery ("from edu.mum.cs.wap.project.model.Post where postId='"+postId+"'");
                 post= (Post)query.uniqueResult();
+
                 tx.commit();
         }
         catch ( Exception e)
@@ -78,6 +84,26 @@ public void savePost(String title, String description){
         }
 return  post;
         }
+
+        //The following is how to retrive data from hibernate, from codeRunch:
+//        public static User retrieveFromId(int idValue) {
+//                AnnotationConfiguration config = new AnnotationConfiguration();
+//                config.addAnnotatedClass(User.class);
+//                SessionFactory factory= config.configure().buildSessionFactory();
+//                Session session = factory.getCurrentSession();
+//                session.beginTransaction();
+//                String queryString = "from User where id = :id";
+//                Query query = session.createQuery(queryString);
+//                query.setInteger("id", idValue);
+//                Object queryResult = query.uniqueResult();
+//                User user = (User)queryResult;session.getTransaction().commit();
+//                return user;
+//        }
+
+        public  Post getPostByPostId(int postId) {
+
+        }
+
 
 public static SessionFactory getSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File
