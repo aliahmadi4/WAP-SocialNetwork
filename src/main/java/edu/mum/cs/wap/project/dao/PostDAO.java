@@ -10,27 +10,28 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 public class PostDAO {
-    private static SessionFactory sessionFactory;
-    public void savePost(String title, String description){
+private static SessionFactory sessionFactory;
+public void savePost(String title, String description){
         try{
-            //get session object
-            Session session =getSessionFactory().openSession();
-            //starting Transcation
-            Transaction transaction = session.beginTransaction();
-            Post post = new Post(title,description);
-            session.save(post);
-            transaction.commit();
-            System.out.println("New Post added to Db");
+                //get session object
+                Session session =getSessionFactory().openSession();
+                //Start the transaction
+                Transaction transaction = session.beginTransaction();
+                Post post = new Post(title, description);
+                session.save(post);
+                transaction.commit();
+
+                   System.out.println("New Post added to Db");
 
         }
         catch (HibernateException e){
-            System.out.println(e.getMessage());
-            System.out.println("error");
+        System.out.println(e.getMessage());
+        System.out.println("error");
         }
-    }
+        }
 
 
-    public static SessionFactory getSessionFactory() {
+public static SessionFactory getSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File
         Configuration configObj = new Configuration();
         configObj.addAnnotatedClass(edu.mum.cs.wap.project.model.Post.class);
@@ -41,7 +42,6 @@ public class PostDAO {
 
         // Creating Hibernate Session Factory Instance
         sessionFactory = configObj.buildSessionFactory(serviceRegistryObj);
-
         return sessionFactory;
-    }
-}
+        }
+        }
