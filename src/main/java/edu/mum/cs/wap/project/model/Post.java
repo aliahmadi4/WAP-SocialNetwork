@@ -17,7 +17,6 @@ public class Post {
     //Added features
     private int userId;
     private LocalDateTime postDate;
-
     public int getUserId() {
         return userId;
     }

@@ -1,16 +1,20 @@
 package edu.mum.cs.wap.project.dao;
 
+
+
 import edu.mum.cs.wap.project.model.Post;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.jpa.HibernateQuery;
+import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
+
+import java.util.List;
 
 public class PostDAO {
 private static SessionFactory sessionFactory;
+
 public void savePost(String title, String description){
         try{
                 //get session object
@@ -20,9 +24,7 @@ public void savePost(String title, String description){
                 Post post = new Post(title, description);
                 session.save(post);
                 transaction.commit();
-
                    System.out.println("New Post added to Db");
-
         }
         catch (HibernateException e){
         System.out.println(e.getMessage());
@@ -30,6 +32,52 @@ public void savePost(String title, String description){
         }
         }
 
+        //This mehtod get posts by usrId: getPostByUserID
+
+        public List<Post> getPostByUserID(int userId) {
+       // post= null;
+        Session session = getSessionFactory().openSession();
+        session.beginTransaction();
+        Transaction tx=null;
+        Post post  =null;
+        try{
+                tx=session.getTransaction();
+                tx.begin();
+                Query query = (Query) session.createQuery("from edu.mum.cs.wap.project.model.Post where userId='"+userId+"'").list();
+                post= (Post)query.uniqueResult();
+                tx.commit();
+        }
+        catch (Exception e)
+                {
+                        if(tx!=null){
+                                tx.rollback();
+                        }                }
+        finally {
+                session.close();
+        }
+        return  post;
+}
+
+//getpost by postId:
+        public Post getPostByPostId( int postId){
+        Session session = getSessionFactory().openSession();
+        Transaction tx=null;
+        Post post= null;
+        try{
+                tx=session.getTransaction();
+                tx.begin();
+                Query query = (Query) session.createQuery ("from edu.mum.cs.wap.project.model.Post where postId='"+postId+"'");
+                post= (Post)query.uniqueResult();
+                tx.commit();
+        }
+        catch ( Exception e)
+        {
+        System.out.println("Can't get the post, please search again");
+        }
+        finally {
+        }
+return  post;
+        }
 
 public static SessionFactory getSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File
