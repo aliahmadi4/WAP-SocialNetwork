@@ -11,6 +11,7 @@ import java.time.*;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int postId;
     private String title;
     private String description;

@@ -1,7 +1,5 @@
 package edu.mum.cs.wap.project.dao;
 
-
-
 import com.fasterxml.classmate.AnnotationConfiguration;
 import com.fasterxml.classmate.AnnotationInclusion;
 import edu.mum.cs.wap.project.model.Post;
