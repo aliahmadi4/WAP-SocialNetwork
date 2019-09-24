@@ -24,7 +24,9 @@ public class ProfilePicUpload extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String absoluteDiskPath = getServletContext().getRealPath("/images/profile");
-
+        System.out.println(absoluteDiskPath);
+//        String newPath = absoluteDiskPath.replace("\\", "/");
+//        System.out.println(newPath);
 
         if(ServletFileUpload.isMultipartContent(request)){
             try {

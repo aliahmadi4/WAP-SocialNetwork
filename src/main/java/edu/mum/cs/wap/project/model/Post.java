@@ -1,23 +1,26 @@
 package edu.mum.cs.wap.project.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.*;
 
 @Entity
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int postId;
-    private String title;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "userId", referencedColumnName = "userId")
+    private User user;
     private String description;
 
-    public Post( String title, String description) {
-        this.title = title;
+
+
+    public Post(){}
+
+    public Post(String description) {
         this.description = description;
     }
-    public Post(){}
 
     public int getPostId() {
         return postId;
@@ -27,12 +30,12 @@ public class Post {
         this.postId = postId;
     }
 
-    public String getTitle() {
-        return title;
+    public User getUser() {
+        return user;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getDescription() {
