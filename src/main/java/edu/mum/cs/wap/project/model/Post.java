@@ -9,7 +9,7 @@ public class Post {
     private int postId;
     private String title;
     private String description;
-
+//mapping user
     @ManyToOne(optional = false)
     @JoinColumn(name = "userId", referencedColumnName = "userId")
     private User user;
