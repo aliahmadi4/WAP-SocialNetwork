@@ -2,6 +2,7 @@ package edu.mum.cs.wap.project.controller;
 
 import edu.mum.cs.wap.project.dao.PostDAO;
 import edu.mum.cs.wap.project.dao.ProfileDAO;
+import edu.mum.cs.wap.project.dao.UserDAO;
 import edu.mum.cs.wap.project.model.User;
 
 import javax.servlet.ServletException;
@@ -20,7 +21,12 @@ public class ProfileController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userId = request.getParameter("userId");
-        PrintWriter out = response.getWriter();
+        System.out.println(userId);
+        if(userId==null){
+            User user = (User)request.getSession().getAttribute("loginedUser");
+            userId = String.valueOf(user.getUserId());
+        }
+
 
         try{
             ProfileDAO profileDAO = new ProfileDAO();
@@ -28,9 +34,8 @@ public class ProfileController extends HttpServlet {
             request.setAttribute("user", user);
         }catch (Exception e){
             e.printStackTrace();
-            out.println("Error ocured");
         }
-        request.getRequestDispatcher("view/user/my.jsp").forward(request,response);
+        request.getRequestDispatcher("view/user/profile.jsp").forward(request,response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

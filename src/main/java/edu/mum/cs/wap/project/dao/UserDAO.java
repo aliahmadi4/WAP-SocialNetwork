@@ -2,6 +2,7 @@ package edu.mum.cs.wap.project.dao;
 
 import edu.mum.cs.wap.project.model.Post;
 import edu.mum.cs.wap.project.model.User;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -9,6 +10,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class UserDAO {
@@ -28,6 +31,7 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
     public static User findUserByUsernamePassword(String userName, String password){
         return new User();
     }

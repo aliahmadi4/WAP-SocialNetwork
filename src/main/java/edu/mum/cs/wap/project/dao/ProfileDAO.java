@@ -2,12 +2,14 @@ package edu.mum.cs.wap.project.dao;
 
 import edu.mum.cs.wap.project.model.Post;
 import edu.mum.cs.wap.project.model.User;
+import edu.mum.cs.wap.project.util.AppUtils;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 
 import javax.jws.soap.SOAPBinding;
@@ -17,22 +19,7 @@ import java.util.List;
 public class ProfileDAO {
     private static SessionFactory sessionFactory;
 
-//    public void savePost(String firstName, String lastName) {
-//        try {
-//            //get session object
-//            Session session = getSessionFactory().openSession();
-//            //starting Transcation
-//            Transaction transaction = session.beginTransaction();
-//            User user = new User(firstName, lastName);
-//            session.save(user);
-//            transaction.commit();
-//            System.out.println("New User added to Db");
-//
-//        } catch (HibernateException e) {
-//            System.out.println(e.getMessage());
-//            System.out.println("error");
-//        }
-//    }
+
 
     public List<User> getAllUsers() {
         try {
@@ -89,6 +76,29 @@ public class ProfileDAO {
             return null;
         }
     }
+
+    public int setProfilePic(String name, int id) {
+        try {
+
+            //get session object
+            Session session = getSessionFactory().openSession();
+            //starting Transcation
+            Transaction transaction = session.beginTransaction();
+            String ql = "Update edu.mum.cs.wap.project.model.User SET profilePic = :name WHERE userId = :id" ;
+            Query query =  session.createQuery(ql);
+            query.setParameter("name", name);
+            query.setParameter("id", id);
+            int result = query.executeUpdate();
+            transaction.commit();
+            System.out.println("Pic Updated");
+            session.close();
+            return result;
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
+    }
+
 
 
     public static SessionFactory getSessionFactory() {

@@ -18,12 +18,15 @@ public class User {
     private String email;
     private String username;
     private String password;
-
     private String state;
     private String city;
     private String country;
     private String gender;
     private String role;
+    private String profilePic;
+    private String description;
+
+
 
 //    private List<Post> postList;
 
@@ -127,4 +130,22 @@ public class User {
     public void setRole(String role){
         this.role = role;
     }
+
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
 }
