@@ -1,12 +1,12 @@
 package edu.mum.cs.wap.project.model;
 
-import com.sun.istack.Nullable;
 import sun.security.util.Password;
 
-import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.time.LocalDate;
 @Entity
 public class User {
     @Id
@@ -17,21 +17,20 @@ public class User {
     private String email;
     private String username;
     private String password;
-
+    private LocalDate dob;
     private String state;
     private String city;
     private String country;
     private String gender;
-    private String role;
 
-//    private List<Post> postList;
 
-    public User(String firstName, String lastName, String email, String username, String password, String state, String city, String country, String gender) {
+    public User(String firstName, String lastName, String email, String username, String password, LocalDate dob, String state, String city, String country, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.username = username;
         this.password = password;
+        this.dob = dob;
         this.state = state;
         this.city = city;
         this.country = country;
@@ -87,7 +86,13 @@ public class User {
         this.password = password;
     }
 
+    public LocalDate getDob() {
+        return dob;
+    }
 
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
 
     public String getState() {
         return state;
@@ -119,11 +124,5 @@ public class User {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-    public String getRole(){
-        return role;
-    }
-    public void setRole(String role){
-        this.role = role;
     }
 }
