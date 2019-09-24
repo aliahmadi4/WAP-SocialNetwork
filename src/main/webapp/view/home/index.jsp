@@ -8,6 +8,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    if(session.getAttribute("loginedUser") == null) {
+        response.sendRedirect( request.getContextPath()+"/login");
+    }
+%>
 <html>
 
 <!-- Mirrored from gambolthemes.net/workwise-new/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Sep 2019 14:24:44 GMT -->
