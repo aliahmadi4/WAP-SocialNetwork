@@ -13,11 +13,13 @@ public class Post {
     private String title;
     private String description;
 
-    public Post( String title, String description) {
+    public Post(String title, String description) {
         this.title = title;
         this.description = description;
     }
-    public Post(){}
+
+    public Post() {
+    }
 
     public int getPostId() {
         return postId;
