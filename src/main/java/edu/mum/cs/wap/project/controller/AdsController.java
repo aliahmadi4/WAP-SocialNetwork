@@ -16,7 +16,6 @@ public class AdsController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AdsDAO adsDAO = new AdsDAO();
-        System.out.println("DAO " + adsDAO);
         Ads ads = adsDAO.loadAds();
         if (ads != null) {
             request.setAttribute("adsTitle", ads.getAdsTitle());
@@ -31,11 +30,8 @@ public class AdsController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String adsTitle = request.getParameter("adsTitle");
         String imageURL = request.getParameter("imageURL");
-        System.out.println("title " + adsTitle);
-        System.out.println("url " + imageURL);
         try {
             AdsDAO adsDAO = new AdsDAO();
-            System.out.println("DAO " + adsDAO);
             adsDAO.saveAds(adsTitle, imageURL);
             request.setAttribute("adsTitle", adsTitle);
             request.setAttribute("image", imageURL);

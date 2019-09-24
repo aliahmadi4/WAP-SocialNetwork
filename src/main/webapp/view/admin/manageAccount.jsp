@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 
@@ -122,7 +123,26 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
+                                <c:forEach var="user" items="${userLists}">
+                                    <td scope="row"><c:out value="${user.getUserId}"/></td>
+                                    <td><c:out value="${user.getUsername}"/></td>
+                                    <td><c:out value="${user.getFirstName}"/></td>
+                                    <td><c:out value="${user.getLastName}"/></td>
+                                    <td><c:out value="${user.getEmail}"/></td>
+                                    <td><c:out value="${user.getCountry}"/></td>
+                                    <td><c:out value="${user.getGender}"/></td>
+                                    <form action="manageUser" method="post">
+                                            <%--<td class="btn-group ml-auto">
+                                                <button type="button" class="btn btn-outline-success" disabled>Enable</button>
+                                            </td>--%>
+                                        <td class="btn-group ml-auto">
+                                            <button type="button" class="btn btn-outline-danger">Disable</button>
+                                        </td>
+                                    </form>
+                                </c:forEach>
+                                </tbody>
+
+                                <%--<tr>
                                     <th scope="row">1</th>
                                     <td>jthorn</td>
                                     <td>Jacob</td>
@@ -151,8 +171,7 @@
                                     <td class="btn-group ml-auto">
                                         <button type="button" class="btn btn-outline-danger">Disable</button>
                                     </td>
-                                </tr>
-                                </tbody>
+                                </tr>--%>
                             </table>
                         </div>
                     </div>

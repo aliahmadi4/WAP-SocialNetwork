@@ -24,6 +24,7 @@ public class User {
     private String country;
     private String gender;
     private String role;
+    private boolean status; // tungnd - Set the status of the user's account
 
 //    private List<Post> postList;
 
@@ -38,7 +39,9 @@ public class User {
         this.country = country;
         this.gender = gender;
     }
-    public User(){}
+
+    public User() {
+    }
 
     public int getUserId() {
         return userId;
@@ -88,8 +91,6 @@ public class User {
         this.password = password;
     }
 
-
-
     public String getState() {
         return state;
     }
@@ -121,10 +122,20 @@ public class User {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    public String getRole(){
+
+    public String getRole() {
         return role;
     }
-    public void setRole(String role){
+
+    public void setRole(String role) {
         this.role = role;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
