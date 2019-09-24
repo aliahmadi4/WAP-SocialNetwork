@@ -16,12 +16,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Manage Account</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <jsp:include page="../layout/head.jsp"/>
+    <%--<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">
     <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="assets/vendor/fonts/circular-std/CircularStd-Book.woff">
-    <link rel="stylesheet" href="assets/vendor/fonts/circular-std/CircularStd-Medium.woff">
+    <link rel="stylesheet" href="assets/vendor/fonts/circular-std/CircularStd-Medium.woff">--%>
 </head>
 
 <body>
@@ -34,7 +35,7 @@
     <!-- ============================================================== -->
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="../index.html">ADMIN</a>
+            <a class="navbar-brand">ADMIN</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -194,9 +195,9 @@
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
 <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
 <script src="assets/libs/js/main-js.js"></script>
-<script src="assets/vendor/shortable-nestable/Sortable.min.js"></script>
+<%--<script src="assets/vendor/shortable-nestable/Sortable.min.js"></script>
 <script src="assets/vendor/shortable-nestable/sort-nest.js"></script>
-<script src="assets/vendor/shortable-nestable/jquery.nestable.js"></script>
+<script src="assets/vendor/shortable-nestable/jquery.nestable.js"></script>--%>
 
 </body>
 

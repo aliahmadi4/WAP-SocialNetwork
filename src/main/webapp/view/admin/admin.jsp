@@ -15,13 +15,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+   <%-- <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/vendor/fonts/circular-std/style.css">
     <link rel="stylesheet" href="assets/vendor/fonts/circular-std/CircularStd-Book.woff">
     <link rel="stylesheet" href="assets/vendor/fonts/circular-std/CircularStd-Medium.woff">
     <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">--%>
     <title>Admin page</title>
+    <jsp:include page="../layout/head.jsp"/>
 </head>
 
 <body>
@@ -77,7 +78,7 @@
                             Dashboard
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/createAds.jsp">Manage Ads</a>
+                            <a class="nav-link" href="view/admin/createAds.jsp">Manage Ads</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="managePost.jsp">Manage Post</a>
