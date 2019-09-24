@@ -2,6 +2,7 @@ package edu.mum.cs.wap.project.dao;
 
 import edu.mum.cs.wap.project.model.Post;
 import edu.mum.cs.wap.project.model.User;
+import edu.mum.cs.wap.project.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -17,7 +18,7 @@ public class UserDAO {
     public void registerUser(String firstName, String lastName, String email, String username, String password,
                              String state, String city, String country, String gender){
         try{
-            Session session = getSessionFactory().openSession();
+            Session session = HibernateUtil.getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
             User user = new User(firstName, lastName, email, username, password, state, city, country, gender);
             user.setRole("ROLE_USER");

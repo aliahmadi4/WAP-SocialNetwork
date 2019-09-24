@@ -11,6 +11,7 @@
                 <property name="show_sql">true</property>
                 <property name="format_sql">true</property>
                 <property name="hibernate.hbm2ddl.auto">update</property>
+
                 <property name="hibernate.transaction.jta.platform">org.hibernate.service.jta.platform.internal.WeblogicJtaPlatform</property>
         </session-factory>
 </hibernate-configuration>
