@@ -9,17 +9,17 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-import java.time.LocalDate;
+
 
 public class UserDAO {
     private static SessionFactory sessionFactory;
 
     public void registerUser(String firstName, String lastName, String email, String username, String password,
-                             LocalDate dob, String state, String city, String country, String gender){
+                             String state, String city, String country, String gender){
         try{
             Session session = getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
-            User user = new User(firstName, lastName, email, username, password, dob, state, city, country, gender);
+            User user = new User(firstName, lastName, email, username, password, state, city, country, gender);
             user.setRole("ROLE_USER");
             session.save(user);
             transaction.commit();

@@ -8,8 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 @WebServlet("/register")
 public class RegisterController extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -20,10 +24,8 @@ public class RegisterController extends HttpServlet {
         String email = request.getParameter("email");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        //parsing date
-        String dateOfBirth = request.getParameter("dob");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        LocalDate dob = LocalDate.parse(dateOfBirth, formatter);
+
+
         String state = request.getParameter("state");
         String city = request.getParameter("city");
         String country = request.getParameter("country");
@@ -31,8 +33,8 @@ public class RegisterController extends HttpServlet {
 
         try{
             UserDAO registerDAO = new UserDAO();
-            registerDAO.registerUser(firstName, lastName, email, username, password, dob, state, city, country, gender);
-            response.sendRedirect("login.jsp");
+            registerDAO.registerUser(firstName, lastName, email, username, password, state, city, country, gender);
+            response.sendRedirect("login");
         }catch (Exception e){
             e.printStackTrace();
         }
