@@ -1,9 +1,6 @@
 package edu.mum.cs.wap.project.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Post {
@@ -13,10 +10,15 @@ public class Post {
     private String title;
     private String description;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "userId", referencedColumnName = "userId")
+    private User user;
+
     public Post( String title, String description) {
         this.title = title;
         this.description = description;
     }
+
     public Post(){}
 
     public int getPostId() {

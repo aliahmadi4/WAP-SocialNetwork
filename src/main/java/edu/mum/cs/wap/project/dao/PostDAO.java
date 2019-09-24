@@ -1,6 +1,7 @@
 package edu.mum.cs.wap.project.dao;
 
 import edu.mum.cs.wap.project.model.Post;
+import edu.mum.cs.wap.project.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,7 +15,7 @@ public class PostDAO {
     public void savePost(String title, String description){
         try{
             //get session object
-            Session session =getSessionFactory().openSession();
+            Session session = HibernateUtil.getSessionFactory().openSession();
             //starting Transcation
             Transaction transaction = session.beginTransaction();
             Post post = new Post(title,description);

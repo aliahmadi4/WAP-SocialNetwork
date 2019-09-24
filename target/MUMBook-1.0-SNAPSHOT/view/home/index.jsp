@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: SarojThapa
@@ -6,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 
 <!-- Mirrored from gambolthemes.net/workwise-new/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Sep 2019 14:24:44 GMT -->
@@ -230,7 +232,8 @@
                             <li><a href="#" title="">Faqs</a></li>
                             <li><a href="#" title="">Terms & Conditions</a></li>
                         </ul>
-                        <h3 class="tc"><a href="../user/sign-in.html" title="">Logout</a></h3>
+                        <%String pathWebcontent=request.getContextPath();%>
+                        <h3 class="tc"><a  href="<%=pathWebcontent%>/logout">Logout</a></h3>
                     </div><!--user-account-settingss end-->
                 </div>
             </div><!--header-data end-->

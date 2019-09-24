@@ -25,7 +25,8 @@ public class User {
     private String gender;
     private String role;
 
-//    private List<Post> postList;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Post> postList;
 
     public User(String firstName, String lastName, String email, String username, String password, String state, String city, String country, String gender) {
         this.firstName = firstName;
