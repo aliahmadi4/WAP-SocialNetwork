@@ -10,7 +10,9 @@
 <head>
     <title>Success</title>
 </head>
+<h1>This the success page</h1>
 <body>
 <p>Data Added successfully!!</p>
+
 </body>
 </html>
