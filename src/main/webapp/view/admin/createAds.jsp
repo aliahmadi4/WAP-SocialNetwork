@@ -76,13 +76,13 @@
                             Dashboard
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="createAds.jsp">Manage Ads</a>
+                            <a class="nav-link" href="createAds">Manage Ads</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="managePost.jsp">Manage Post</a>
+                            <a class="nav-link" href="managePost">Manage Post</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="manageAccount.jsp">Manage Account</a>
+                            <a class="nav-link" href="manageAccount">Manage Account</a>
                         </li>
                     </ul>
                 </div>
@@ -141,14 +141,17 @@
                 <!-- ============================================================== -->
 
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div>
+                        <h3 class="card-title">Preview Ads</h3>
+                    </div>
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="card-title">Title here!</h3>
+                            <h3 class="card-title">${adsTitle}</h3>
                             <%--<p class="text-muted">Last created 3 mins ago</p>--%>
                         </div>
                         <!--<img class="img-fluid" src="../assets/images/card-img.jpg" alt="Card image cap">-->
                         <!-- https://conversionsciences.com/wp-content/uploads/2019/04/example-of-emotional-logical-appeal-on-persuasive-copy.jpg -->
-                        <img class="img-fluid" src="data:image/jpg, ${ads.imageURL}" alt="Ads Image">
+                        <img class="img-fluid" src="${image}" alt="Ads Image"/>
                     </div>
                 </div>
             </div>
@@ -182,13 +185,11 @@
 <!-- ============================================================== -->
 <!-- end main wrapper -->
 <!-- ============================================================== -->
+
 <!-- Optional JavaScript -->
-<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-<script src="assets/vendor/parsley/parsley.js"></script>
-<script src="assets/libs/js/main-js.js"></script>
-<script>
+<jsp:include page="../layout/footer.jsp"/>
+
+<%--<script>
     $('#form').parsley();
 </script>
 <script>
@@ -210,7 +211,7 @@
             });
         }, false);
     })();
-</script>
+</script>--%>
 </body>
 
 </html>

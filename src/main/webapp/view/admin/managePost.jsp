@@ -76,13 +76,13 @@
                             Dashboard
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="createAds.jsp">Manage Ads</a>
+                            <a class="nav-link" href="createAds">Manage Ads</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="managePost.jsp">Manage Post</a>
+                            <a class="nav-link" href="managePost">Manage Post</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="manageAccount.jsp">Manage Account</a>
+                            <a class="nav-link" href="manageAccount">Manage Account</a>
                         </li>
                     </ul>
                 </div>
@@ -104,10 +104,10 @@
                     <!-- ============================================================== -->
                     <div class="col-xl-12 col-lg-6 col-md-12 col-sm-12 co-12">
                         <section class="card card-fluid">
-                            <h5 class="card-header drag-handle"> Post List </h5>
+                            <h5 class="card-header"> Post List </h5>
                             <ul class="sortable-lists list-group list-group-flush list-group-bordered" id="items">
-                                <li class="list-group-item align-items-center drag-handle">
-                                    <span class="drag-indicator"></span>
+                                <li class="list-group-item align-items-center">
+                                    <%--<span class="drag-indicator"></span>--%>
                                     <div> The content of post here!</div>
                                     <div class="btn-group ml-auto">
                                         <button type="button" class="btn btn-outline-success" disabled>Enable</button>
@@ -117,8 +117,8 @@
                                         </button>-->
                                     </div>
                                 </li>
-                                <li class="list-group-item align-items-center drag-handle">
-                                    <span class="drag-indicator"></span>
+                                <li class="list-group-item align-items-center">
+                                    <%--<span class="drag-indicator"></span>--%>
                                     <div> The content of post here!</div>
                                     <div class="btn-group ml-auto">
                                         <button type="button" class="btn btn-outline-success" disabled>Enable</button>
@@ -128,8 +128,8 @@
                                         </button>-->
                                     </div>
                                 </li>
-                                <li class="list-group-item align-items-center drag-handle">
-                                    <span class="drag-indicator"></span>
+                                <li class="list-group-item align-items-center">
+                                    <%--<span class="drag-indicator"></span>--%>
                                     <div>The content of post here!</div>
                                     <div class="btn-group ml-auto">
                                         <button type="button" class="btn btn-outline-success" disabled>Enable</button>
@@ -139,8 +139,8 @@
                                         </button>-->
                                     </div>
                                 </li>
-                                <li class="list-group-item align-items-center drag-handle">
-                                    <span class="drag-indicator"></span>
+                                <li class="list-group-item align-items-center">
+                                    <%--<span class="drag-indicator"></span>--%>
                                     <div> The content of post here!</div>
                                     <div class="btn-group ml-auto">
                                         <button type="button" class="btn btn-outline-success" disabled>Enable</button>
@@ -150,8 +150,8 @@
                                         </button>-->
                                     </div>
                                 </li>
-                                <li class="list-group-item align-items-center drag-handle">
-                                    <span class="drag-indicator"></span>
+                                <li class="list-group-item align-items-center">
+                                    <%--<span class="drag-indicator"></span>--%>
                                     <div> The content of post here!</div>
                                     <div class="btn-group ml-auto">
                                         <button type="button" class="btn btn-outline-success" disabled>Enable</button>
@@ -196,13 +196,11 @@
 <!-- end main wrapper -->
 <!-- ============================================================== -->
 <!-- Optional JavaScript -->
-<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-<script src="assets/libs/js/main-js.js"></script>
-<script src="assets/vendor/shortable-nestable/Sortable.min.js"></script>
+<!-- Optional JavaScript -->
+<jsp:include page="../layout/footer.jsp"/>
+<%--<script src="assets/vendor/shortable-nestable/Sortable.min.js"></script>
 <script src="assets/vendor/shortable-nestable/sort-nest.js"></script>
-<script src="assets/vendor/shortable-nestable/jquery.nestable.js"></script>
+<script src="assets/vendor/shortable-nestable/jquery.nestable.js"></script>--%>
 
 </body>
 

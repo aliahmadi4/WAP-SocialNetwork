@@ -15,13 +15,9 @@ import java.io.IOException;
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/view/user/login.jsp").forward(request, response);
-
     }
-
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -30,12 +26,17 @@ public class LoginController extends HttpServlet {
         String password = request.getParameter("password");
         LoginService loginService = new LoginService();
         HttpSession session = request.getSession();
-        if(loginService.authenticateUser(userName, password)){
+        if (loginService.authenticateUser(userName, password)) {
             User user = loginService.getUserByUserName(userName);
             AppUtils.storeLoginedUser(session, user);
-            response.sendRedirect("view/home/index.jsp");
-        }
-        else{
+            System.out.println("request.getContextPath() " + request.getContextPath());
+            if (user.getRole().equals("ROLE_ADMIN")) {
+                response.sendRedirect(request.getContextPath() +"/admin");
+            } else {
+                response.sendRedirect("view/home/index.jsp");
+            }
+
+        } else {
             String errorMessage = "Invalid userName or Password";
             request.setAttribute("errorMessage", errorMessage);
             request.getRequestDispatcher("view/user/login.jsp").forward(request, response);

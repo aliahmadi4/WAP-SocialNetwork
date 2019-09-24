@@ -1,6 +1,7 @@
 package edu.mum.cs.wap.project.controller;
 
 import edu.mum.cs.wap.project.dao.AdsDAO;
+import edu.mum.cs.wap.project.model.Ads;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,21 +10,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Blob;
 
 @WebServlet(name = "AdsServlet", urlPatterns = "/createAds")
 public class AdsController extends HttpServlet {
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        AdsDAO adsDAO = new AdsDAO();
+        System.out.println("DAO " + adsDAO);
+        Ads ads = adsDAO.loadAds();
+        if (ads != null) {
+            request.setAttribute("adsTitle", ads.getAdsTitle());
+            request.setAttribute("image", ads.getImageURL());
+            RequestDispatcher rd = request.getRequestDispatcher("/view/admin/createAds.jsp");
+            rd.forward(request, response);
+        } else {
+            response.sendRedirect("/view/admin/createAds.jsp");
+        }
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String adsTitle = request.getParameter("adsTitle");
         String imageURL = request.getParameter("imageURL");
+        System.out.println("title " + adsTitle);
+        System.out.println("url " + imageURL);
         try {
             AdsDAO adsDAO = new AdsDAO();
+            System.out.println("DAO " + adsDAO);
             adsDAO.saveAds(adsTitle, imageURL);
-            request.setAttribute("ads", imageURL);
-            RequestDispatcher rd = request.getRequestDispatcher("/createAds.jsp");
+            request.setAttribute("adsTitle", adsTitle);
+            request.setAttribute("image", imageURL);
+            RequestDispatcher rd = request.getRequestDispatcher("/view/admin/createAds.jsp");
             rd.forward(request, response);
-            //response.sendRedirect("/createAds.jsp");
         } catch (Exception e) {
             e.printStackTrace();
         }

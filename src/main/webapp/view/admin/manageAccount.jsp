@@ -78,13 +78,13 @@
                             Dashboard
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="createAds.jsp">Manage Ads</a>
+                            <a class="nav-link" href="createAds">Manage Ads</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="managePost.jsp">Manage Post</a>
+                            <a class="nav-link" href="managePost">Manage Post</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="manageAccount.jsp">Manage Account</a>
+                            <a class="nav-link" href="manageAccount">Manage Account</a>
                         </li>
                     </ul>
                 </div>
@@ -191,13 +191,8 @@
 <!-- end main wrapper -->
 <!-- ============================================================== -->
 <!-- Optional JavaScript -->
-<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-<script src="assets/libs/js/main-js.js"></script>
-<%--<script src="assets/vendor/shortable-nestable/Sortable.min.js"></script>
-<script src="assets/vendor/shortable-nestable/sort-nest.js"></script>
-<script src="assets/vendor/shortable-nestable/jquery.nestable.js"></script>--%>
+<!-- Optional JavaScript -->
+<jsp:include page="../layout/footer.jsp"/>
 
 </body>
 

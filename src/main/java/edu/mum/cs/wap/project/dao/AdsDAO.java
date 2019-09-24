@@ -19,8 +19,16 @@ public class AdsDAO {
             Session session = getSessionFactory().openSession();
             //starting Transcation
             Transaction transaction = session.beginTransaction();
-            Ads ads = new Ads(title, imageURL);
-            session.save(ads);
+            Ads ads = (Ads) session.get(Ads.class, 1);
+            if (ads != null) {
+                ads.setAdsTitle(title);
+                ads.setImageURL(imageURL);
+                session.update(ads);
+            } else {
+                ads = new Ads(title, imageURL);
+                session.save(ads);
+            }
+            //session.save(ads);
             transaction.commit();
             System.out.println("New Ads added to DB");
 
@@ -28,6 +36,19 @@ public class AdsDAO {
             System.out.println(e.getMessage());
             System.out.println("error");
         }
+    }
+
+    public Ads loadAds() {
+        try {
+            //get session object
+            Session session = getSessionFactory().openSession();
+            Ads ads = (Ads) session.get(Ads.class, 1);
+            return ads;
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            System.out.println("error");
+        }
+        return null;
     }
 
 
