@@ -15,12 +15,6 @@
     <title>Create Ads</title>
     <!-- Bootstrap CSS -->
     <jsp:include page="../layout/head.jsp"/>
-    <%--<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/circular-std/CircularStd-Book.woff">
-    <link rel="stylesheet" href="assets/vendor/fonts/circular-std/CircularStd-Medium.woff">--%>
 </head>
 
 <body>
@@ -142,15 +136,12 @@
 
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 col-lg-6 col-md-6 col-sm-12 col-12">
                     <div>
-                        <h3 class="card-title">Preview Ads</h3>
+                        <h3 class="card-title" style="color: #b21f2d">Preview Ads</h3>
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <h3 class="card-title">${adsTitle}</h3>
-                            <%--<p class="text-muted">Last created 3 mins ago</p>--%>
                         </div>
-                        <!--<img class="img-fluid" src="../assets/images/card-img.jpg" alt="Card image cap">-->
-                        <!-- https://conversionsciences.com/wp-content/uploads/2019/04/example-of-emotional-logical-appeal-on-persuasive-copy.jpg -->
                         <img class="img-fluid" src="${image}" alt="Ads Image"/>
                     </div>
                 </div>

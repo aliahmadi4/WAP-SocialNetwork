@@ -1,5 +1,6 @@
 package edu.mum.cs.wap.project.controller;
 
+import edu.mum.cs.wap.project.dao.ProfileDAO;
 import edu.mum.cs.wap.project.dao.UserDAO;
 import edu.mum.cs.wap.project.model.User;
 
@@ -17,11 +18,11 @@ import java.util.List;
 public class ManageAccountController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UserDAO userDAO = new UserDAO();
-        List<User> user = new ArrayList<>();
-        user.add(userDAO.loadUser());
-        if (user != null) {
-            request.setAttribute("userLists", user);
+        ProfileDAO userDAO = new ProfileDAO();
+        /*List<User> user = new ArrayList<>();
+        user.add(userDAO.getAllUsers());*/
+        if (userDAO.getAllUsers() != null) {
+            request.setAttribute("userLists", userDAO.getAllUsers());
             request.getRequestDispatcher("/view/admin/manageAccount.jsp").forward(request, response);
             /*RequestDispatcher rd = request.getRequestDispatcher("/view/admin/manageAccount.jsp");
             rd.forward(request, response);*/

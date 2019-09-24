@@ -15,12 +15,6 @@
     <title>Manage post</title>
     <!-- Bootstrap CSS -->
     <jsp:include page="../layout/head.jsp"/>
-   <%-- <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/circular-std/CircularStd-Book.woff">
-    <link rel="stylesheet" href="assets/vendor/fonts/circular-std/CircularStd-Medium.woff">--%>
 </head>
 
 <body>

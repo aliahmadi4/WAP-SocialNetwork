@@ -34,19 +34,6 @@ public class UserDAO {
         return new User();
     }
 
-    // tungnd - Load all users in the Manage Account page
-    public User loadUser() {
-        try {
-            Session session = getSessionFactory().openSession();
-            User user = session.get(User.class, 2);
-            return user;
-        } catch (HibernateException e) {
-            System.out.println(e.getMessage());
-            System.out.println("error");
-        }
-        return null;
-    }
-
     public static SessionFactory getSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File
         Configuration configObj = new Configuration();

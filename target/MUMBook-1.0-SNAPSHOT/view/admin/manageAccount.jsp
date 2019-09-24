@@ -123,55 +123,25 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+
                                 <c:forEach var="user" items="${userLists}">
-                                    <td scope="row"><c:out value="${user.getUserId}"/></td>
-                                    <td><c:out value="${user.getUsername}"/></td>
-                                    <td><c:out value="${user.getFirstName}"/></td>
-                                    <td><c:out value="${user.getLastName}"/></td>
-                                    <td><c:out value="${user.getEmail}"/></td>
-                                    <td><c:out value="${user.getCountry}"/></td>
-                                    <td><c:out value="${user.getGender}"/></td>
-                                    <form action="manageUser" method="post">
-                                            <%--<td class="btn-group ml-auto">
+                                    <tr>
+                                        <td scope="row"><c:out value="${user.userId}"/></td>
+                                        <td><c:out value="${user.username}"/></td>
+                                        <td><c:out value="${user.firstName}"/></td>
+                                        <td><c:out value="${user.lastName}"/></td>
+                                        <td><c:out value="${user.email}"/></td>
+                                        <td><c:out value="${user.country}"/></td>
+                                        <td><c:out value="${user.gender}"/></td>
+                                        <form action="manageUser" method="post">
+                                            <td class="btn-group ml-auto">
                                                 <button type="button" class="btn btn-outline-success" disabled>Enable</button>
-                                            </td>--%>
-                                        <td class="btn-group ml-auto">
-                                            <button type="button" class="btn btn-outline-danger">Disable</button>
-                                        </td>
-                                    </form>
+                                                <button type="button" class="btn btn-outline-danger">Disable</button>
+                                            </td>
+                                        </form>
+                                    </tr>
                                 </c:forEach>
                                 </tbody>
-
-                                <%--<tr>
-                                    <th scope="row">1</th>
-                                    <td>jthorn</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>test@gmail.com</td>
-                                    <td>United States</td>
-                                    <td>Male</td>
-                                    <td class="btn-group ml-auto">
-                                        <button type="button" class="btn btn-outline-success" disabled>Enable</button>
-                                    </td>
-                                    <td class="btn-group ml-auto">
-                                        <button type="button" class="btn btn-outline-danger">Disable</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>lBird</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>test@gmail.com</td>
-                                    <td>United States</td>
-                                    <td>Female</td>
-                                    <td class="btn-group ml-auto">
-                                        <button type="button" class="btn btn-outline-success" disabled>Enable</button>
-                                    </td>
-                                    <td class="btn-group ml-auto">
-                                        <button type="button" class="btn btn-outline-danger">Disable</button>
-                                    </td>
-                                </tr>--%>
                             </table>
                         </div>
                     </div>

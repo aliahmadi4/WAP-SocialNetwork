@@ -12,7 +12,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 
-import javax.jws.soap.SOAPBinding;
+/*import javax.jws.soap.SOAPBinding;*/
 import java.util.ArrayList;
 import java.util.List;
 
