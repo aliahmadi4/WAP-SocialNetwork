@@ -41,7 +41,7 @@ public class ProfileDAO {
             //starting Transcation
             Transaction transaction = session.beginTransaction();
             List<User> users = new ArrayList<User>();
-          users = (List<User>) session.createQuery("FROM edu.mum.cs.wap.project.model.User").list();
+            users = (List<User>) session.createQuery("FROM edu.mum.cs.wap.project.model.User").list();
 
             transaction.commit();
             System.out.println("User List Fetched");

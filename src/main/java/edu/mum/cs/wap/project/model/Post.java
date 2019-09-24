@@ -31,8 +31,6 @@ public class Post {
         this.postDate = postDate;
     }
 //
-
-
     public Post( String title, String description) {
         this.title = title;
         this.description = description;

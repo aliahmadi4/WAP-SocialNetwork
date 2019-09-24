@@ -17,10 +17,14 @@ public class PostController extends HttpServlet {
                           HttpServletResponse response) throws ServletException, IOException {
         String title = request.getParameter("title");
         String description = request.getParameter("description");
+        String picture=request.getParameter("fileupload");
 
         try{
             PostDAO postDAO = new PostDAO();
             postDAO.savePost(title, description);
+            postDAO.displayPostsByID(0);
+            postDAO.displayPosts();
+            //postDAO.deletePost();
             response.sendRedirect("success.jsp");
         }catch (Exception e){
             e.printStackTrace();
