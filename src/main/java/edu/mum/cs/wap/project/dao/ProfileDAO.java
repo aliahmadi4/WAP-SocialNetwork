@@ -16,43 +16,78 @@ import java.util.List;
 
 public class ProfileDAO {
     private static SessionFactory sessionFactory;
-    public void savePost(String firstName, String lastName){
-        try{
-            //get session object
-            Session session =getSessionFactory().openSession();
-            //starting Transcation
-            Transaction transaction = session.beginTransaction();
-            User user = new User(firstName,lastName);
-            session.save(user);
-            transaction.commit();
-            System.out.println("New User added to Db");
 
-        }
-        catch (HibernateException e){
-            System.out.println(e.getMessage());
-            System.out.println("error");
-        }
-    }
+//    public void savePost(String firstName, String lastName) {
+//        try {
+//            //get session object
+//            Session session = getSessionFactory().openSession();
+//            //starting Transcation
+//            Transaction transaction = session.beginTransaction();
+//            User user = new User(firstName, lastName);
+//            session.save(user);
+//            transaction.commit();
+//            System.out.println("New User added to Db");
+//
+//        } catch (HibernateException e) {
+//            System.out.println(e.getMessage());
+//            System.out.println("error");
+//        }
+//    }
 
-    public List<User> getAllUsers(){
-        try{
+    public List<User> getAllUsers() {
+        try {
             //get session object
-            Session session =getSessionFactory().openSession();
+            Session session = getSessionFactory().openSession();
             //starting Transcation
             Transaction transaction = session.beginTransaction();
             List<User> users = new ArrayList<User>();
-          users = (List<User>) session.createQuery("FROM edu.mum.cs.wap.project.model.User").list();
-
+            users = (List<User>) session.createQuery("FROM edu.mum.cs.wap.project.model.User").list();
             transaction.commit();
             System.out.println("User List Fetched");
             session.close();
             return users;
-        }
-        catch (HibernateException e){
+        } catch (HibernateException e) {
             System.out.println(e.getMessage());
-            System.out.println("error");
+            return null;
         }
-        return null;
+    }
+
+    public User getUserById(int id) {
+        try {
+            //get session object
+            Session session = getSessionFactory().openSession();
+            //starting Transcation
+            Transaction transaction = session.beginTransaction();
+
+
+            User user = (User) session.get(User.class, id);
+//             User user = findRecordById(id);
+            transaction.commit();
+            System.out.println("User List Fetched");
+            session.close();
+            return user;
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public User getUserByName(String name) {
+        try {
+            //get session object
+            Session session = getSessionFactory().openSession();
+            //starting Transcation
+            Transaction transaction = session.beginTransaction();
+            String ql = "FROM edu.mum.cs.wap.project.model.User WHERE firstName = :name" ;
+            List<User> users = (List<User>) session.createQuery(ql);
+            transaction.commit();
+            System.out.println("User List Fetched");
+            session.close();
+            return null;
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
 

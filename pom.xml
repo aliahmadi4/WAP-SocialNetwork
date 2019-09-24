@@ -78,6 +78,14 @@
       <artifactId>javassist</artifactId>
       <version>3.20.0-GA</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+
 
   </dependencies>
 
