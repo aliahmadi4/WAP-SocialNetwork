@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.time.*;
 
 @Entity
-@Table(name = "post")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,10 +11,10 @@ public class Post {
     private String title;
     private String description;
 
-    //Added features
-//   @ManyToOne(optional = false)
-//   @JoinColumn(name = "userId", referencedColumnName = "userId")
-//    private User user;
+
+   @ManyToOne(optional = false)
+   @JoinColumn(name = "userId", referencedColumnName = "userId")
+    private User user;
 
     private int userId;
     private LocalDateTime postDate;
@@ -65,10 +64,10 @@ public class Post {
         this.description = description;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
