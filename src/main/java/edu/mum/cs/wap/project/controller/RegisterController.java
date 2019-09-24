@@ -1,17 +1,20 @@
 package edu.mum.cs.wap.project.controller;
 
-import edu.mum.cs.wap.project.dao.PostDAO;
-import edu.mum.cs.wap.project.dao.RegisterDAO;
-import net.bytebuddy.asm.Advice;
+import edu.mum.cs.wap.project.dao.UserDAO;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
+@WebServlet("/register")
 public class RegisterController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     protected void doPost(HttpServletRequest request,
@@ -21,19 +24,17 @@ public class RegisterController extends HttpServlet {
         String email = request.getParameter("email");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        //parsing date
-        String dateOfBirth = request.getParameter("dob");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        LocalDate dob = LocalDate.parse(dateOfBirth, formatter);
+
+
         String state = request.getParameter("state");
         String city = request.getParameter("city");
         String country = request.getParameter("country");
         String gender = request.getParameter("gender");
 
         try{
-            RegisterDAO registerDAO = new RegisterDAO();
-            registerDAO.registerUser(firstName, lastName, email, username, password, dob, state, city, country, gender);
-            response.sendRedirect("login.jsp");
+            UserDAO registerDAO = new UserDAO();
+            registerDAO.registerUser(firstName, lastName, email, username, password, state, city, country, gender);
+            response.sendRedirect("login");
         }catch (Exception e){
             e.printStackTrace();
         }
