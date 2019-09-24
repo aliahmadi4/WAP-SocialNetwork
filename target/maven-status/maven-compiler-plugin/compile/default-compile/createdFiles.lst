@@ -1,0 +1,5 @@
+edu/mum/cs/wap/project/controller/PostController.class
+edu/mum/cs/wap/project/controller/UserController.class
+edu/mum/cs/wap/project/model/User.class
+edu/mum/cs/wap/project/model/Post.class
+edu/mum/cs/wap/project/dao/PostDAO.class
