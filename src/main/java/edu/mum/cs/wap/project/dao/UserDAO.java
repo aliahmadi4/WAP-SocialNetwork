@@ -39,10 +39,8 @@ public class UserDAO {
 
         // Since Hibernate Version 4.x, Service Registry Is Being Used
         ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder().applySettings(configObj.getProperties()).build();
-
         // Creating Hibernate Session Factory Instance
         sessionFactory = configObj.buildSessionFactory(serviceRegistryObj);
-
         return sessionFactory;
     }
 }

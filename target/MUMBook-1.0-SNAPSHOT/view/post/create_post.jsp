@@ -13,13 +13,10 @@
 <body>
 <h1>Create a new post!</h1>
 <form action="createpost" method="post">
-
    <p> Post Title   : <input type="text" name="title"> </p>
     <p>Description : <textarea name="description"></textarea></p>
     <p><input type="file" name="fileupload" value="fileupload" id="fileupload"></p>
-
     <input type="submit" value="submit">
-
 </form>
 </body>
 </html>

@@ -1,5 +1,4 @@
 package edu.mum.cs.wap.project.dao;
-
 import edu.mum.cs.wap.project.model.Post;
 import edu.mum.cs.wap.project.model.User;
 import org.hibernate.HibernateException;
@@ -17,23 +16,22 @@ import java.util.List;
 public class ProfileDAO {
     private static SessionFactory sessionFactory;
     public void savePost(String firstName, String lastName){
+
         try{
             //get session object
             Session session =getSessionFactory().openSession();
             //starting Transcation
             Transaction transaction = session.beginTransaction();
-            User user = new User(firstName,lastName);
+            User user = new User();
             session.save(user);
             transaction.commit();
             System.out.println("New User added to Db");
-
         }
         catch (HibernateException e){
             System.out.println(e.getMessage());
             System.out.println("error");
         }
     }
-
     public List<User> getAllUsers(){
         try{
             //get session object
@@ -54,8 +52,6 @@ public class ProfileDAO {
         }
         return null;
     }
-
-
     public static SessionFactory getSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File
         Configuration configObj = new Configuration();

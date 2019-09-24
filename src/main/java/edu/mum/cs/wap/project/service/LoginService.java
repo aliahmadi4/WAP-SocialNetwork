@@ -23,10 +23,8 @@ public class LoginService {
         User user = null;
         try{
             transaction = session.beginTransaction();
-
             Query query = session.createQuery("from edu.mum.cs.wap.project.model.User where username = :username ");
 
-//
             query.setParameter("username", username);
              user = (User)query.uniqueResult();
             transaction.commit();

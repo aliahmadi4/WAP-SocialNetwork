@@ -5,10 +5,12 @@ import sun.security.util.Password;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +26,21 @@ public class User {
     private String country;
     private String gender;
     private String role;
+    private List<Post> post;
 
-//    private List<Post> postList;
+//    @Column(nullable = true)
+//   @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+//    private Collection<Post> postList;
+//    public void setPostList(List<Post> postList) {
+//        this.postList = postList;
+//    }
 
+    public List<Post> getPost() {
+        return post;
+    }
+    public void setPost(List<Post> post) {
+        this.post = post;
+    }
     public User(String firstName, String lastName, String email, String username, String password, String state, String city, String country, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;

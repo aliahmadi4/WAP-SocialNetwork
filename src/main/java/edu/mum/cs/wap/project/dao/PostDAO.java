@@ -19,7 +19,6 @@ import java.util.List;
 public class PostDAO {
 private static SessionFactory sessionFactory;
 
-
 public void savePost(String title, String description){
         try{
                 //get session object
@@ -30,6 +29,7 @@ public void savePost(String title, String description){
                 session.save(post);
                 transaction.commit();
                    System.out.println("New Post added to Db");
+                   session.close();
         }
         catch (HibernateException e){
         System.out.println(e.getMessage());
@@ -37,7 +37,7 @@ public void savePost(String title, String description){
         }
         }
 
-//Display all posts from the database:
+/*//Display all posts from the database:
         public   List<Post> displayPosts(){
         List <Post> postList= new ArrayList<>();
         try{
@@ -52,7 +52,6 @@ public void savePost(String title, String description){
         }
         return  postList;
         }
-
 
         public   List<Post> displayPostByUserId(int userId){
                 List <Post> postList= new ArrayList<>();
@@ -71,9 +70,6 @@ public void savePost(String title, String description){
                 return  postList;
         }
 
-
-
-
         //Display posts using userId :
         public   List<Post> displayPostsByID(int userId){
                 List <Post> postList= new ArrayList<>();
@@ -88,7 +84,6 @@ public void savePost(String title, String description){
                 }
                 return  postList;
         }
-
 
         public   void deletePost(){
                 try{
@@ -107,7 +102,7 @@ public void savePost(String title, String description){
                 {
                         System.out.println(" Some error occured");
                 }
-        }
+        }*/
 
 public static SessionFactory getSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File
