@@ -1,18 +1,16 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-
 <head>
     <jsp:include page="../layout/head.jsp"/>
 </head>
 
 
 <body>
-
-
 <div class="wrapper">
-    <jsp:include page="../layout/navbar.jsp"/>
 
+    <jsp:include page="../layout/navbar.jsp"/>
 
     <section class="cover-sec">
         <img src="images/resources/cover-img.jpg" alt="">
@@ -66,13 +64,13 @@
 
                                     </ul>
                                 </div><!--user_profile end-->
+
                             </div><!--main-left-sidebar end-->
                         </div>
-
                         <div class="col-lg-6">
                             <div class="main-ws-sec">
                                 <div class="user-tab-sec rewivew">
-                                    <h3>${user.firstName}</h3>
+                                    <h3>${user.firstName} ${user.lastName}</h3>
                                     <div class="star-descp">
                                         <span>${user.description}</span>
                                         <ul>
@@ -84,7 +82,9 @@
                                         </ul>
                                         <a href="#" title="">Status</a>
                                     </div><!--star-descp end-->
-
+                                    <div>
+                                        &nbsp
+                                    </div>
                                 </div><!--user-tab-sec end-->
                                 <div class="product-feed-tab" id="saved-jobs">
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -107,45 +107,45 @@
                                         </li>
                                     </ul>
 
-                                </div>
-                                <div class="product-feed-tab current" id="feed-dd">
-                                    <div class="posts-section">
-										<c:forEach var="i" items="${posts}">
-											<div class="post-bar">
-												<div class="post_topbar">
-													<div class="usy-dt">
-														<img src="<c:url value='/images/profile/${i.user.profilePic}'/>" alt="" width="45px" height="45px">
-														<div class="usy-name">
-															<h3>${i.user.firstName} ${i.user.lastName}</h3>
-															<span><img src="../../images/clock.png" alt="">3 min ago</span>
-														</div>
-													</div>
-													<div class="ed-opts">
-														<a href="#" title="" class="ed-opts-open"><i
-																class="la la-ellipsis-v"></i></a>
-														<ul class="ed-options">
-															<li><a href="#" title="">Delete</a></li>
-														</ul>
-													</div>
-												</div>
-												<div class="epi-sec">
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="mange" role="tabpanel" aria-labelledby="mange-tab">
+                                            <div class="posts-bar">
+                                                <div class="post-bar bgclr">
+                                                    <div class="wordpressdevlp">
+                                                        <h2>Senior Wordpress Developer</h2>
 
-													&nbsp
-												</div>
-												<div class="job_descp">
+                                                        <p><i class="la la-clock-o"></i>Posted on 30 August 2018</p>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row no-gutters">
+                                                        <div class="col-md-6 col-sm-12">
+                                                            <div class="cadidatesbtn">
+                                                                <button type="button" class="btn btn-primary">
+                                                                    <span class="badge badge-light">3</span>Candidates
+                                                                </button>
+                                                                <a href="#">
+                                                                    <i class="far fa-edit"></i>
+                                                                </a>
+                                                                <a href="#">
+                                                                    <i class="far fa-trash-alt"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-12">
+                                                            <ul class="bk-links bklink">
+                                                                <li><a href="#" title=""><i class="la la-bookmark"></i></a>
+                                                                </li>
+                                                                <li><a href="#" title=""><i class="la la-envelope"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-													<p>${i.description}</p>
+                                        </div>
 
-												</div>
-												<c:if test="${i.postPic.length() >3}" >
-													<div class="job_descp">
-														<img src="<c:url value='/images/post/${i.postPic}' />"/>
-													</div>
-												</c:if>
 
-											</div>
-											<!--post-bar end-->
-										</c:forEach>
                                         <div class="process-comm">
                                             <div class="spinner">
                                                 <div class="bounce1"></div>
@@ -530,136 +530,21 @@
                                         </div>
                                         <div class="tab-pane fade" id="bidders" role="tabpanel"
                                              aria-labelledby="bidders-tab">
+
+
                                             <div class="post-bar">
                                                 <div class="post_topbar post-bid">
                                                     <div class="usy-dt">
-                                                        <img src="images/resources/us-pic.png" alt="">
+                                                        <img src="
+														images/resources/rock.jpg" alt="">
                                                         <div class="usy-name">
                                                             <h3>John Doe</h3>
                                                             <div class="epi-sec epi2">
                                                                 <ul class="descp descptab bklink">
-                                                                    <li><img src="images/icon8.png" alt=""><span>Epic Coder</span>
+                                                                    <li><img src="../../images/icon8.png" alt=""><span>Epic Coder</span>
                                                                     </li>
-                                                                    <li><img src="images/icon9.png"
-                                                                             alt=""><span>India</span></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ed-opts">
-                                                        <a href="#" title="" class="ed-opts-open"><i
-                                                                class="la la-ellipsis-v"></i></a>
-                                                        <ul class="ed-options">
-                                                            <li><a href="#" title="">Edit Post</a></li>
-                                                            <li><a href="#" title="">Accept</a></li>
-                                                            <li><a href="#" title="">Unbid</a></li>
-                                                            <li><a href="#" title="">Close</a></li>
-                                                            <li><a href="#" title="">Hide</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="job_descp noborder">
-                                                        <div class="star-descp review profilecnd">
-                                                            <ul class="bklik">
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star-half-o"></i></li>
-                                                                <a href="#" title="">5.0 of 5 Reviews</a>
-                                                            </ul>
-                                                        </div>
-                                                        <ul class="savedjob-info biddersinfo">
-                                                            <li>
-                                                                <h3>Fixed Price</h3>
-                                                                <p>$500</p>
-                                                            </li>
-                                                            <li>
-                                                                <h3>Delivery Time</h3>
-                                                                <p>10 Days</p>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="devepbtn appliedinfo bidsbtn">
-                                                            <a class="clrbtn" href="#">Accept</a>
-                                                            <a class="clrbtn" href="#">View Profile</a>
-                                                            <a class="clrbtn" href="#">Message</a>
-                                                            <a href="#">
-                                                                <i class="far fa-trash-alt"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-bar">
-                                                <div class="post_topbar post-bid">
-                                                    <div class="usy-dt">
-                                                        <img src="images/resources/Jassica.html" alt="">
-                                                        <div class="usy-name">
-                                                            <h3>John Doe</h3>
-                                                            <div class="epi-sec epi2">
-                                                                <ul class="descp descptab bklink">
-                                                                    <li><img src="images/icon8.png" alt=""><span>Epic Coder</span>
+                                                                    <li><img src="../../images/icon9.png" alt=""><span>India</span>
                                                                     </li>
-                                                                    <li><img src="images/icon9.png"
-                                                                             alt=""><span>India</span></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ed-opts">
-                                                        <a href="#" title="" class="ed-opts-open"><i
-                                                                class="la la-ellipsis-v"></i></a>
-                                                        <ul class="ed-options">
-                                                            <li><a href="#" title="">Edit Post</a></li>
-                                                            <li><a href="#" title="">Accept</a></li>
-                                                            <li><a href="#" title="">Unbid</a></li>
-                                                            <li><a href="#" title="">Close</a></li>
-                                                            <li><a href="#" title="">Hide</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="job_descp noborder">
-                                                        <div class="star-descp review profilecnd">
-                                                            <ul class="bklik">
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star-half-o"></i></li>
-                                                                <a href="#" title="">5.0 of 5 Reviews</a>
-                                                            </ul>
-                                                        </div>
-                                                        <ul class="savedjob-info biddersinfo">
-                                                            <li>
-                                                                <h3>Fixed Price</h3>
-                                                                <p>$500</p>
-                                                            </li>
-                                                            <li>
-                                                                <h3>Delivery Time</h3>
-                                                                <p>10 Days</p>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="devepbtn appliedinfo bidsbtn">
-                                                            <a class="clrbtn" href="#">Accept</a>
-                                                            <a class="clrbtn" href="#">View Profile</a>
-                                                            <a class="clrbtn" href="#">Message</a>
-                                                            <a href="#">
-                                                                <i class="far fa-trash-alt"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-bar">
-                                                <div class="post_topbar post-bid">
-                                                    <div class="usy-dt">
-                                                        <img src="images/resources/rock.jpg" alt="">
-                                                        <div class="usy-name">
-                                                            <h3>John Doe</h3>
-                                                            <div class="epi-sec epi2">
-                                                                <ul class="descp descptab bklink">
-                                                                    <li><img src="images/icon8.png" alt=""><span>Epic Coder</span>
-                                                                    </li>
-                                                                    <li><img src="images/icon9.png"
-                                                                             alt=""><span>India</span></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -793,14 +678,14 @@
                                         <div class="post-bar ">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
-                                                    <img src="images/resources/bg-img3.png" alt="">
+                                                    <img src="../../images/resources/bg-img3.png" alt="">
                                                     <div class="usy-name">
                                                         <h3>Rock William</h3>
                                                         <div class="epi-sec epi2">
                                                             <ul class="descp review-lt">
-                                                                <li><img src="images/icon8.png"
-                                                                         alt=""><span>Epic Coder</span></li>
-                                                                <li><img src="images/icon9.png"
+                                                                <li><img src="../../images/icon8.png" alt=""><span>Epic Coder</span>
+                                                                </li>
+                                                                <li><img src="../../images/icon9.png"
                                                                          alt=""><span>India</span></li>
                                                             </ul>
                                                         </div>
@@ -827,7 +712,7 @@
 
                                                 <div class="post_topbar post-reply">
                                                     <div class="usy-dt">
-                                                        <img src="images/resources/bg-img4.png" alt="">
+                                                        <img src="../../images/resources/bg-img4.png" alt="">
                                                         <div class="usy-name">
                                                             <h3>John Doe</h3>
                                                             <div class="epi-sec epi2">
@@ -840,7 +725,7 @@
                                                 <div class="post_topbar rep-post rep-thanks">
                                                     <hr>
                                                     <div class="usy-dt">
-                                                        <img src="images/resources/bg-img4.png" alt="">
+                                                        <img src="../../images/resources/bg-img4.png" alt="">
                                                         <input class="reply" type="text" placeholder="Reply">
                                                         <a class="replybtn" href="#">Send</a>
 
@@ -852,14 +737,14 @@
                                         <div class="post-bar post-thanks">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
-                                                    <img src="images/resources/bg-img1.png" alt="">
+                                                    <img src="../../images/resources/bg-img1.png" alt="">
                                                     <div class="usy-name">
                                                         <h3>Jassica William</h3>
                                                         <div class="epi-sec epi2">
                                                             <ul class="descp review-lt">
-                                                                <li><img src="images/icon8.png"
-                                                                         alt=""><span>Epic Coder</span></li>
-                                                                <li><img src="images/icon9.png"
+                                                                <li><img src="../../images/icon8.png" alt=""><span>Epic Coder</span>
+                                                                </li>
+                                                                <li><img src="../../images/icon9.png"
                                                                          alt=""><span>India</span></li>
                                                             </ul>
                                                         </div>
@@ -893,7 +778,7 @@
                                                 </div>
                                                 <div class="post_topbar rep-post">
                                                     <div class="usy-dt">
-                                                        <img src="images/resources/bg-img4.png" alt="">
+                                                        <img src="../../images/resources/bg-img4.png" alt="">
 
                                                         <input class="reply" type="text" placeholder="Reply">
                                                         <a class="replybtn" href="#">Send</a>
@@ -909,10 +794,10 @@
                                         <div class="post-bar">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
-                                                    <img src="images/resources/us-pic.png" alt="">
+                                                    <img src="../../images/resources/us-pic.png" alt="">
                                                     <div class="usy-name">
                                                         <h3>John Doe</h3>
-                                                        <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                        <span><img src="../../images/clock.png" alt="">3 min ago</span>
                                                     </div>
                                                 </div>
                                                 <div class="ed-opts">
@@ -929,9 +814,9 @@
                                             </div>
                                             <div class="epi-sec">
                                                 <ul class="descp">
-                                                    <li><img src="images/icon8.png"
-                                                             alt=""><span>Frontend Developer</span></li>
-                                                    <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                    <li><img src="../../images/icon8.png" alt=""><span>Frontend Developer</span>
+                                                    </li>
+                                                    <li><img src="../../images/icon9.png" alt=""><span>India</span></li>
                                                 </ul>
                                                 <ul class="bk-links">
                                                     <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -962,10 +847,10 @@
                                                 <ul class="like-com">
                                                     <li>
                                                         <a href="#"><i class="la la-heart"></i> Like</a>
-                                                        <img src="images/liked-img.png" alt="">
+                                                        <img src="../../images/liked-img.png" alt="">
                                                         <span>25</span>
                                                     </li>
-                                                    <li><a href="#" title="" class="com"><img src="images/com.png"
+                                                    <li><a href="#" title="" class="com"><img src="../../images/com.png"
                                                                                               alt=""> Comment 15</a>
                                                     </li>
                                                 </ul>
@@ -975,10 +860,10 @@
                                         <div class="post-bar">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
-                                                    <img src="images/resources/us-pic.png" alt="">
+                                                    <img src="../../images/resources/us-pic.png" alt="">
                                                     <div class="usy-name">
                                                         <h3>John Doe</h3>
-                                                        <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                        <span><img src="../../images/clock.png" alt="">3 min ago</span>
                                                     </div>
                                                 </div>
                                                 <div class="ed-opts">
@@ -995,9 +880,9 @@
                                             </div>
                                             <div class="epi-sec">
                                                 <ul class="descp">
-                                                    <li><img src="images/icon8.png"
-                                                             alt=""><span>Frontend Developer</span></li>
-                                                    <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                    <li><img src="../../images/icon8.png" alt=""><span>Frontend Developer</span>
+                                                    </li>
+                                                    <li><img src="../../images/icon9.png" alt=""><span>India</span></li>
                                                 </ul>
                                                 <ul class="bk-links">
                                                     <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -1028,10 +913,10 @@
                                                 <ul class="like-com">
                                                     <li>
                                                         <a href="#"><i class="la la-heart"></i> Like</a>
-                                                        <img src="images/liked-img.png" alt="">
+                                                        <img src="../../images/liked-img.png" alt="">
                                                         <span>25</span>
                                                     </li>
-                                                    <li><a href="#" title="" class="com"><img src="images/com.png"
+                                                    <li><a href="#" title="" class="com"><img src="../../images/com.png"
                                                                                               alt=""> Comment 15</a>
                                                     </li>
                                                 </ul>
@@ -1041,10 +926,10 @@
                                         <div class="post-bar">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
-                                                    <img src="images/resources/us-pic.png" alt="">
+                                                    <img src="../../images/resources/us-pic.png" alt="">
                                                     <div class="usy-name">
                                                         <h3>John Doe</h3>
-                                                        <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                        <span><img src="../../images/clock.png" alt="">3 min ago</span>
                                                     </div>
                                                 </div>
                                                 <div class="ed-opts">
@@ -1061,9 +946,9 @@
                                             </div>
                                             <div class="epi-sec">
                                                 <ul class="descp">
-                                                    <li><img src="images/icon8.png"
-                                                             alt=""><span>Frontend Developer</span></li>
-                                                    <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                    <li><img src="../../images/icon8.png" alt=""><span>Frontend Developer</span>
+                                                    </li>
+                                                    <li><img src="../../images/icon9.png" alt=""><span>India</span></li>
                                                 </ul>
                                                 <ul class="bk-links">
                                                     <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -1094,10 +979,10 @@
                                                 <ul class="like-com">
                                                     <li>
                                                         <a href="#"><i class="la la-heart"></i> Like</a>
-                                                        <img src="images/liked-img.png" alt="">
+                                                        <img src="../../images/liked-img.png" alt="">
                                                         <span>25</span>
                                                     </li>
-                                                    <li><a href="#" title="" class="com"><img src="images/com.png"
+                                                    <li><a href="#" title="" class="com"><img src="../../images/com.png"
                                                                                               alt=""> Comment 15</a>
                                                     </li>
                                                 </ul>
@@ -1107,10 +992,10 @@
                                         <div class="post-bar">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
-                                                    <img src="images/resources/us-pic.png" alt="">
+                                                    <img src="../../images/resources/us-pic.png" alt="">
                                                     <div class="usy-name">
                                                         <h3>John Doe</h3>
-                                                        <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                        <span><img src="../../images/clock.png" alt="">3 min ago</span>
                                                     </div>
                                                 </div>
                                                 <div class="ed-opts">
@@ -1127,9 +1012,9 @@
                                             </div>
                                             <div class="epi-sec">
                                                 <ul class="descp">
-                                                    <li><img src="images/icon8.png"
-                                                             alt=""><span>Frontend Developer</span></li>
-                                                    <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                    <li><img src="../../images/icon8.png" alt=""><span>Frontend Developer</span>
+                                                    </li>
+                                                    <li><img src="../../images/icon9.png" alt=""><span>India</span></li>
                                                 </ul>
                                                 <ul class="bk-links">
                                                     <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -1160,10 +1045,10 @@
                                                 <ul class="like-com">
                                                     <li>
                                                         <a href="#"><i class="la la-heart"></i> Like</a>
-                                                        <img src="images/liked-img.png" alt="">
+                                                        <img src="../../images/liked-img.png" alt="">
                                                         <span>25</span>
                                                     </li>
-                                                    <li><a href="#" title="" class="com"><img src="images/com.png"
+                                                    <li><a href="#" title="" class="com"><img src="../../images/com.png"
                                                                                               alt=""> Comment 15</a>
                                                     </li>
                                                 </ul>
@@ -1171,7 +1056,7 @@
                                             </div>
                                         </div><!--post-bar end-->
                                         <div class="process-comm">
-                                            <a href="#" title=""><img src="images/process-icon.png" alt=""></a>
+                                            <a href="#" title=""><img src="../../images/process-icon.png" alt=""></a>
                                         </div><!--process-comm end-->
                                     </div><!--posts-section end-->
                                 </div><!--product-feed-tab end-->
@@ -1185,62 +1070,62 @@
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                     <div class="gallery_pt">
-                                                        <img src="images/resources/pf-img1.jpg" alt="">
-                                                        <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                        <img src="../../images/resources/pf-img1.jpg" alt="">
+                                                        <a href="#" title=""><img src="../../images/all-out.png" alt=""></a>
                                                     </div><!--gallery_pt end-->
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                     <div class="gallery_pt">
-                                                        <img src="images/resources/pf-img2.jpg" alt="">
-                                                        <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                        <img src="../../images/resources/pf-img2.jpg" alt="">
+                                                        <a href="#" title=""><img src="../../images/all-out.png" alt=""></a>
                                                     </div><!--gallery_pt end-->
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                     <div class="gallery_pt">
-                                                        <img src="images/resources/pf-img3.jpg" alt="">
-                                                        <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                        <img src="../../images/resources/pf-img3.jpg" alt="">
+                                                        <a href="#" title=""><img src="../../images/all-out.png" alt=""></a>
                                                     </div><!--gallery_pt end-->
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                     <div class="gallery_pt">
-                                                        <img src="images/resources/pf-img4.jpg" alt="">
-                                                        <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                        <img src="../../images/resources/pf-img4.jpg" alt="">
+                                                        <a href="#" title=""><img src="../../images/all-out.png" alt=""></a>
                                                     </div><!--gallery_pt end-->
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                     <div class="gallery_pt">
-                                                        <img src="images/resources/pf-img5.jpg" alt="">
-                                                        <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                        <img src="../../images/resources/pf-img5.jpg" alt="">
+                                                        <a href="#" title=""><img src="../../images/all-out.png" alt=""></a>
                                                     </div><!--gallery_pt end-->
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                     <div class="gallery_pt">
-                                                        <img src="images/resources/pf-img6.jpg" alt="">
-                                                        <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                        <img src="../../images/resources/pf-img6.jpg" alt="">
+                                                        <a href="#" title=""><img src="../../images/all-out.png" alt=""></a>
                                                     </div><!--gallery_pt end-->
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                     <div class="gallery_pt">
-                                                        <img src="images/resources/pf-img7.jpg" alt="">
-                                                        <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                        <img src="../../images/resources/pf-img7.jpg" alt="">
+                                                        <a href="#" title=""><img src="../../images/all-out.png" alt=""></a>
                                                     </div><!--gallery_pt end-->
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                     <div class="gallery_pt">
-                                                        <img src="images/resources/pf-img8.jpg" alt="">
-                                                        <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                        <img src="../../images/resources/pf-img8.jpg" alt="">
+                                                        <a href="#" title=""><img src="../../images/all-out.png" alt=""></a>
                                                     </div><!--gallery_pt end-->
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                     <div class="gallery_pt">
-                                                        <img src="images/resources/pf-img9.jpg" alt="">
-                                                        <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                        <img src="../../images/resources/pf-img9.jpg" alt="">
+                                                        <a href="#" title=""><img src="../../images/all-out.png" alt=""></a>
                                                     </div><!--gallery_pt end-->
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                     <div class="gallery_pt">
-                                                        <img src="images/resources/pf-img10.jpg" alt="">
-                                                        <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                        <img src="../../images/resources/pf-img10.jpg" alt="">
+                                                        <a href="#" title=""><img src="../../images/all-out.png" alt=""></a>
                                                     </div><!--gallery_pt end-->
                                                 </div>
                                             </div>
@@ -1264,14 +1149,14 @@
                                             </li>
                                         </ul>
                                         <div class="lt-sec">
-                                            <img src="images/lt-icon.png" alt="">
+                                            <img src="../../images/lt-icon.png" alt="">
                                             <h4>All your transactions are saved here</h4>
                                             <a href="#" title="">Click Here</a>
                                         </div>
                                     </div><!--billing-method end-->
                                     <div class="add-billing-method">
                                         <h3>Add Billing Method</h3>
-                                        <h4><img src="images/dlr-icon.png" alt=""><span>With workwise payment protection , only pay for work delivered.</span>
+                                        <h4><img src="../../images/dlr-icon.png" alt=""><span>With workwise payment protection , only pay for work delivered.</span>
                                         </h4>
                                         <div class="payment_methods">
                                             <h4>Credit or Debit Cards</h4>
@@ -1281,10 +1166,10 @@
                                                         <div class="cc-head">
                                                             <h5>Card Number</h5>
                                                             <ul>
-                                                                <li><img src="images/cc-icon1.png" alt=""></li>
-                                                                <li><img src="images/cc-icon2.png" alt=""></li>
-                                                                <li><img src="images/cc-icon3.png" alt=""></li>
-                                                                <li><img src="images/cc-icon4.png" alt=""></li>
+                                                                <li><img src="../../images/cc-icon1.png" alt=""></li>
+                                                                <li><img src="../../images/cc-icon2.png" alt=""></li>
+                                                                <li><img src="../../images/cc-icon3.png" alt=""></li>
+                                                                <li><img src="../../images/cc-icon4.png" alt=""></li>
                                                             </ul>
                                                         </div>
                                                         <div class="inpt-field pd-moree">
@@ -1355,34 +1240,34 @@
                                 </div>
                                 <div class="widget widget-portfolio">
                                     <div class="wd-heady">
-                                        <h3>My Portfolio</h3>
-                                        <img src="images/photo-icon.png" alt="">
+                                        <h3>Portfolio</h3>
+                                        <img src="../../images/photo-icon.png" alt="">
                                     </div>
                                     <div class="pf-gallery">
                                         <ul>
-                                            <li><a href="#" title=""><img src="images/resources/pf-gallery1.png" alt=""></a>
-                                            </li>
-                                            <li><a href="#" title=""><img src="images/resources/pf-gallery2.png" alt=""></a>
-                                            </li>
-                                            <li><a href="#" title=""><img src="images/resources/pf-gallery3.png" alt=""></a>
-                                            </li>
-                                            <li><a href="#" title=""><img src="images/resources/pf-gallery4.png" alt=""></a>
-                                            </li>
-                                            <li><a href="#" title=""><img src="images/resources/pf-gallery5.png" alt=""></a>
-                                            </li>
-                                            <li><a href="#" title=""><img src="images/resources/pf-gallery6.png" alt=""></a>
-                                            </li>
-                                            <li><a href="#" title=""><img src="images/resources/pf-gallery7.png" alt=""></a>
-                                            </li>
-                                            <li><a href="#" title=""><img src="images/resources/pf-gallery8.png" alt=""></a>
-                                            </li>
-                                            <li><a href="#" title=""><img src="images/resources/pf-gallery9.png" alt=""></a>
-                                            </li>
-                                            <li><a href="#" title=""><img src="images/resources/pf-gallery10.png"
+                                            <li><a href="#" title=""><img src="../../images/resources/pf-gallery1.png"
                                                                           alt=""></a></li>
-                                            <li><a href="#" title=""><img src="images/resources/pf-gallery11.png"
+                                            <li><a href="#" title=""><img src="../../images/resources/pf-gallery2.png"
                                                                           alt=""></a></li>
-                                            <li><a href="#" title=""><img src="images/resources/pf-gallery12.png"
+                                            <li><a href="#" title=""><img src="../../images/resources/pf-gallery3.png"
+                                                                          alt=""></a></li>
+                                            <li><a href="#" title=""><img src="../../images/resources/pf-gallery4.png"
+                                                                          alt=""></a></li>
+                                            <li><a href="#" title=""><img src="../../images/resources/pf-gallery5.png"
+                                                                          alt=""></a></li>
+                                            <li><a href="#" title=""><img src="../../images/resources/pf-gallery6.png"
+                                                                          alt=""></a></li>
+                                            <li><a href="#" title=""><img src="../../images/resources/pf-gallery7.png"
+                                                                          alt=""></a></li>
+                                            <li><a href="#" title=""><img src="../../images/resources/pf-gallery8.png"
+                                                                          alt=""></a></li>
+                                            <li><a href="#" title=""><img src="../../images/resources/pf-gallery9.png"
+                                                                          alt=""></a></li>
+                                            <li><a href="#" title=""><img src="../../images/resources/pf-gallery10.png"
+                                                                          alt=""></a></li>
+                                            <li><a href="#" title=""><img src="../../images/resources/pf-gallery11.png"
+                                                                          alt=""></a></li>
+                                            <li><a href="#" title=""><img src="../../images/resources/pf-gallery12.png"
                                                                           alt=""></a></li>
                                         </ul>
                                     </div><!--pf-gallery end-->
@@ -1399,18 +1284,18 @@
         <div class="footy-sec mn no-margin">
             <div class="container">
                 <ul>
-                    <li><a href="help-center.html" title="">Help Center</a></li>
-                    <li><a href="about.html" title="">About</a></li>
+                    <li><a href="../../help-center.html" title="">Help Center</a></li>
+                    <li><a href="../../about.html" title="">About</a></li>
                     <li><a href="#" title="">Privacy Policy</a></li>
                     <li><a href="#" title="">Community Guidelines</a></li>
                     <li><a href="#" title="">Cookies Policy</a></li>
                     <li><a href="#" title="">Career</a></li>
-                    <li><a href="forum.html" title="">Forum</a></li>
+                    <li><a href="../../forum.html" title="">Forum</a></li>
                     <li><a href="#" title="">Language</a></li>
                     <li><a href="#" title="">Copyright Policy</a></li>
                 </ul>
-                <p><img src="images/copy-icon2.png" alt="">Copyright 2019</p>
-                <img class="fl-rgt" src="images/logo2.png" alt="">
+                <p><img src="../../images/copy-icon2.png" alt="">Copyright 2019</p>
+                <img class="fl-rgt" src="../../images/logo2.png" alt="">
             </div>
         </div>
     </footer><!--footer end-->
@@ -1536,7 +1421,7 @@
                     <label for="file">Choose File</label>
                 </div>
                 <div class="pf-img">
-                    <img src="images/resources/np.png" alt="">
+                    <img src="../../images/resources/np.png" alt="">
                 </div>
                 <input type="text" name="website-url" placeholder="htp://www.example.com">
                 <button type="submit" class="save">Save</button>
@@ -1549,12 +1434,7 @@
 </div><!--theme-layout end-->
 
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/popper.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/flatpickr.min.js"></script>
-<script type="text/javascript" src="lib/slick/slick.min.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
+<jsp:include page="../layout/footerScript.jsp"/>
 </body>
 
 <!-- Mirrored from gambolthemes.net/workwise-new/my-profile-feed.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Sep 2019 14:23:00 GMT -->

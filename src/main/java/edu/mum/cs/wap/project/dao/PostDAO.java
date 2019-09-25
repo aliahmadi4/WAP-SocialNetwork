@@ -11,9 +11,9 @@ import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.jpa.HibernateQuery;
+import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 
-import javax.persistence.Query;
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,25 +58,25 @@ public class PostDAO {
     }
 
 
+    public List<Post> getAllPostByUserId(int userId) {
+        List<Post> postList = new ArrayList<Post>();
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            postList = (List<Post>) session.createQuery("from  edu.mum.cs.wap.project.model.Post where userId = "+userId+" order by postId desc").list();
+            System.out.println(" Displaying the post is running!");
+            session.close();
 
-
-
-
-        /*
-        public   List<Post> displayPostByUserId(int userId){
-                List <Post> postList= new ArrayList<>();
-                try{
-                        Session session= getSessionFactory().openSession();
-                        session.beginTransaction();
-                        postList= session.createQuery( "from  edu.mum.cs.wap.project.model.Post  Where userId=:userId").list();
-                        System.out.println(" Displaying the post is running!");
-                        session.close();
-                }
-                catch (HibernateException e) {
-                        System.out.println("Error  is displaying the posts");
-                }
-                return  postList;
+        } catch (HibernateException e) {
+            System.out.println("Error  is displaying the posts");
         }
+        return postList;
+
+    }
+
+
+
+                /*
         //Display posts using userId :
         public   List<Post> displayPostsByID(int userId){
                 List <Post> postList= new ArrayList<>();

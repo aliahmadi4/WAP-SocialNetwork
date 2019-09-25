@@ -3,6 +3,7 @@ package edu.mum.cs.wap.project.controller;
 import edu.mum.cs.wap.project.dao.PostDAO;
 import edu.mum.cs.wap.project.dao.ProfileDAO;
 import edu.mum.cs.wap.project.dao.UserDAO;
+import edu.mum.cs.wap.project.model.Post;
 import edu.mum.cs.wap.project.model.User;
 
 import javax.servlet.ServletException;
@@ -26,19 +27,21 @@ public class ProfileController extends HttpServlet {
         if(userId==null){
             User user = (User)request.getSession().getAttribute("loginedUser");
             userId = String.valueOf(user.getUserId());
-
-
         }
 
         try{
+            //fetch user
             ProfileDAO profileDAO = new ProfileDAO();
             User user = profileDAO.getUserById(Integer.parseInt(userId));
             request.setAttribute("user", user);
+
+            //fetch posts from this user to show in his timeline
+            List<Post> posts = new PostDAO().getAllPostByUserId(Integer.parseInt(userId));
+            request.setAttribute("posts", posts);
+
         }catch (Exception e){
             e.printStackTrace();
         }
-
-
 
         request.getRequestDispatcher("view/user/profile.jsp").forward(request,response);
     }
