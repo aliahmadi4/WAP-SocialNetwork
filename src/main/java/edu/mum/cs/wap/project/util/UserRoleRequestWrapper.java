@@ -3,7 +3,6 @@ package edu.mum.cs.wap.project.util;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import java.security.Principal;
-import java.util.List;
 
 /**
  * An extension for the HTTPServletRequest that overrides the getUserPrincipal()
@@ -21,10 +20,10 @@ import java.util.List;
 public class UserRoleRequestWrapper extends HttpServletRequestWrapper {
 
     private String user;
-    private List<String> roles = null;
+    private String roles = null;
     private HttpServletRequest realRequest;
 
-    public UserRoleRequestWrapper(String user, List<String> roles, HttpServletRequest request) {
+    public UserRoleRequestWrapper(String user, String roles, HttpServletRequest request) {
         super(request);
         this.user = user;
         this.roles = roles;
