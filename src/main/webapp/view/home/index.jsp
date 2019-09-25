@@ -149,9 +149,9 @@
                                         <div class="post-bar">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
-                                                    <img src="../../images/resources/us-pic.png" alt="">
+                                                    <img src="<c:url value='/images/profile/${i.user.profilePic}'/>" alt="" width="45px" height="45px">
                                                     <div class="usy-name">
-                                                        <h3>John</h3>
+                                                        <h3>${i.user.firstName} ${i.user.lastName}</h3>
                                                         <span><img src="../../images/clock.png" alt="">3 min ago</span>
                                                     </div>
                                                 </div>

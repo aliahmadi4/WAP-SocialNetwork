@@ -14,7 +14,7 @@
         <nav>
         <ul>
         <li>
-        <a href="../../index.html" title="">
+        <a href="home" title="">
         <span><img src="../../images/icon1.png" alt=""></span>
         Home
         </a>

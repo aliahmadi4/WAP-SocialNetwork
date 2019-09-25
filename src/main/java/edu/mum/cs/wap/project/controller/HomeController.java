@@ -1,7 +1,9 @@
 package edu.mum.cs.wap.project.controller;
 
 import edu.mum.cs.wap.project.dao.PostDAO;
+import edu.mum.cs.wap.project.dao.ProfileDAO;
 import edu.mum.cs.wap.project.model.Post;
+import edu.mum.cs.wap.project.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +21,13 @@ public class HomeController extends HttpServlet {
             PostDAO postDAO = new PostDAO();
             List<Post> posts = postDAO.getAllPosts();
             request.setAttribute("posts",posts);
+
+            //after changing some user attribute you need to update it
+            ProfileDAO profileDAO = new ProfileDAO();
+            User user = profileDAO.getUserById(((User)request.getSession().getAttribute("loginedUser")).getUserId());
+            request.getSession().setAttribute("loginedUser", user);
+            request.setAttribute("posts",posts);
+
 
             request.getRequestDispatcher("/view/home/index.jsp").forward(request,response);
         }catch (Exception e){
