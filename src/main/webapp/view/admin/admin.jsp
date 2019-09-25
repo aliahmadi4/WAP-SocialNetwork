@@ -101,6 +101,12 @@
                 </div>
             </div>
         </div>
+
+        <div class="weather">
+            <a style="width: 393px; margin-left: auto; margin-right: auto" class="weatherwidget-io" href="https://forecast7.com/en/41d01n91d96/fairfield/" data-label_1="FAIRFIELD"
+               data-label_2="WEATHER" data-font="Roboto Slab" data-icons="Climacons Animated" data-theme="clear">FAIRFIELD
+                WEATHER</a>
+        </div>
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
@@ -134,7 +140,17 @@
 
 <!-- Optional JavaScript -->
 <jsp:include page="../layout/footer.jsp"/>
-
+<script>
+    !function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://weatherwidget.io/js/widget.min.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'weatherwidget-io-js');
+</script>
 </body>
 
 </html>

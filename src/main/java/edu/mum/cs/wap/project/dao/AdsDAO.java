@@ -44,6 +44,8 @@ public class AdsDAO {
             //get session object
             Session session = getSessionFactory().openSession();
             Ads ads = (Ads) session.get(Ads.class, 1);
+            System.out.println("Ads has already loaded!!!");
+            session.close();
             return ads;
         } catch (HibernateException e) {
             System.out.println(e.getMessage());

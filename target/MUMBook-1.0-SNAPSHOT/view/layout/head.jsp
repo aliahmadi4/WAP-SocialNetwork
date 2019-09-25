@@ -12,8 +12,8 @@
 <meta name="keywords" content=""/>
 <link rel="stylesheet" type="text/css" href="<c:url value='/assets/vendor/bootstrap/css/bootstrap.min.css'/>">
 <link rel="stylesheet" type="text/css" href="<c:url value='/assets/vendor/fonts/circular-std/style.css'/>">
-<link rel="stylesheet" type="text/css" href="<c:url value='/assets/vendor/fonts/circular-std/CircularStd-Book.woff'/>">
-<link rel="stylesheet" type="text/css" href="<c:url value='/assets/vendor/fonts/circular-std/CircularStd-Medium.woff'/>">
+<link rel="stylesheet" type="font/woff" href="<c:url value='/assets/vendor/fonts/circular-std/CircularStd-Book.woff'/>">
+<link rel="stylesheet" type="font/woff" href="<c:url value='/assets/vendor/fonts/circular-std/CircularStd-Medium.woff'/>">
 <link rel="stylesheet" type="text/css" href="<c:url value='/assets/libs/css/style.css'/>">
 <link rel="stylesheet" type="text/css" href="<c:url value='/assets/vendor/fonts/fontawesome/css/fontawesome-all.css'/>">
 
