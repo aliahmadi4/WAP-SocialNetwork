@@ -14,7 +14,7 @@
         <nav>
         <ul>
         <li>
-        <a href="home" title="">
+        <a href="<c:url value='/home'/>" title="">
         <span><img src="../../images/icon1.png" alt=""></span>
         Home
         </a>

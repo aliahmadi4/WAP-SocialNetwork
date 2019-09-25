@@ -130,7 +130,7 @@
                                 <div class="user-tab-sec rewivew">
                                     <h3>${user.firstName} ${user.lastName}</h3>
                                     <div class="star-descp">
-                                        <span>Graphic Designer at Self Employed</span>
+                                        <span>${user.description}</span>
                                         <ul>
                                             <li><i class="fa fa-star"></i></li>
                                             <li><i class="fa fa-star"></i></li>
@@ -1878,8 +1878,8 @@
                         <div class="col-lg-3">
                             <div class="right-sidebar">
                                 <div class="message-btn">
-                                    <a href="../../profile-account-setting.html" title=""><i class="fas fa-cog"></i>
-                                        Setting</a>
+                                    <a href="<c:url value='/editProfile'/>" title=""><i class="fas fa-cog"></i>
+                                        Edit Profile</a>
                                 </div>
                                 <div class="widget widget-portfolio">
                                     <div class="wd-heady">
