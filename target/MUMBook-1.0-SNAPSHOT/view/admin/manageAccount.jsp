@@ -138,12 +138,12 @@
                                             <input type="hidden" value="${user.userId}" name="userId">
                                             <td class="btn-group ml-auto">
                                                 <c:if test="${user.status}">
-                                                    <button type="submit" class="btn btn-outline-success" disabled>Enable</button>
-                                                    <button type="submit" class="btn btn-outline-danger">Disable</button>
+                                                    <button type="submit" class="btn btn-outline-success" disabled>Active</button>
+                                                    <button type="submit" class="btn btn-outline-danger">Deactive</button>
                                                 </c:if>
                                                 <c:if test="${!user.status}">
-                                                    <button type="submit" class="btn btn-outline-success">Enable</button>
-                                                    <button type="submit" class="btn btn-outline-danger" disabled>Disable</button>
+                                                    <button type="submit" class="btn btn-outline-success">Active</button>
+                                                    <button type="submit" class="btn btn-outline-danger" disabled>Deactive</button>
                                                 </c:if>
                                             </td>
                                         </form>

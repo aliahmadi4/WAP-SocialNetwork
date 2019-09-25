@@ -44,7 +44,7 @@
                 <ul class="navbar-nav ml-auto navbar-right-top">
                     <li class="nav-item dropdown nav-user">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Administrator</a>
+                           aria-haspopup="true" aria-expanded="false">${loginedUser.firstname + loginedUser.lastname}</a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                              aria-labelledby="navbarDropdownMenuLink2">
                             <a class="dropdown-item" href="logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
