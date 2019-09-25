@@ -9,6 +9,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+// tungnd
 public class AdsDAO {
 
     private static SessionFactory sessionFactory;

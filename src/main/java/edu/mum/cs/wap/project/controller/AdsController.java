@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+// tungnd
 @WebServlet(name = "AdsServlet", urlPatterns = "/createAds")
 public class AdsController extends HttpServlet {
 

@@ -15,14 +15,12 @@ public class LogoutController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-//
+        // tungnd - Added get session for logging out Admin page
         HttpSession session = request.getSession();
         System.out.println("session " + session);
         User user = AppUtils.getLoginedUser(session);
         System.out.println("User login " + user.toString());
         request.getSession().invalidate();
-        // Redrect to Home Page.
-//        session.setAttribute("loginedUser", "");
         response.sendRedirect("login");
 
     }

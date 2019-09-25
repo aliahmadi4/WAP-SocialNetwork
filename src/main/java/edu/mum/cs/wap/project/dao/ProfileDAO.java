@@ -96,6 +96,7 @@ public class ProfileDAO {
         }
     }
 
+    // tungnd
     public void updateUserStatus(Integer userId) {
         try {
             //get session object

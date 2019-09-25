@@ -1,19 +1,15 @@
 package edu.mum.cs.wap.project.controller;
 
 import edu.mum.cs.wap.project.dao.ProfileDAO;
-import edu.mum.cs.wap.project.dao.UserDAO;
-import edu.mum.cs.wap.project.model.User;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
+// tungnd
 @WebServlet("/manageAccount")
 public class ManageAccountController extends HttpServlet {
 
