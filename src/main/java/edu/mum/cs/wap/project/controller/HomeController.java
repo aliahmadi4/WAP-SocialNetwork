@@ -28,7 +28,6 @@ public class HomeController extends HttpServlet {
             request.getSession().setAttribute("loginedUser", user);
             request.setAttribute("posts",posts);
 
-
             request.getRequestDispatcher("/view/home/index.jsp").forward(request,response);
         }catch (Exception e){
             System.out.println(e.getStackTrace());

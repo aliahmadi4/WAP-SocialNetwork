@@ -55,6 +55,7 @@ public class PostDAO {
             System.out.println("Error  is displaying the posts");
         }
         return postList;
+
     }
 
 

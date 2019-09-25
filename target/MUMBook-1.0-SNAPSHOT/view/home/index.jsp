@@ -6,236 +6,19 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 
 <!-- Mirrored from gambolthemes.net/workwise-new/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Sep 2019 14:24:44 GMT -->
 <head>
-    <meta charset="UTF-8">
-    <title>WorkWise Html Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <link rel="stylesheet" type="text/css" href="../../css/animate.css">
-    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../css/line-awesome.css">
-    <link rel="stylesheet" type="text/css" href="../../css/line-awesome-font-awesome.min.css">
-    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../../css/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" type="text/css" href="../../lib/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="../../lib/slick/slick-theme.css">
-    <link rel="stylesheet" type="text/css" href="../../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../../css/responsive.css">
+    <jsp:include page="../layout/head.jsp"/>
 </head>
 
-<body oncontextmenu="return false;">
+<body>
 
 <div class="wrapper">
-    <header>
-        <div class="container">
-            <div class="header-data">
-                <div class="logo">
-                    <a href="index.html" title=""><img src="../../images/logo.png" alt=""></a>
-                </div><!--logo end-->
-                <div class="search-bar">
-                    <form>
-                        <input type="text" name="search" placeholder="Search...">
-                        <button type="submit"><i class="la la-search"></i></button>
-                    </form>
-                </div><!--search-bar end-->
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="index.html" title="">
-                                <span><img src="../../images/icon1.png" alt=""></span>
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../../companies.html" title="">
-                                <span><img src="../../images/icon2.png" alt=""></span>
-                                Companies
-                            </a>
-                            <ul>
-                                <li><a href="../../companies.html" title="">Companies</a></li>
-                                <li><a href="../../company-profile.html" title="">Company Profile</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="../../projects.html" title="">
-                                <span><img src="../../images/icon3.png" alt=""></span>
-                                Projects
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../../profiles.html" title="">
-                                <span><img src="../../images/icon4.png" alt=""></span>
-                                Profiles
-                            </a>
-                            <ul>
-                                <li><a href="../../user-profile.html" title="">User Profile</a></li>
-                                <li><a href="../../my-profile-feed.html" title="">my-profile-feed</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="../../jobs.html" title="">
-                                <span><img src="../../images/icon5.png" alt=""></span>
-                                Jobs
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="" class="not-box-openm">
-                                <span><img src="../../images/icon6.png" alt=""></span>
-                                Messages
-                            </a>
-                            <div class="notification-box msg" id="message">
-                                <div class="nt-title">
-                                    <h4>Setting</h4>
-                                    <a href="#" title="">Clear all</a>
-                                </div>
-                                <div class="nott-list">
-                                    <div class="notfication-details">
-                                        <div class="noty-user-img">
-                                            <img src="../../images/resources/ny-img1.png" alt="">
-                                        </div>
-                                        <div class="notification-info">
-                                            <h3><a href="../../messages.html" title="">Jassica William</a> </h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
-                                            <span>2 min ago</span>
-                                        </div><!--notification-info -->
-                                    </div>
-                                    <div class="notfication-details">
-                                        <div class="noty-user-img">
-                                            <img src="../../images/resources/ny-img2.png" alt="">
-                                        </div>
-                                        <div class="notification-info">
-                                            <h3><a href="../../messages.html" title="">Jassica William</a></h3>
-                                            <p>Lorem ipsum dolor sit amet.</p>
-                                            <span>2 min ago</span>
-                                        </div><!--notification-info -->
-                                    </div>
-                                    <div class="notfication-details">
-                                        <div class="noty-user-img">
-                                            <img src="../../images/resources/ny-img3.png" alt="">
-                                        </div>
-                                        <div class="notification-info">
-                                            <h3><a href="../../messages.html" title="">Jassica William</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.</p>
-                                            <span>2 min ago</span>
-                                        </div><!--notification-info -->
-                                    </div>
-                                    <div class="view-all-nots">
-                                        <a href="../../messages.html" title="">View All Messsages</a>
-                                    </div>
-                                </div><!--nott-list end-->
-                            </div><!--notification-box end-->
-                        </li>
-                        <li>
-                            <a href="#" title="" class="not-box-open">
-                                <span><img src="../../images/icon7.png" alt=""></span>
-                                Notification
-                            </a>
-                            <div class="notification-box noti" id="notification">
-                                <div class="nt-title">
-                                    <h4>Setting</h4>
-                                    <a href="#" title="">Clear all</a>
-                                </div>
-                                <div class="nott-list">
-                                    <div class="notfication-details">
-                                        <div class="noty-user-img">
-                                            <img src="../../images/resources/ny-img1.png" alt="">
-                                        </div>
-                                        <div class="notification-info">
-                                            <h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-                                            <span>2 min ago</span>
-                                        </div><!--notification-info -->
-                                    </div>
-                                    <div class="notfication-details">
-                                        <div class="noty-user-img">
-                                            <img src="../../images/resources/ny-img2.png" alt="">
-                                        </div>
-                                        <div class="notification-info">
-                                            <h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-                                            <span>2 min ago</span>
-                                        </div><!--notification-info -->
-                                    </div>
-                                    <div class="notfication-details">
-                                        <div class="noty-user-img">
-                                            <img src="../../images/resources/ny-img3.png" alt="">
-                                        </div>
-                                        <div class="notification-info">
-                                            <h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-                                            <span>2 min ago</span>
-                                        </div><!--notification-info -->
-                                    </div>
-                                    <div class="notfication-details">
-                                        <div class="noty-user-img">
-                                            <img src="../../images/resources/ny-img2.png" alt="">
-                                        </div>
-                                        <div class="notification-info">
-                                            <h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-                                            <span>2 min ago</span>
-                                        </div><!--notification-info -->
-                                    </div>
-                                    <div class="view-all-nots">
-                                        <a href="#" title="">View All Notification</a>
-                                    </div>
-                                </div><!--nott-list end-->
-                            </div><!--notification-box end-->
-                        </li>
-                    </ul>
-                </nav><!--nav end-->
-                <div class="menu-btn">
-                    <a href="#" title=""><i class="fa fa-bars"></i></a>
-                </div><!--menu-btn end-->
-                <div class="user-account">
-                    <div class="user-info">
-                        <img src="../../images/resources/user.png" alt="">
-                        <a href="#" title="">John</a>
-                        <i class="la la-sort-down"></i>
-                    </div>
-                    <div class="user-account-settingss" id="users">
-                        <h3>Online Status</h3>
-                        <ul class="on-off-status">
-                            <li>
-                                <div class="fgt-sec">
-                                    <input type="radio" name="cc" id="c5">
-                                    <label for="c5">
-                                        <span></span>
-                                    </label>
-                                    <small>Online</small>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="fgt-sec">
-                                    <input type="radio" name="cc" id="c6">
-                                    <label for="c6">
-                                        <span></span>
-                                    </label>
-                                    <small>Offline</small>
-                                </div>
-                            </li>
-                        </ul>
-                        <h3>Custom Status</h3>
-                        <div class="search_form">
-                            <form>
-                                <input type="text" name="search">
-                                <button type="submit">Ok</button>
-                            </form>
-                        </div><!--search_form end-->
-                        <h3>Setting</h3>
-                        <ul class="us-links">
-                            <li><a href="../../profile-account-setting.html" title="">Account Setting</a></li>
-                            <li><a href="#" title="">Privacy</a></li>
-                            <li><a href="#" title="">Faqs</a></li>
-                            <li><a href="#" title="">Terms & Conditions</a></li>
-                        </ul>
-                        <h3 class="tc"><a href="../user/sign-in.html" title="">Logout</a></h3>
-                    </div><!--user-account-settingss end-->
-                </div>
-            </div><!--header-data end-->
-        </div>
-    </header><!--header end-->
+
+    <jsp:include page="../layout/navbar.jsp"/>
 
     <main>
         <div class="main-section">
@@ -248,12 +31,12 @@
                                     <div class="user-profile">
                                         <div class="username-dt">
                                             <div class="usr-pic">
-                                                <img src="../../images/resources/user-pic.png" alt="">
+                                                <img src="<c:url value='/images/profile/${loginedUser.profilePic}' />" alt="" height="120px" width="120px"/>
                                             </div>
                                         </div><!--username-dt end-->
                                         <div class="user-specs">
-                                            <h3>John Doe</h3>
-                                            <span>Graphic Designer at Self Employed</span>
+                                            <h3>${loginedUser.firstName} ${loginedUser.lastName}</h3>
+                                            <span>${loginedUser.description}</span>
                                         </div>
                                     </div><!--user-profile end-->
                                     <ul class="user-fw-status">
@@ -351,217 +134,30 @@
                             <div class="main-ws-sec">
                                 <div class="post-topbar">
                                     <div class="user-picy">
-                                        <img src="../../images/resources/user-pic.png" alt="">
+                                        <img src="<c:url value='/images/profile/${loginedUser.profilePic}'/>" alt="" height="50px" width="50px">
                                     </div>
                                     <div class="post-st">
                                         <ul>
                                             <li><a class="post_project" href="#" title="">Post a Project</a></li>
-                                            <li><a class="post-jb active" href="#" title="">Post a Job</a></li>
+
                                         </ul>
                                     </div><!--post-st end-->
                                 </div><!--post-topbar end-->
                                 <div class="posts-section">
-                                    <div class="post-bar">
-                                        <div class="post_topbar">
-                                            <div class="usy-dt">
-                                                <img src="../../images/resources/us-pic.png" alt="">
-                                                <div class="usy-name">
-                                                    <h3>John Doe</h3>
-                                                    <span><img src="../../images/clock.png" alt="">3 min ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="ed-opts">
-                                                <a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
-                                                <ul class="ed-options">
-                                                    <li><a href="#" title="">Edit Post</a></li>
-                                                    <li><a href="#" title="">Unsaved</a></li>
-                                                    <li><a href="#" title="">Unbid</a></li>
-                                                    <li><a href="#" title="">Close</a></li>
-                                                    <li><a href="#" title="">Hide</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="epi-sec">
-                                            <ul class="descp">
-                                                <li><img src="../../images/icon8.png" alt=""><span>Epic Coder</span></li>
-                                                <li><img src="../../images/icon9.png" alt=""><span>India</span></li>
-                                            </ul>
-                                            <ul class="bk-links">
-                                                <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-                                                <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="job_descp">
-                                            <h3>Senior Wordpress Developer</h3>
-                                            <ul class="job-dt">
-                                                <li><a href="#" title="">Full Time</a></li>
-                                                <li><span>$30 / hr</span></li>
-                                            </ul>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet... <a href="#" title="">view more</a></p>
-                                            <ul class="skill-tags">
-                                                <li><a href="#" title="">HTML</a></li>
-                                                <li><a href="#" title="">PHP</a></li>
-                                                <li><a href="#" title="">CSS</a></li>
-                                                <li><a href="#" title="">Javascript</a></li>
-                                                <li><a href="#" title="">Wordpress</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="job-status-bar">
-                                            <ul class="like-com">
-                                                <li>
-                                                    <a href="#"><i class="fas fa-heart"></i> Like</a>
-                                                    <img src="../../images/liked-img.png" alt="">
-                                                    <span>25</span>
-                                                </li>
-                                                <li><a href="#" class="com"><i class="fas fa-comment-alt"></i> Comment 15</a></li>
-                                            </ul>
-                                            <a href="#"><i class="fas fa-eye"></i>Views 50</a>
-                                        </div>
-                                    </div><!--post-bar end-->
-                                    <div class="top-profiles">
-                                        <div class="pf-hd">
-                                            <h3>Top Profiles</h3>
-                                            <i class="la la-ellipsis-v"></i>
-                                        </div>
-                                        <div class="profiles-slider">
-                                            <div class="user-profy">
-                                                <img src="../../images/resources/user1.png" alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img src="../../images/envelop.png" alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a></li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="../../images/resources/user2.png" alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img src="../../images/envelop.png" alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a></li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="../../images/resources/user3.png" alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img src="../../images/envelop.png" alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a></li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="../../images/resources/user1.png" alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img src="../../images/envelop.png" alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a></li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="../../images/resources/user2.png" alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img src="../../images/envelop.png" alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a></li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                            <div class="user-profy">
-                                                <img src="../../images/resources/user3.png" alt="">
-                                                <h3>John Doe</h3>
-                                                <span>Graphic Designer</span>
-                                                <ul>
-                                                    <li><a href="#" title="" class="followw">Follow</a></li>
-                                                    <li><a href="#" title="" class="envlp"><img src="../../images/envelop.png" alt=""></a></li>
-                                                    <li><a href="#" title="" class="hire">hire</a></li>
-                                                </ul>
-                                                <a href="#" title="">View Profile</a>
-                                            </div><!--user-profy end-->
-                                        </div><!--profiles-slider end-->
-                                    </div><!--top-profiles end-->
-                                    <div class="post-bar">
-                                        <div class="post_topbar">
-                                            <div class="usy-dt">
-                                                <img src="../../images/resources/us-pic.png" alt="">
-                                                <div class="usy-name">
-                                                    <h3>John Doe</h3>
-                                                    <span><img src="../../images/clock.png" alt="">3 min ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="ed-opts">
-                                                <a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
-                                                <ul class="ed-options">
-                                                    <li><a href="#" title="">Edit Post</a></li>
-                                                    <li><a href="#" title="">Unsaved</a></li>
-                                                    <li><a href="#" title="">Unbid</a></li>
-                                                    <li><a href="#" title="">Close</a></li>
-                                                    <li><a href="#" title="">Hide</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="epi-sec">
-                                            <ul class="descp">
-                                                <li><img src="../../images/icon8.png" alt=""><span>Epic Coder</span></li>
-                                                <li><img src="../../images/icon9.png" alt=""><span>India</span></li>
-                                            </ul>
-                                            <ul class="bk-links">
-                                                <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-                                                <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-                                                <li><a href="#" title="" class="bid_now">Bid Now</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="job_descp">
-                                            <h3>Senior Wordpress Developer</h3>
-                                            <ul class="job-dt">
-                                                <li><a href="#" title="">Full Time</a></li>
-                                                <li><span>$30 / hr</span></li>
-                                            </ul>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet... <a href="#" title="">view more</a></p>
-                                            <ul class="skill-tags">
-                                                <li><a href="#" title="">HTML</a></li>
-                                                <li><a href="#" title="">PHP</a></li>
-                                                <li><a href="#" title="">CSS</a></li>
-                                                <li><a href="#" title="">Javascript</a></li>
-                                                <li><a href="#" title="">Wordpress</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="job-status-bar">
-                                            <ul class="like-com">
-                                                <li>
-                                                    <a href="#"><i class="fas fa-heart"></i> Like</a>
-                                                    <img src="../../images/liked-img.png" alt="">
-                                                    <span>25</span>
-                                                </li>
-                                                <li><a href="#" class="com"><i class="fas fa-comment-alt"></i> Comment 15</a></li>
-                                            </ul>
-                                            <a href="#"><i class="fas fa-eye"></i>Views 50</a>
-                                        </div>
-                                    </div><!--post-bar end-->
-                                    <div class="posty">
-                                        <div class="post-bar no-margin">
+
+                                    <c:forEach var="i" items="${posts}">
+                                        <div class="post-bar">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
-                                                    <img src="../../images/resources/us-pc2.png" alt="">
+                                                    <img src="<c:url value='/images/profile/${i.user.profilePic}'/>" alt="" width="45px" height="45px">
                                                     <div class="usy-name">
-                                                        <h3>John Doe</h3>
+                                                        <h3>${i.user.firstName} ${i.user.lastName}</h3>
                                                         <span><img src="../../images/clock.png" alt="">3 min ago</span>
                                                     </div>
                                                 </div>
                                                 <div class="ed-opts">
-                                                    <a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
+                                                    <a href="#" title="" class="ed-opts-open"><i
+                                                            class="la la-ellipsis-v"></i></a>
                                                     <ul class="ed-options">
                                                         <li><a href="#" title="">Edit Post</a></li>
                                                         <li><a href="#" title="">Unsaved</a></li>
@@ -572,104 +168,27 @@
                                                 </div>
                                             </div>
                                             <div class="epi-sec">
-                                                <ul class="descp">
-                                                    <li><img src="../../images/icon8.png" alt=""><span>Epic Coder</span></li>
-                                                    <li><img src="../../images/icon9.png" alt=""><span>India</span></li>
-                                                </ul>
-                                                <ul class="bk-links">
-                                                    <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-                                                    <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-                                                </ul>
+
+                                                &nbsp
                                             </div>
                                             <div class="job_descp">
-                                                <h3>Senior Wordpress Developer</h3>
-                                                <ul class="job-dt">
-                                                    <li><a href="#" title="">Full Time</a></li>
-                                                    <li><span>$30 / hr</span></li>
-                                                </ul>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet... <a href="#" title="">view more</a></p>
-                                                <ul class="skill-tags">
-                                                    <li><a href="#" title="">HTML</a></li>
-                                                    <li><a href="#" title="">PHP</a></li>
-                                                    <li><a href="#" title="">CSS</a></li>
-                                                    <li><a href="#" title="">Javascript</a></li>
-                                                    <li><a href="#" title="">Wordpress</a></li>
-                                                </ul>
+
+                                                <p>${i.description}</p>
+
                                             </div>
+                                            <c:if test="${i.postPic.length() >3}" >
+                                                <div class="job_descp">
+                                                    <img src="<c:url value='/images/post/${i.postPic}' />"/>
+                                                </div>
+                                            </c:if>
                                             <div class="job-status-bar">
-                                                <ul class="like-com">
-                                                    <li>
-                                                        <a href="#"><i class="fas fa-heart"></i> Like</a>
-                                                        <img src="../../images/liked-img.png" alt="">
-                                                        <span>25</span>
-                                                    </li>
-                                                    <li><a href="#" class="com"><i class="fas fa-comment-alt"></i> Comment 15</a></li>
-                                                </ul>
-                                                <a href="#"><i class="fas fa-eye"></i>Views 50</a>
+                                                follow
                                             </div>
-                                        </div><!--post-bar end-->
-                                        <div class="comment-section">
-                                            <a href="#" class="plus-ic">
-                                                <i class="la la-plus"></i>
-                                            </a>
-                                            <div class="comment-sec">
-                                                <ul>
-                                                    <li>
-                                                        <div class="comment-list">
-                                                            <div class="bg-img">
-                                                                <img src="../../images/resources/bg-img1.png" alt="">
-                                                            </div>
-                                                            <div class="comment">
-                                                                <h3>John Doe</h3>
-                                                                <span><img src="../../images/clock.png" alt=""> 3 min ago</span>
-                                                                <p>Lorem ipsum dolor sit amet, </p>
-                                                                <a href="#" title="" class="active"><i class="fa fa-reply-all"></i>Reply</a>
-                                                            </div>
-                                                        </div><!--comment-list end-->
-                                                        <ul>
-                                                            <li>
-                                                                <div class="comment-list">
-                                                                    <div class="bg-img">
-                                                                        <img src="../../images/resources/bg-img2.png" alt="">
-                                                                    </div>
-                                                                    <div class="comment">
-                                                                        <h3>John Doe</h3>
-                                                                        <span><img src="../../images/clock.png" alt=""> 3 min ago</span>
-                                                                        <p>Hi John </p>
-                                                                        <a href="#" title=""><i class="fa fa-reply-all"></i>Reply</a>
-                                                                    </div>
-                                                                </div><!--comment-list end-->
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>
-                                                        <div class="comment-list">
-                                                            <div class="bg-img">
-                                                                <img src="../../images/resources/bg-img3.png" alt="">
-                                                            </div>
-                                                            <div class="comment">
-                                                                <h3>John Doe</h3>
-                                                                <span><img src="../../images/clock.png" alt=""> 3 min ago</span>
-                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at.</p>
-                                                                <a href="#" title=""><i class="fa fa-reply-all"></i>Reply</a>
-                                                            </div>
-                                                        </div><!--comment-list end-->
-                                                    </li>
-                                                </ul>
-                                            </div><!--comment-sec end-->
-                                            <div class="post-comment">
-                                                <div class="cm_img">
-                                                    <img src="../../images/resources/bg-img4.png" alt="">
-                                                </div>
-                                                <div class="comment_box">
-                                                    <form>
-                                                        <input type="text" placeholder="Post a comment">
-                                                        <button type="submit">Send</button>
-                                                    </form>
-                                                </div>
-                                            </div><!--post-comment end-->
-                                        </div><!--comment-section end-->
-                                    </div><!--posty end-->
+                                        </div>
+                                        <!--post-bar end-->
+                                    </c:forEach>
+
+
                                     <div class="process-comm">
                                         <div class="spinner">
                                             <div class="bounce1"></div>
@@ -847,49 +366,21 @@
     </main>
 
 
-
-
     <div class="post-popup pst-pj">
         <div class="post-project">
             <h3>Post a project</h3>
             <div class="post-project-fields">
-                <form>
+                <form method="post" action="<c:url value="/createpost" />" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <input type="text" name="title" placeholder="Title">
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="inp-field">
-                                <select>
-                                    <option>Category</option>
-                                    <option>Category 1</option>
-                                    <option>Category 2</option>
-                                    <option>Category 3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <input type="text" name="skills" placeholder="Skills">
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="price-sec">
-                                <div class="price-br">
-                                    <input type="text" name="price1" placeholder="Price">
-                                    <i class="la la-dollar"></i>
-                                </div>
-                                <span>To</span>
-                                <div class="price-br">
-                                    <input type="text" name="price1" placeholder="Price">
-                                    <i class="la la-dollar"></i>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-lg-12">
                             <textarea name="description" placeholder="Description"></textarea>
                         </div>
                         <div class="col-lg-12">
                             <ul>
-                                <li><button class="active" type="submit" value="post">Post</button></li>
+                                <li><input type="file" name="file"></li>
+                                <li>
+                                    <button class="active" type="submit" value="post">Post</button>
+                                </li>
                                 <li><a href="#" title="">Cancel</a></li>
                             </ul>
                         </div>
@@ -941,7 +432,9 @@
                         </div>
                         <div class="col-lg-12">
                             <ul>
-                                <li><button class="active" type="submit" value="post">Post</button></li>
+                                <li>
+                                    <button class="active" type="submit" value="post">Post</button>
+                                </li>
                                 <li><a href="#" title="">Cancel</a></li>
                             </ul>
                         </div>
@@ -951,7 +444,6 @@
             <a href="#" title=""><i class="la la-times-circle-o"></i></a>
         </div><!--post-project end-->
     </div><!--post-project-popup end-->
-
 
 
     <div class="chatbox-list">
@@ -974,7 +466,8 @@
                 </div>
                 <div class="chat-hist mCustomScrollbar" data-mcs-theme="dark">
                     <div class="chat-msg">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget
+                            malesuada. Vivamus suscipit tortor eget felis porttitor.</p>
                         <span>Sat, Aug 23, 1:10 PM</span>
                     </div>
                     <div class="date-nd">
@@ -985,7 +478,8 @@
                         <span>5 minutes ago</span>
                     </div>
                     <div class="chat-msg">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget
+                            malesuada. Vivamus suscipit tortor eget felis porttitor.</p>
                         <span>Sat, Aug 23, 1:10 PM</span>
                     </div>
                 </div><!--chat-list end-->
@@ -1020,7 +514,8 @@
                 </div>
                 <div class="chat-hist mCustomScrollbar" data-mcs-theme="dark">
                     <div class="chat-msg">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget
+                            malesuada. Vivamus suscipit tortor eget felis porttitor.</p>
                         <span>Sat, Aug 23, 1:10 PM</span>
                     </div>
                     <div class="date-nd">
@@ -1031,7 +526,8 @@
                         <span>5 minutes ago</span>
                     </div>
                     <div class="chat-msg">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget
+                            malesuada. Vivamus suscipit tortor eget felis porttitor.</p>
                         <span>Sat, Aug 23, 1:10 PM</span>
                     </div>
                 </div><!--chat-list end-->
@@ -1105,14 +601,15 @@
 </div><!--theme-layout end-->
 
 
+<%--<script type="text/javascript" src="../../js/jquery.min.js"></script>--%>
+<%--<script type="text/javascript" src="../../js/popper.js"></script>--%>
+<%--<script type="text/javascript" src="../../js/bootstrap.min.js"></script>--%>
+<%--<script type="text/javascript" src="../../js/jquery.mCustomScrollbar.js"></script>--%>
+<%--<script type="text/javascript" src="../../lib/slick/slick.min.js"></script>--%>
+<%--<script type="text/javascript" src="../../js/scrollbar.js"></script>--%>
+<%--<script type="text/javascript" src="../../js/script.js"></script>--%>
 
-<script type="text/javascript" src="../../js/jquery.min.js"></script>
-<script type="text/javascript" src="../../js/popper.js"></script>
-<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../js/jquery.mCustomScrollbar.js"></script>
-<script type="text/javascript" src="../../lib/slick/slick.min.js"></script>
-<script type="text/javascript" src="../../js/scrollbar.js"></script>
-<script type="text/javascript" src="../../js/script.js"></script>
+<jsp:include page="../layout/footerScript.jsp"/>
 
 </body>
 

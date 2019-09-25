@@ -17,12 +17,8 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         request.getRequestDispatcher("/view/user/login.jsp").forward(request, response);
-
     }
-
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -40,7 +36,5 @@ public class LoginController extends HttpServlet {
             request.setAttribute("errorMessage", errorMessage);
             response.sendRedirect("login");
         }
-
-
     }
 }
