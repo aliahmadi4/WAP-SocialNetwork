@@ -100,6 +100,25 @@ public class ProfileDAO {
         }
     }
 
+    public int setPassword(String password, int id) {
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            Transaction transaction = session.beginTransaction();
+            String ql = "Update edu.mum.cs.wap.project.model.User SET password = :password WHERE userId = :id" ;
+            Query query =  session.createQuery(ql);
+            query.setParameter("password", password);
+            query.setParameter("id", id);
+            int result = query.executeUpdate();
+            transaction.commit();
+            System.out.println("Password changed");
+            session.close();
+            return result;
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
+    }
+
 
 
 
