@@ -50,7 +50,7 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
-    
+
     //for getting all the posts by userId and followerId
     public List<Post> getAllPostByUserAndFollower(User user) {
         try {
