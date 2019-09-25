@@ -6,7 +6,7 @@ import edu.mum.cs.wap.project.model.Post;
 import edu.mum.cs.wap.project.model.User;
 import edu.mum.cs.wap.project.util.AppUtils;
 import edu.mum.cs.wap.project.util.HibernateUtil;
-import javafx.geometry.Pos;
+/*import javafx.geometry.Pos;*/
 import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -31,8 +31,7 @@ public class PostDAO {
             Post post = new Post(description);
             post.setUser(user);
             post.setPostPic(photoName);
-
-
+            post.setStatus(true);                       // tungnd - Set the status of the post
             session.save(post);
             transaction.commit();
             System.out.println("New Post added to Db");
@@ -48,13 +47,52 @@ public class PostDAO {
         List<Post> postList = new ArrayList<Post>();
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
+            Transaction transaction = session.beginTransaction();
             postList = session.createQuery("from edu.mum.cs.wap.project.model.Post order by postId desc").list();
+            transaction.commit();
+            System.out.println("post list " + postList);
             session.close();
         } catch (HibernateException e) {
             System.out.println("Error  is displaying the posts");
         }
         return postList;
+    }
+
+    // tungnd
+    public List<Post> loadPost() {
+        List<Post> posts = new ArrayList<>();
+        try {
+            //get session object
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            //starting Transcation
+            Transaction transaction = session.beginTransaction();
+            posts = (List<Post>) session.createQuery("FROM edu.mum.cs.wap.project.model.Post").list();
+            transaction.commit();
+            System.out.println("All posts already loaded!!!");
+            session.close();
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+        }
+        return posts;
+    }
+
+    // tungnd
+    public void updatePostStatus(Integer postId) {
+        try {
+            //get session object
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            //starting Transcation
+            Transaction transaction = session.beginTransaction();
+            Post post = session.get(Post.class, postId);
+            post.setStatus(!post.isStatus());
+            session.update(post);
+            transaction.commit();
+            System.out.println("The status of post already updated in the Database!!!");
+
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            System.out.println("error");
+        }
     }
 
 

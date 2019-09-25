@@ -15,11 +15,11 @@ public class LoadPostController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PostDAO postDAO = new PostDAO();
-        if (postDAO.getAllPost() != null) {
-            request.setAttribute("postLists", postDAO.getAllPost());
+        if (postDAO.loadPost() != null) {
+            request.setAttribute("postLists", postDAO.loadPost());
             request.getRequestDispatcher("/view/admin/managePost.jsp").forward(request, response);
         } else {
-            response.sendRedirect("/view/admin/managePost.jsp");
+            response.sendRedirect("managePost");
         }
     }
 }

@@ -21,11 +21,9 @@ public class AdsController extends HttpServlet {
         if (ads != null) {
             request.setAttribute("adsTitle", ads.getAdsTitle());
             request.setAttribute("image", ads.getImageURL());
-            RequestDispatcher rd = request.getRequestDispatcher("/view/admin/createAds.jsp");
-            rd.forward(request, response);
-        } else {
-            response.sendRedirect("/view/admin/createAds.jsp");
         }
+        RequestDispatcher rd = request.getRequestDispatcher("/view/admin/createAds.jsp");
+        rd.forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

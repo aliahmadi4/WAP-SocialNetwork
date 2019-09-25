@@ -54,7 +54,6 @@ public class AdsDAO {
         return null;
     }
 
-
     public static SessionFactory getSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File
         Configuration configObj = new Configuration();

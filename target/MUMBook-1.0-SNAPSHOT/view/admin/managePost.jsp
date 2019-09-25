@@ -112,8 +112,9 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Title</th>
+                                    <th scope="col">User</th>
                                     <th scope="col">Description</th>
+                                    <th scope="col">Picture</th>
                                     <th scope="col">Status</th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
@@ -123,8 +124,9 @@
                                 <c:forEach var="post" items="${postLists}">
                                     <tr>
                                         <td scope="row"><c:out value="${post.postId}"/></td>
-                                        <td><c:out value="${post.title}"/></td>
+                                        <td><c:out value="${post.user.username}"/></td>
                                         <td><c:out value="${post.description}"/></td>
+                                        <td><img src="<c:url value='/images/post/${post.postPic}' />" alt="" height="40px" width="40px"></td>
                                         <td><c:out value="${post.status? 'Active' : 'Inactive'}"/></td>
                                         <form action="managePost" method="post">
                                             <input type="hidden" value="${post.postId}" name="postId">

@@ -26,8 +26,6 @@ public class ProfileController extends HttpServlet {
         if(userId==null){
             User user = (User)request.getSession().getAttribute("loginedUser");
             userId = String.valueOf(user.getUserId());
-
-
         }
 
         try{

@@ -31,12 +31,11 @@ public class LoginController extends HttpServlet {
         if (loginService.authenticateUser(userName, password)) {
             User user = loginService.getUserByUserName(userName);
             AppUtils.storeLoginedUser(session, user);
-            System.out.println("request.getContextPath() " + request.getContextPath());
             //tungnd - Added the condition for check Admin account at Login page
             if (user.getRole().equals("ROLE_ADMIN")) {
                 response.sendRedirect(request.getContextPath() +"/admin");
             } else {
-                response.sendRedirect("view/home/index.jsp");
+                response.sendRedirect("home");
             }
 
         } else {

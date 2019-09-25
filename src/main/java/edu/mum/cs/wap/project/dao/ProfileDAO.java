@@ -101,7 +101,7 @@ public class ProfileDAO {
     public void updateUserStatus(Integer userId) {
         try {
             //get session object
-            Session session = getSessionFactory().openSession();
+            Session session = HibernateUtil.getSessionFactory().openSession();
             //starting Transcation
             Transaction transaction = session.beginTransaction();
             User user = (User) session.get(User.class, userId);

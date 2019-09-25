@@ -21,13 +21,6 @@ public class HomeController extends HttpServlet {
             PostDAO postDAO = new PostDAO();
             List<Post> posts = postDAO.getAllPosts();
             request.setAttribute("posts",posts);
-
-            //update the session
-            int userId= ((User)request.getSession().getAttribute("loginedUser")).getUserId();
-            User newUser = new ProfileDAO().getUserById(userId);
-            request.getSession().setAttribute("loginedUser", newUser);
-
-
             request.getRequestDispatcher("/view/home/index.jsp").forward(request,response);
         }catch (Exception e){
             System.out.println("Could not fetch Posts! "+e.getStackTrace());

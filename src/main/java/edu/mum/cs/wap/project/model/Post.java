@@ -14,10 +14,10 @@ public class Post {
     private User user;
     private String description;
     private String postPic;
+    private boolean status;             // tungnd - Set the status of the post
 
-
-
-    public Post(){}
+    public Post() {
+    }
 
     public Post(String description) {
         this.description = description;
@@ -58,5 +58,13 @@ public class Post {
 
     public void setPostPic(String postPic) {
         this.postPic = postPic;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
