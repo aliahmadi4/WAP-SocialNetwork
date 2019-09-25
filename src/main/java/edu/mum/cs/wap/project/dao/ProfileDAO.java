@@ -3,6 +3,7 @@ package edu.mum.cs.wap.project.dao;
 import edu.mum.cs.wap.project.model.Post;
 import edu.mum.cs.wap.project.model.User;
 import edu.mum.cs.wap.project.util.AppUtils;
+import edu.mum.cs.wap.project.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -24,7 +25,7 @@ public class ProfileDAO {
     public List<User> getAllUsers() {
         try {
             //get session object
-            Session session = getSessionFactory().openSession();
+            Session session =  HibernateUtil.getSessionFactory().openSession();
             //starting Transcation
             Transaction transaction = session.beginTransaction();
             List<User> users = new ArrayList<User>();
@@ -42,7 +43,7 @@ public class ProfileDAO {
     public User getUserById(int id) {
         try {
             //get session object
-            Session session = getSessionFactory().openSession();
+            Session session = HibernateUtil.getSessionFactory().openSession();
             //starting Transcation
             Transaction transaction = session.beginTransaction();
 
@@ -62,7 +63,7 @@ public class ProfileDAO {
     public User getUserByName(String name) {
         try {
             //get session object
-            Session session = getSessionFactory().openSession();
+            Session session = HibernateUtil.getSessionFactory().openSession();
             //starting Transcation
             Transaction transaction = session.beginTransaction();
             String ql = "FROM edu.mum.cs.wap.project.model.User WHERE firstName = :name" ;
@@ -81,7 +82,7 @@ public class ProfileDAO {
         try {
 
             //get session object
-            Session session = getSessionFactory().openSession();
+            Session session = HibernateUtil.getSessionFactory().openSession();
             //starting Transcation
             Transaction transaction = session.beginTransaction();
             String ql = "Update edu.mum.cs.wap.project.model.User SET profilePic = :name WHERE userId = :id" ;
@@ -101,18 +102,5 @@ public class ProfileDAO {
 
 
 
-    public static SessionFactory getSessionFactory() {
-        // Creating Configuration Instance & Passing Hibernate Configuration File
-        Configuration configObj = new Configuration();
-        configObj.addAnnotatedClass(User.class);
-        configObj.configure("hibernate.cfg.xml");
 
-        // Since Hibernate Version 4.x, Service Registry Is Being Used
-        ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder().applySettings(configObj.getProperties()).build();
-
-        // Creating Hibernate Session Factory Instance
-        sessionFactory = configObj.buildSessionFactory(serviceRegistryObj);
-
-        return sessionFactory;
-    }
 }

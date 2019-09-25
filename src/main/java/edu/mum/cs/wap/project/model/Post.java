@@ -13,6 +13,7 @@ public class Post {
     @JoinColumn(name = "userId", referencedColumnName = "userId")
     private User user;
     private String description;
+    private String postPic;
 
 
 
@@ -20,6 +21,11 @@ public class Post {
 
     public Post(String description) {
         this.description = description;
+    }
+
+    public Post(String description, String postPic) {
+        this.description = description;
+        this.postPic = postPic;
     }
 
     public int getPostId() {
@@ -44,5 +50,13 @@ public class Post {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getPostPic() {
+        return postPic;
+    }
+
+    public void setPostPic(String postPic) {
+        this.postPic = postPic;
     }
 }

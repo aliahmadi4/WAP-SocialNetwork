@@ -30,8 +30,7 @@ public class ProfilePicUpload extends HttpServlet{
 
         if(ServletFileUpload.isMultipartContent(request)){
             try {
-                List<FileItem> multiparts = new ServletFileUpload(
-                        new DiskFileItemFactory()).parseRequest(request);
+                List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
 
                 for(FileItem item : multiparts){
                     if(!item.isFormField()){
