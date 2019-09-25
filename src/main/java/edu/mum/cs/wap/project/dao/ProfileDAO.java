@@ -20,7 +20,6 @@ public class ProfileDAO {
     private static SessionFactory sessionFactory;
 
 
-
     public List<User> getAllUsers() {
         try {
             //get session object
@@ -28,7 +27,7 @@ public class ProfileDAO {
             //starting Transcation
             Transaction transaction = session.beginTransaction();
             List<User> users = new ArrayList<User>();
-            users = (List<User>) session.createQuery("FROM edu.mum.cs.wap.project.model.User").list();
+            users = (List<User>) session.createQuery("FROM edu.mum.cs.wap.project.model.User as u WHERE u.role != 'ROLE_ADMIN'").list();
             transaction.commit();
             System.out.println("User List Fetched");
             session.close();
@@ -45,8 +44,6 @@ public class ProfileDAO {
             Session session = getSessionFactory().openSession();
             //starting Transcation
             Transaction transaction = session.beginTransaction();
-
-
             User user = (User) session.get(User.class, id);
 //             User user = findRecordById(id);
             transaction.commit();
@@ -65,7 +62,7 @@ public class ProfileDAO {
             Session session = getSessionFactory().openSession();
             //starting Transcation
             Transaction transaction = session.beginTransaction();
-            String ql = "FROM edu.mum.cs.wap.project.model.User WHERE firstName = :name" ;
+            String ql = "FROM edu.mum.cs.wap.project.model.User WHERE firstName = :name";
             List<User> users = (List<User>) session.createQuery(ql);
             transaction.commit();
             System.out.println("User List Fetched");
@@ -84,8 +81,8 @@ public class ProfileDAO {
             Session session = getSessionFactory().openSession();
             //starting Transcation
             Transaction transaction = session.beginTransaction();
-            String ql = "Update edu.mum.cs.wap.project.model.User SET profilePic = :name WHERE userId = :id" ;
-            Query query =  session.createQuery(ql);
+            String ql = "Update edu.mum.cs.wap.project.model.User SET profilePic = :name WHERE userId = :id";
+            Query query = session.createQuery(ql);
             query.setParameter("name", name);
             query.setParameter("id", id);
             int result = query.executeUpdate();
@@ -99,6 +96,24 @@ public class ProfileDAO {
         }
     }
 
+    public void updateUserStatus(Integer userId) {
+        try {
+            //get session object
+            Session session = getSessionFactory().openSession();
+            //starting Transcation
+            Transaction transaction = session.beginTransaction();
+            User user = (User) session.get(User.class, userId);
+            user.setStatus(!user.isStatus());
+            session.update(user);
+            //session.save(ads);
+            transaction.commit();
+            System.out.println("User status update to DB");
+
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            System.out.println("error");
+        }
+    }
 
 
     public static SessionFactory getSessionFactory() {

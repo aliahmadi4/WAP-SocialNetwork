@@ -19,16 +19,11 @@ public class ManageAccountController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProfileDAO userDAO = new ProfileDAO();
-        /*List<User> user = new ArrayList<>();
-        user.add(userDAO.getAllUsers());*/
         if (userDAO.getAllUsers() != null) {
             request.setAttribute("userLists", userDAO.getAllUsers());
             request.getRequestDispatcher("/view/admin/manageAccount.jsp").forward(request, response);
-            /*RequestDispatcher rd = request.getRequestDispatcher("/view/admin/manageAccount.jsp");
-            rd.forward(request, response);*/
         } else {
             response.sendRedirect("/view/admin/manageAccount.jsp");
         }
-        /*        request.getRequestDispatcher("/view/admin/manageAccount.jsp").forward(request, response);*/
     }
 }

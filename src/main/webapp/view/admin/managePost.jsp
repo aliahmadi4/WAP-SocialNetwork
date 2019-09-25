@@ -18,6 +18,12 @@
 </head>
 
 <body>
+<%
+    //allow access only if session exists
+    if (session.getAttribute("loginedUser") == null) {
+        response.sendRedirect("login");
+    }
+%>
 <!-- ============================================================== -->
 <!-- main wrapper -->
 <!-- ============================================================== -->

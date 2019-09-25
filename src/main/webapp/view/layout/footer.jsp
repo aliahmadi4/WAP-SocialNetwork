@@ -7,10 +7,12 @@
     --%>
         <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <!-- jquery 3.3.1 -->
-        <script rel="script" href="<c:url value='/assets/vendor/jquery/jquery-3.3.1.min.js'/>"></script>
+        <script src="<c:url value='/assets/vendor/jquery/jquery-3.3.1.min.js'/>"></script>
         <!-- bootstap bundle js -->
-        <script rel="script" href="<c:url value='/assets/vendor/bootstrap/js/bootstrap.bundle.js'/>"></script>
+        <script src="<c:url value='/assets/vendor/bootstrap/js/bootstrap.bundle.js'/>"></script>
         <!-- slimscroll js -->
-        <script rel="script" href="<c:url value='/assets/vendor/slimscroll/jquery.slimscroll.js'/>"></script>
+        <script src="<c:url value='/assets/vendor/slimscroll/jquery.slimscroll.js'/>"></script>
         <!-- main js -->
-        <script rel="script" href="<c:url value='/assets/libs/js/main-js.js'/>"></script>
+        <script src="<c:url value='/assets/libs/js/main-js.js'/>"></script>
+        <!-- parsley js-->
+        <script src="<c:url value='/assets/vendor/parsley/parsley.js'/>"></script>

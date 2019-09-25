@@ -21,6 +21,12 @@
 </head>
 
 <body>
+<%
+    //allow access only if session exists
+    if (session.getAttribute("loginedUser") == null) {
+        response.sendRedirect("login");
+    }
+%>
 <!-- ============================================================== -->
 <!-- main wrapper -->
 <!-- ============================================================== -->
@@ -112,12 +118,12 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">Country</th>
                                     <th scope="col">Gender</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                 <c:forEach var="user" items="${userLists}">
                                     <tr>
                                         <td scope="row"><c:out value="${user.userId}"/></td>
@@ -127,10 +133,18 @@
                                         <td><c:out value="${user.email}"/></td>
                                         <td><c:out value="${user.country}"/></td>
                                         <td><c:out value="${user.gender}"/></td>
+                                        <td><c:out value="${user.status? 'Active' : 'Inactive'}"/></td>
                                         <form action="manageUser" method="post">
+                                            <input type="hidden" value="${user.userId}" name="userId">
                                             <td class="btn-group ml-auto">
-                                                <button type="button" class="btn btn-outline-success" disabled>Enable</button>
-                                                <button type="button" class="btn btn-outline-danger">Disable</button>
+                                                <c:if test="${user.status}">
+                                                    <button type="submit" class="btn btn-outline-success" disabled>Enable</button>
+                                                    <button type="submit" class="btn btn-outline-danger">Disable</button>
+                                                </c:if>
+                                                <c:if test="${!user.status}">
+                                                    <button type="submit" class="btn btn-outline-success">Enable</button>
+                                                    <button type="submit" class="btn btn-outline-danger" disabled>Disable</button>
+                                                </c:if>
                                             </td>
                                         </form>
                                     </tr>

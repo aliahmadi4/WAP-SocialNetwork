@@ -15,17 +15,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-   <%-- <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/circular-std/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/circular-std/CircularStd-Book.woff">
-    <link rel="stylesheet" href="assets/vendor/fonts/circular-std/CircularStd-Medium.woff">
-    <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">--%>
     <title>Admin page</title>
     <jsp:include page="../layout/head.jsp"/>
 </head>
 
 <body>
+<%
+    //allow access only if session exists
+    if (session.getAttribute("loginedUser") == null) {
+        response.sendRedirect("login");
+    }
+%>
 <!-- ============================================================== -->
 <!-- main wrapper -->
 <!-- ============================================================== -->
@@ -43,15 +43,11 @@
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto navbar-right-top">
                     <li class="nav-item dropdown nav-user">
-                        <a class="nav-link" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">Administrator</a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                              aria-labelledby="navbarDropdownMenuLink2">
-                            <!--<div class="nav-user-info">
-                                <h5 class="mb-0 text-white nav-user-name">
-                                    John Abraham</h5>
-                            </div>-->
-                            <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2">></i>Logout</a>
+                            <a class="dropdown-item" href="logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
                     </li>
                 </ul>

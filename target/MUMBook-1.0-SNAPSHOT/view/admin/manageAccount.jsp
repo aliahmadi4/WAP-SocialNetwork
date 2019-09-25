@@ -18,15 +18,15 @@
     <title>Manage Account</title>
     <!-- Bootstrap CSS -->
     <jsp:include page="../layout/head.jsp"/>
-    <%--<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/circular-std/CircularStd-Book.woff">
-    <link rel="stylesheet" href="assets/vendor/fonts/circular-std/CircularStd-Medium.woff">--%>
 </head>
 
 <body>
+<%
+    //allow access only if session exists
+    if (session.getAttribute("loginedUser") == null) {
+        response.sendRedirect("login");
+    }
+%>
 <!-- ============================================================== -->
 <!-- main wrapper -->
 <!-- ============================================================== -->
@@ -118,12 +118,12 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">Country</th>
                                     <th scope="col">Gender</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                 <c:forEach var="user" items="${userLists}">
                                     <tr>
                                         <td scope="row"><c:out value="${user.userId}"/></td>
@@ -133,10 +133,18 @@
                                         <td><c:out value="${user.email}"/></td>
                                         <td><c:out value="${user.country}"/></td>
                                         <td><c:out value="${user.gender}"/></td>
+                                        <td><c:out value="${user.status? 'Active' : 'Inactive'}"/></td>
                                         <form action="manageUser" method="post">
+                                            <input type="hidden" value="${user.userId}" name="userId">
                                             <td class="btn-group ml-auto">
-                                                <button type="button" class="btn btn-outline-success" disabled>Enable</button>
-                                                <button type="button" class="btn btn-outline-danger">Disable</button>
+                                                <c:if test="${user.status}">
+                                                    <button type="submit" class="btn btn-outline-success" disabled>Enable</button>
+                                                    <button type="submit" class="btn btn-outline-danger">Disable</button>
+                                                </c:if>
+                                                <c:if test="${!user.status}">
+                                                    <button type="submit" class="btn btn-outline-success">Enable</button>
+                                                    <button type="submit" class="btn btn-outline-danger" disabled>Disable</button>
+                                                </c:if>
                                             </td>
                                         </form>
                                     </tr>

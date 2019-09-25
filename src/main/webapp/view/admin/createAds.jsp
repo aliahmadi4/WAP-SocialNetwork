@@ -18,6 +18,12 @@
 </head>
 
 <body>
+<%
+    //allow access only if session exists
+    if (session.getAttribute("loginedUser") == null) {
+        response.sendRedirect("login");
+    }
+%>
 <!-- ============================================================== -->
 <!-- main wrapper -->
 <!-- ============================================================== -->
@@ -100,12 +106,12 @@
                     <div class="card">
                         <h5 class="card-header">Create Ads Form</h5>
                         <div class="card-body">
-                            <form id="form" data-parsley-validate="" novalidate="" action="createAds" method="post">
+                            <form id="form" data-parsley-validate="" novalidate="" action="createAds" method="post" class="needs-validation">
                                 <div class="form-group row">
                                     <label for="inputTitle"
                                            class="col-3 col-lg-2 col-form-label text-right">Title</label>
                                     <div class="col-9 col-lg-10">
-                                        <input id="inputTitle" type="text" name="adsTitle" required=""
+                                        <input id="inputTitle" type="text" name="adsTitle" required
                                                data-parsley-type="text"
                                                placeholder="Please input the title" class="form-control">
                                     </div>
@@ -114,7 +120,7 @@
                                     <label for="inputImage" class="col-3 col-lg-2 col-form-label text-right">Image
                                         URL</label>
                                     <div class="col-9 col-lg-10">
-                                        <input id="inputImage" type="url" name="imageURL" required=""
+                                        <input id="inputImage" type="url" name="imageURL" required
                                                data-parsley-type="url"
                                                placeholder="Please input the URL of image" class="form-control">
                                     </div>
@@ -180,7 +186,7 @@
 <!-- Optional JavaScript -->
 <jsp:include page="../layout/footer.jsp"/>
 
-<%--<script>
+<script>
     $('#form').parsley();
 </script>
 <script>
@@ -202,7 +208,7 @@
             });
         }, false);
     })();
-</script>--%>
+</script>
 </body>
 
 </html>
