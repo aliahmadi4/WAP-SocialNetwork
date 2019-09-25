@@ -9,17 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-// tungnd
+// tungnd - Update the status of account
 @WebServlet("/manageAccount")
 public class ManageAccountController extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProfileDAO userDAO = new ProfileDAO();
-        if (userDAO.getAllUsers() != null) {
-            request.setAttribute("userLists", userDAO.getAllUsers());
-            request.getRequestDispatcher("/view/admin/manageAccount.jsp").forward(request, response);
-        } else {
-            response.sendRedirect("/view/admin/manageAccount.jsp");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            String userId = request.getParameter("userId");
+            ProfileDAO profileDAO = new ProfileDAO();
+            profileDAO.updateUserStatus(Integer.parseInt(userId));
+            response.sendRedirect("loadAccount");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+
 }

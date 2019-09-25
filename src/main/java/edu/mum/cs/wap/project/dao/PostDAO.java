@@ -9,6 +9,9 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PostDAO {
     private static SessionFactory sessionFactory;
 
@@ -29,6 +32,43 @@ public class PostDAO {
         }
     }
 
+    // tungnd
+    public List<Post> getAllPost() {
+        try {
+            //get session object
+            Session session = getSessionFactory().openSession();
+            //starting Transcation
+            Transaction transaction = session.beginTransaction();
+            List<Post> posts = new ArrayList<>();
+            posts = (List<Post>) session.createQuery("FROM edu.mum.cs.wap.project.model.Post").list();
+            transaction.commit();
+            System.out.println("All posts already loaded!!!");
+            session.close();
+            return posts;
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    // tungnd
+    public void updatePostStatus(Integer postId) {
+        try {
+            //get session object
+            Session session = getSessionFactory().openSession();
+            //starting Transcation
+            Transaction transaction = session.beginTransaction();
+            Post post = session.get(Post.class, postId);
+            post.setStatus(!post.isStatus());
+            session.update(post);
+            transaction.commit();
+            System.out.println("The status of post already updated in the Database!!!");
+
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            System.out.println("error");
+        }
+    }
 
     public static SessionFactory getSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File

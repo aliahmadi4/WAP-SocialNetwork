@@ -35,7 +35,7 @@
     <!-- ============================================================== -->
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand">ADMIN</a>
+            <a class="navbar-brand" href="admin">ADMIN</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -77,10 +77,10 @@
                             <a class="nav-link" href="createAds">Manage Ads</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="managePost">Manage Post</a>
+                            <a class="nav-link" href="loadPost">Manage Post</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="manageAccount">Manage Account</a>
+                            <a class="nav-link" href="loadAccount">Manage Account</a>
                         </li>
                     </ul>
                 </div>

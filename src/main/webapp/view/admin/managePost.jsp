@@ -6,13 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!doctype html>
 <html lang="en">
+
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Manage post</title>
+    <title>Manage Post</title>
     <!-- Bootstrap CSS -->
     <jsp:include page="../layout/head.jsp"/>
 </head>
@@ -33,7 +36,7 @@
     <!-- ============================================================== -->
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand">ADMIN</a>
+            <a class="navbar-brand" href="admin">ADMIN</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -49,7 +52,7 @@
                                 <h5 class="mb-0 text-white nav-user-name">
                                     John Abraham</h5>
                             </div>-->
-                            <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            <a class="dropdown-item" href="logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -79,10 +82,10 @@
                             <a class="nav-link" href="createAds">Manage Ads</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="managePost">Manage Post</a>
+                            <a class="nav-link" href="loadPost">Manage Post</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="manageAccount">Manage Account</a>
+                            <a class="nav-link" href="loadAccount">Manage Account</a>
                         </li>
                     </ul>
                 </div>
@@ -98,73 +101,54 @@
     <div class="dashboard-wrapper">
         <div class="container-fluid dashboard-content">
             <div class="dashboard-short-list">
-                <div class="row">
-                    <!-- ============================================================== -->
-                    <!-- shortable list  -->
-                    <!-- ============================================================== -->
-                    <div class="col-xl-12 col-lg-6 col-md-12 col-sm-12 co-12">
-                        <section class="card card-fluid">
-                            <h5 class="card-header"> Post List </h5>
-                            <ul class="sortable-lists list-group list-group-flush list-group-bordered" id="items">
-                                <li class="list-group-item align-items-center">
-                                    <%--<span class="drag-indicator"></span>--%>
-                                    <div> The content of post here!</div>
-                                    <div class="btn-group ml-auto">
-                                        <button type="button" class="btn btn-outline-success" disabled>Enable</button>
-                                        <button type="button" class="btn btn-outline-danger">Disable</button>
-                                        <!--<button class="btn btn-sm btn-outline-light">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>-->
-                                    </div>
-                                </li>
-                                <li class="list-group-item align-items-center">
-                                    <%--<span class="drag-indicator"></span>--%>
-                                    <div> The content of post here!</div>
-                                    <div class="btn-group ml-auto">
-                                        <button type="button" class="btn btn-outline-success" disabled>Enable</button>
-                                        <button type="button" class="btn btn-outline-danger">Disable</button>
-                                        <!--<button class="btn btn-sm btn-outline-light">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>-->
-                                    </div>
-                                </li>
-                                <li class="list-group-item align-items-center">
-                                    <%--<span class="drag-indicator"></span>--%>
-                                    <div>The content of post here!</div>
-                                    <div class="btn-group ml-auto">
-                                        <button type="button" class="btn btn-outline-success" disabled>Enable</button>
-                                        <button type="button" class="btn btn-outline-danger">Disable</button>
-                                        <!--<button class="btn btn-sm btn-outline-light">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>-->
-                                    </div>
-                                </li>
-                                <li class="list-group-item align-items-center">
-                                    <%--<span class="drag-indicator"></span>--%>
-                                    <div> The content of post here!</div>
-                                    <div class="btn-group ml-auto">
-                                        <button type="button" class="btn btn-outline-success" disabled>Enable</button>
-                                        <button type="button" class="btn btn-outline-danger">Disable</button>
-                                        <!--<button class="btn btn-sm btn-outline-light">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>-->
-                                    </div>
-                                </li>
-                                <li class="list-group-item align-items-center">
-                                    <%--<span class="drag-indicator"></span>--%>
-                                    <div> The content of post here!</div>
-                                    <div class="btn-group ml-auto">
-                                        <button type="button" class="btn btn-outline-success" disabled>Enable</button>
-                                        <button type="button" class="btn btn-outline-danger">Disable</button>
-                                        <!--<button class="btn btn-sm btn-outline-light">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>-->
-                                    </div>
-                                </li>
-                            </ul>
-                        </section>
+                <!-- ============================================================== -->
+                <!-- striped table -->
+                <!-- ============================================================== -->
+                <div class="col-sm-12">
+                    <div class="card">
+                        <h5 class="card-header">Post List</h5>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="post" items="${postLists}">
+                                    <tr>
+                                        <td scope="row"><c:out value="${post.postId}"/></td>
+                                        <td><c:out value="${post.title}"/></td>
+                                        <td><c:out value="${post.description}"/></td>
+                                        <td><c:out value="${post.status? 'Active' : 'Inactive'}"/></td>
+                                        <form action="managePost" method="post">
+                                            <input type="hidden" value="${post.postId}" name="postId">
+                                            <td class="btn-group ml-auto">
+                                                <c:if test="${post.status}">
+                                                    <button type="submit" class="btn btn-outline-success" disabled>Enable</button>
+                                                    <button type="submit" class="btn btn-outline-danger">Disable</button>
+                                                </c:if>
+                                                <c:if test="${!post.status}">
+                                                    <button type="submit" class="btn btn-outline-success">Enable</button>
+                                                    <button type="submit" class="btn btn-outline-danger" disabled>Disable</button>
+                                                </c:if>
+                                            </td>
+                                        </form>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+                <!-- ============================================================== -->
+                <!-- end striped table -->
+                <!-- ============================================================== -->
             </div>
         </div>
         <!-- ============================================================== -->
@@ -198,9 +182,6 @@
 <!-- Optional JavaScript -->
 <!-- Optional JavaScript -->
 <jsp:include page="../layout/footer.jsp"/>
-<%--<script src="assets/vendor/shortable-nestable/Sortable.min.js"></script>
-<script src="assets/vendor/shortable-nestable/sort-nest.js"></script>
-<script src="assets/vendor/shortable-nestable/jquery.nestable.js"></script>--%>
 
 </body>
 

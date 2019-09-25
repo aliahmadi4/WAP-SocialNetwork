@@ -11,7 +11,7 @@ To change this template use File | Settings | File Templates.
 <!-- Mirrored from gambolthemes.net/workwise-new/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Sep 2019 14:25:26 GMT -->
 <head>
     <meta charset="UTF-8">
-    <title>WorkWise Html Template</title>
+    <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -153,10 +153,8 @@ To change this template use File | Settings | File Templates.
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="custom-radio">
-
-                                                    <input type="radio"  name="gender" value="Male"> Male <br/>
+                                                    <input type="radio"  name="gender" value="Male"> Male
                                                     <input type="radio" name="gender" value="Female"> Female
-
                                                 </div>
                                             </div>
 
