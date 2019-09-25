@@ -33,12 +33,12 @@ public class LoginController extends HttpServlet {
         if(loginService.authenticateUser(userName, password)){
             User user = loginService.getUserByUserName(userName);
             AppUtils.storeLoginedUser(session, user);
-            response.sendRedirect("view/home/index.jsp");
+            response.sendRedirect("home");
         }
         else{
             String errorMessage = "Invalid userName or Password";
             request.setAttribute("errorMessage", errorMessage);
-            response.sendRedirect("home");
+            response.sendRedirect("login");
         }
 
 

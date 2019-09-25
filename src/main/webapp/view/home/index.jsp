@@ -31,12 +31,12 @@
                                     <div class="user-profile">
                                         <div class="username-dt">
                                             <div class="usr-pic">
-                                                <img src="../../images/resources/user-pic.png" alt="">
+                                                <img src="<c:url value='/images/profile/${loginedUser.profilePic}' />" alt="" height="120px" width="120px"/>
                                             </div>
                                         </div><!--username-dt end-->
                                         <div class="user-specs">
-                                            <h3>John Doe</h3>
-                                            <span>Graphic Designer at Self Employed</span>
+                                            <h3>${loginedUser.firstName} ${loginedUser.lastName}</h3>
+                                            <span>${loginedUser.description}</span>
                                         </div>
                                     </div><!--user-profile end-->
                                     <ul class="user-fw-status">
@@ -134,7 +134,7 @@
                             <div class="main-ws-sec">
                                 <div class="post-topbar">
                                     <div class="user-picy">
-                                        <img src="../../images/resources/user-pic.png" alt="">
+                                        <img src="<c:url value='/images/profile/${loginedUser.profilePic}'/>" alt="" height="50px" width="50px">
                                     </div>
                                     <div class="post-st">
                                         <ul>

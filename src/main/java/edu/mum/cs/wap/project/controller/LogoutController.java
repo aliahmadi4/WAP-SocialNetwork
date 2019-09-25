@@ -14,7 +14,7 @@ public class LogoutController extends HttpServlet {
         request.getSession().invalidate();
 
         // Redrect to Home Page.
-        response.sendRedirect( "/home");
+        response.sendRedirect( "login");
 
     }
 
