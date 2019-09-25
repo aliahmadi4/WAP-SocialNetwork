@@ -2,6 +2,7 @@ package edu.mum.cs.wap.project.controller;
 
 import edu.mum.cs.wap.project.dao.PostDAO;
 import edu.mum.cs.wap.project.dao.ProfileDAO;
+import edu.mum.cs.wap.project.dao.UserDAO;
 import edu.mum.cs.wap.project.model.User;
 
 import javax.servlet.ServletException;
@@ -16,35 +17,28 @@ import java.util.List;
 
 @WebServlet(name ="ProfileController", urlPatterns = {"/profilecontroller"})
 public class ProfileController extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
+        String userId = request.getParameter("userId");
+        System.out.println(userId);
+        if(userId==null){
+            User user = (User)request.getSession().getAttribute("loginedUser");
+            userId = String.valueOf(user.getUserId());
+        }
+
 
         try{
             ProfileDAO profileDAO = new ProfileDAO();
-            List<User> users = profileDAO.getAllUsers();
-            out.println(users.toString());
-
+            User user = profileDAO.getUserById(Integer.parseInt(userId));
+            request.setAttribute("user", user);
         }catch (Exception e){
             e.printStackTrace();
-            out.println("Error ocured");
         }
-
-        //request.getRequestDispatcher("view/user/test.jsp").forward(request,response);
+        request.getRequestDispatcher("view/user/profile.jsp").forward(request,response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
-
-
-        try{
-            ProfileDAO profileDAO = new ProfileDAO();
-            profileDAO.savePost(firstName, lastName);
-            response.sendRedirect("success.jsp");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
 }
