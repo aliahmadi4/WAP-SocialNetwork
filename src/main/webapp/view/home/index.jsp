@@ -49,7 +49,7 @@
                                             <span>155</span>
                                         </li>
                                         <li>
-                                            <a href="../../my-profile.html" title="">View Profile</a>
+                                            <a href="<c:url value='/profile' />" title="">View Profile</a>
                                         </li>
                                     </ul>
                                 </div><!--user-data end-->
@@ -159,11 +159,7 @@
                                                     <a href="#" title="" class="ed-opts-open"><i
                                                             class="la la-ellipsis-v"></i></a>
                                                     <ul class="ed-options">
-                                                        <li><a href="#" title="">Edit Post</a></li>
-                                                        <li><a href="#" title="">Unsaved</a></li>
-                                                        <li><a href="#" title="">Unbid</a></li>
-                                                        <li><a href="#" title="">Close</a></li>
-                                                        <li><a href="#" title="">Hide</a></li>
+                                                        <li><a href="#" title="">Delete</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -181,7 +177,7 @@
                                                     <img src="<c:url value='/images/post/${i.postPic}' />"/>
                                                 </div>
                                             </c:if>
-                                            
+
                                         </div>
                                         <!--post-bar end-->
                                     </c:forEach>
