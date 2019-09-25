@@ -43,8 +43,11 @@ public class ProfilePicUpload extends HttpServlet{
                         ProfileDAO profileDAO = new ProfileDAO();
                         profileDAO.setProfilePic(name, id);
 
-                        //after changing some user attribute you need to update it
-                        request.getSession().setAttribute("loginedUser", user);
+                        //update the session
+
+                        User newUser = new ProfileDAO().getUserById(id);
+                        request.getSession().setAttribute("loginedUser", newUser);
+
                     }
                 }
 

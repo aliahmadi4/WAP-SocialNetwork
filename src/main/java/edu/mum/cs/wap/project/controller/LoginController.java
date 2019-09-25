@@ -2,6 +2,7 @@ package edu.mum.cs.wap.project.controller;
 
 import edu.mum.cs.wap.project.model.User;
 import edu.mum.cs.wap.project.service.LoginService;
+import edu.mum.cs.wap.project.service.UserService;
 import edu.mum.cs.wap.project.util.AppUtils;
 
 import javax.servlet.ServletException;
@@ -25,6 +26,7 @@ public class LoginController extends HttpServlet {
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
         LoginService loginService = new LoginService();
+        UserService userService = new UserService();
         HttpSession session = request.getSession();
         if (loginService.authenticateUser(userName, password)) {
             User user = loginService.getUserByUserName(userName);
