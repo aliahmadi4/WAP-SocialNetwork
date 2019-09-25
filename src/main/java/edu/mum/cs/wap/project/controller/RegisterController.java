@@ -39,4 +39,8 @@ public class RegisterController extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+    //for displaying all the follower's post
+
+
 }
