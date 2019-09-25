@@ -15,18 +15,18 @@ import java.io.PrintWriter;
 import java.util.List;
 
 
-@WebServlet(name ="ProfileController", urlPatterns = {"/profilecontroller"})
+@WebServlet(name ="ProfileController", urlPatterns = {"/profile"})
 public class ProfileController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userId = request.getParameter("userId");
         System.out.println(userId);
+
         if(userId==null){
             User user = (User)request.getSession().getAttribute("loginedUser");
             userId = String.valueOf(user.getUserId());
         }
-
 
         try{
             ProfileDAO profileDAO = new ProfileDAO();

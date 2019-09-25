@@ -4,7 +4,6 @@ import com.sun.istack.Nullable;
 import sun.security.util.Password;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 

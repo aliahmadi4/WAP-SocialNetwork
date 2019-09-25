@@ -1,25 +1,31 @@
 package edu.mum.cs.wap.project.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.*;
 
 @Entity
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int postId;
-    private String title;
-    private String description;
-    private boolean status;         // tungnd - Set the status of the post
 
-    public Post(String title, String description) {
-        this.title = title;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "userId", referencedColumnName = "userId")
+    private User user;
+    private String description;
+    private String postPic;
+
+
+
+    public Post(){}
+
+    public Post(String description) {
         this.description = description;
     }
 
-    public Post() {
+    public Post(String description, String postPic) {
+        this.description = description;
+        this.postPic = postPic;
     }
 
     public int getPostId() {
@@ -30,12 +36,12 @@ public class Post {
         this.postId = postId;
     }
 
-    public String getTitle() {
-        return title;
+    public User getUser() {
+        return user;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getDescription() {
@@ -46,11 +52,11 @@ public class Post {
         this.description = description;
     }
 
-    public boolean isStatus() {
-        return status;
+    public String getPostPic() {
+        return postPic;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setPostPic(String postPic) {
+        this.postPic = postPic;
     }
 }

@@ -11,7 +11,7 @@ To change this template use File | Settings | File Templates.
 <!-- Mirrored from gambolthemes.net/workwise-new/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Sep 2019 14:25:26 GMT -->
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>WorkWise Html Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -40,10 +40,10 @@ To change this template use File | Settings | File Templates.
                     <div class="col-lg-6">
                         <div class="cmp-info">
                             <div class="cm-logo">
-                                <img src="images/cm-logo.png" alt="">
+                                <img src="../../images/cm-logo.png" alt="">
                                 <p>Workwise,  is a global freelancing platform and social networking where businesses and independent professionals connect and collaborate remotely</p>
                             </div><!--cm-logo end-->
-                            <img src="images/cm-main-img.png" alt="">
+                            <img src="../../images/cm-main-img.png" alt="">
                         </div><!--cmp-info end-->
                     </div>
                     <div class="col-lg-6">
@@ -53,7 +53,7 @@ To change this template use File | Settings | File Templates.
                                 <li data-tab="tab-2"><a href="#" title="">Sign up</a></li>
                             </ul>
                             <div class="sign_in_sec current" id="tab-1">
-                                <div class="alert-danger">${errorMessage}</div>
+
                                 <h3>Sign in</h3>
                                 <form method="post" action="login" >
                                     <div class="row">
@@ -153,8 +153,10 @@ To change this template use File | Settings | File Templates.
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="custom-radio">
-                                                    <input type="radio"  name="gender" value="Male"> Male
+
+                                                    <input type="radio"  name="gender" value="Male"> Male <br/>
                                                     <input type="radio" name="gender" value="Female"> Female
+
                                                 </div>
                                             </div>
 
@@ -239,7 +241,7 @@ To change this template use File | Settings | File Templates.
                     <li><a href="#" title="">Language</a></li>
                     <li><a href="#" title="">Copyright Policy</a></li>
                 </ul>
-                <p><img src="images/copy-icon.png" alt="">Copyright 2019</p>
+                <p><img src="../../images/copy-icon.png" alt="">Copyright 2019</p>
             </div>
         </div><!--footy-sec end-->
     </div><!--sign-in-page end-->
