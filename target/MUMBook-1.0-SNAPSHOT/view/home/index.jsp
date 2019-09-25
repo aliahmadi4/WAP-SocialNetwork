@@ -12,6 +12,7 @@
     if(session.getAttribute("loginedUser") == null) {
         response.sendRedirect( request.getContextPath()+"/login");
     }
+
 %>
 <html>
 

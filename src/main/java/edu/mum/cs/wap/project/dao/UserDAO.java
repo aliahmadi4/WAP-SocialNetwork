@@ -2,14 +2,20 @@ package edu.mum.cs.wap.project.dao;
 
 import edu.mum.cs.wap.project.model.Post;
 import edu.mum.cs.wap.project.model.User;
+import edu.mum.cs.wap.project.service.UserService;
+import edu.mum.cs.wap.project.util.AppUtils;
 import edu.mum.cs.wap.project.util.HibernateUtil;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class UserDAO {
@@ -29,21 +35,55 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
-    public static User findUserByUsernamePassword(String userName, String password){
-        return new User();
+//for following another user
+    public void follow(User user, int id){
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            user.getFriends().add(new UserService().getUserById(id));
+            session.saveOrUpdate(user);
+
+            session.getTransaction().commit();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
-    public static SessionFactory getSessionFactory() {
-        // Creating Configuration Instance & Passing Hibernate Configuration File
-        Configuration configObj = new Configuration();
-        configObj.addAnnotatedClass(edu.mum.cs.wap.project.model.User.class);
-        configObj.configure("hibernate.cfg.xml");
+    
+    //for getting all the posts by userId and followerId
+    public List<Post> getAllPostByUserAndFollower(User user) {
+        try {
+            //get session object
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            //starting Transcation
+            Transaction transaction = session.beginTransaction();
+            List<Post> posts = new ArrayList<Post>();
+            int userId = user.getUserId();
+            List<User> followerList = user.getFriends();
 
-        // Since Hibernate Version 4.x, Service Registry Is Being Used
-        ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder().applySettings(configObj.getProperties()).build();
+            String ql = "FROM edu.mum.cs.wap.project.model.Post" ;
 
-        // Creating Hibernate Session Factory Instance
-        sessionFactory = configObj.buildSessionFactory(serviceRegistryObj);
 
-        return sessionFactory;
+            posts = (List<Post>) session.createQuery(ql).list();
+            List<Post> filteredPost = new ArrayList<Post>();
+            for(User u: followerList){
+                for(Post p : posts){
+                    if(p.getUser().equals(u) || p.getUser().equals(user)){
+                        filteredPost.add(p);
+                    }
+                }
+            }
+
+            transaction.commit();
+            System.out.println("Posts Loaded");
+            session.close();
+            return posts;
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
+
+
 }

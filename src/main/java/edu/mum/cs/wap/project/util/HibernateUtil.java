@@ -12,7 +12,8 @@ public class HibernateUtil {
         // Creating Configuration Instance & Passing Hibernate Configuration File
         Configuration configObj = new Configuration();
         configObj.addAnnotatedClass(edu.mum.cs.wap.project.model.User.class)
-                .addAnnotatedClass(edu.mum.cs.wap.project.model.Post.class);
+                .addAnnotatedClass(edu.mum.cs.wap.project.model.Post.class)
+                .addAnnotatedClass(edu.mum.cs.wap.project.model.Follower.class);
         configObj.configure("hibernate.cfg.xml");
 
         // Since Hibernate Version 4.x, Service Registry Is Being Used

@@ -4,7 +4,7 @@ import com.sun.istack.Nullable;
 import sun.security.util.Password;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,6 +26,15 @@ public class User {
     private String profilePic;
     private String description;
 
+    @ManyToMany( fetch = FetchType.EAGER)
+    @JoinTable(name="follower_user",
+            joinColumns={@JoinColumn(name="userId")},
+            inverseJoinColumns={@JoinColumn(name="friendId")})
+    private List<User> friends = new ArrayList<User>();
+//
+//    @ManyToMany(mappedBy="friends",  fetch = FetchType.EAGER)
+//    private List<User> friendOf = new ArrayList<User>();
+
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -43,6 +52,11 @@ public class User {
         this.gender = gender;
     }
     public User(){}
+
+
+    public List<User> getFriends() {
+        return friends;
+    }
 
     public int getUserId() {
         return userId;
