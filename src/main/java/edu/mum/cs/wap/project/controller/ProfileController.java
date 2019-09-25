@@ -26,6 +26,8 @@ public class ProfileController extends HttpServlet {
         if(userId==null){
             User user = (User)request.getSession().getAttribute("loginedUser");
             userId = String.valueOf(user.getUserId());
+
+
         }
 
         try{
@@ -35,6 +37,9 @@ public class ProfileController extends HttpServlet {
         }catch (Exception e){
             e.printStackTrace();
         }
+
+
+
         request.getRequestDispatcher("view/user/profile.jsp").forward(request,response);
     }
 
