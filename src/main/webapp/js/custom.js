@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    //from editProfile.jsp when hit change passwor button
+    //Ali--from editProfile.jsp when hit change passwor button
     $("#changePasswordBtn").click(function (event) {
         event.preventDefault();
         let old = $("#old-password").val();
