@@ -36,16 +36,20 @@ public class ProfilePicUpload extends HttpServlet{
                     if(!item.isFormField()){
                         String name = new File(item.getName()).getName();
                         item.write( new File(absoluteDiskPath + File.separator + name));
+
+                        User user = (User)request.getSession().getAttribute("loginedUser");
+                        int id = user.getUserId();
+
                         ProfileDAO profileDAO = new ProfileDAO();
-                        int id = ((User)request.getSession().getAttribute("loginedUser")).getUserId();
-                        System.out.println(name);
-                        System.out.println(id);
                         profileDAO.setProfilePic(name, id);
+
+                        //after changing some user attribute you need to update it
+                        request.getSession().setAttribute("loginedUser", user);
                     }
                 }
 
-                //File uploaded successfully
                 System.out.println("File Uploaded Successfully");
+
             } catch (Exception ex) {
                 System.out.println("File Upload Failed due to " + ex);
             }
@@ -54,7 +58,7 @@ public class ProfilePicUpload extends HttpServlet{
             System.out.println("Sorry this Servlet only handles file upload request");
         }
 
-        response.sendRedirect("profilecontroller");
+        response.sendRedirect("profile");
 
     }
 }

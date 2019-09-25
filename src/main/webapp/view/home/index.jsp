@@ -181,9 +181,7 @@
                                                     <img src="<c:url value='/images/post/${i.postPic}' />"/>
                                                 </div>
                                             </c:if>
-                                            <div class="job-status-bar">
-                                                follow
-                                            </div>
+                                            
                                         </div>
                                         <!--post-bar end-->
                                     </c:forEach>
