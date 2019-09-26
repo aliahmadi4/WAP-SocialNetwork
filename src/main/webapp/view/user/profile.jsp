@@ -41,7 +41,7 @@
                             <div class="main-left-sidebar">
                                 <div class="user_profile">
                                     <div class="user-pro-img">
-                                        <img src="images/profile/${user.profilePic}" alt="">
+                                        <img src="images/profile/${user.profilePic.length()>4 ? user.profilePic : "user.jpg"}" alt="">
                                         <%--<div class="add-dp" id="OpenImgUpload">
                                             <input type="file" id="profilePic">
                                             <label for="file"><i class="fas fa-camera"></i></label>
@@ -64,7 +64,9 @@
                                         <li><i class="la la-globe"></i> Lives in <b>${user.state}, ${user.city}</b></li>
                                         <li><i class="la la-globe"></i> Gender <b>${user.gender}</b></li>
                                         <li><i class="la la-globe"></i> Email <b>${user.email}</b></li>
+                                        <c:if test="${loginedUser.userId==user.userId}">
                                         <li><a href="editProfile">Edit Profile</a></li>
+                                        </c:if>
 
 
                                     </ul>
@@ -117,19 +119,13 @@
 											<div class="post-bar">
 												<div class="post_topbar">
 													<div class="usy-dt">
-														<img src="<c:url value='/images/profile/${i.user.profilePic}'/>" alt="" width="45px" height="45px">
+														<img src="<c:url value='/images/profile/${i.user.profilePic.length()>4 ? i.user.profilePic : "user.jpg"}'/>" alt="" width="45px" height="45px">
 														<div class="usy-name">
 															<h3>${i.user.firstName} ${i.user.lastName}</h3>
-															<span><img src="../../images/clock.png" alt="">3 min ago</span>
+															<span><img src="../../images/clock.png" alt="">${i.user.description}</span>
 														</div>
 													</div>
-													<div class="ed-opts">
-														<a href="#" title="" class="ed-opts-open"><i
-																class="la la-ellipsis-v"></i></a>
-														<ul class="ed-options">
-															<li><a href="#" title="">Delete</a></li>
-														</ul>
-													</div>
+
 												</div>
 												<div class="epi-sec">
 
@@ -149,13 +145,13 @@
 											</div>
 											<!--post-bar end-->
 										</c:forEach>
-                                        <div class="process-comm">
-                                            <div class="spinner">
-                                                <div class="bounce1"></div>
-                                                <div class="bounce2"></div>
-                                                <div class="bounce3"></div>
-                                            </div>
-                                        </div><!--process-comm end-->
+<%--                                        <div class="process-comm">--%>
+<%--                                            <div class="spinner">--%>
+<%--                                                <div class="bounce1"></div>--%>
+<%--                                                <div class="bounce2"></div>--%>
+<%--                                                <div class="bounce3"></div>--%>
+<%--                                            </div>--%>
+<%--                                        </div><!--process-comm end-->--%>
                                     </div><!--posts-section end-->
                                 </div><!--product-feed-tab end-->
 
@@ -1352,10 +1348,12 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="right-sidebar">
+                                <c:if test="${loginedUser.userId==user.userId}">
                                 <div class="message-btn">
                                     <a href="<c:url value='/editProfile'/>" title=""><i class="fas fa-cog"></i>
                                         Edit Profile</a>
                                 </div>
+                                </c:if>
                                 <div class="widget widget-portfolio">
                                     <div class="wd-heady">
                                         <h3>My Portfolio</h3>

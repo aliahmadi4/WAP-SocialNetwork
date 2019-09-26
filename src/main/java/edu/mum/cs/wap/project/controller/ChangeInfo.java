@@ -15,13 +15,18 @@ public class ChangeInfo extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
+        String description = request.getParameter("description");
         String email = request.getParameter("email");
         response.setContentType("text/html");
 
         int userId = ((User)request.getSession().getAttribute("loginedUser")).getUserId();
         try{
-            new ProfileDAO().updateInfo(firstName,lastName,email,userId);
+            new ProfileDAO().updateInfo(firstName,lastName,description,email,userId);
             response.getWriter().write("successful");
+
+            //update the session
+            User newUser = new ProfileDAO().getUserById(userId);
+            request.getSession().setAttribute("loginedUser", newUser);
 
         }catch (Exception e){
             e.printStackTrace();

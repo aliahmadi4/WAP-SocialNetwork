@@ -265,6 +265,14 @@
                                             </div>
                                         </div>
                                         <div class="cp-field">
+                                            <h5>Occupation</h5>
+                                            <div class="cpp-fiel">
+                                                <input type="text" name="description" id="description"
+                                                       value="${loginedUser.description}" required>
+                                                <i class="fa fa-lock"></i>
+                                            </div>
+                                        </div>
+                                        <div class="cp-field">
                                             <h5>Email</h5>
                                             <div class="cpp-fiel">
                                                 <input type="email" name="email" id="email"

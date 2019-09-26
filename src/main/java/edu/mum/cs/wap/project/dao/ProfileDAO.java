@@ -208,17 +208,18 @@ public class ProfileDAO {
     }
 
 
-    public int updateInfo(String firstName, String lastName, String email, int id) {
+    public int updateInfo(String firstName, String lastName, String description,String email,  int id) {
         try {
 
             //get session object
             Session session = HibernateUtil.getSessionFactory().openSession();
             //starting Transcation
             Transaction transaction = session.beginTransaction();
-            String ql = "Update edu.mum.cs.wap.project.model.User SET firstName = :firstName , lastName = :lastName , email = :email WHERE userId = :id" ;
+            String ql = "Update edu.mum.cs.wap.project.model.User SET firstName = :firstName , lastName = :lastName , description = :description , email = :email WHERE userId = :id" ;
             Query query =  session.createQuery(ql);
             query.setParameter("firstName", firstName);
             query.setParameter("lastName", lastName);
+            query.setParameter("description", description);
             query.setParameter("email", email);
             query.setParameter("id", id);
 

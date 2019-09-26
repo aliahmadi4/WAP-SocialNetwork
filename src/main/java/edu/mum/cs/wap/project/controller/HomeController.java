@@ -29,14 +29,14 @@ public class HomeController extends HttpServlet {
             }
             PostDAO postDAO = new PostDAO();
             ProfileDAO profileDAO = new ProfileDAO();
-         //   List<Post> posts = postDAO.getAllPosts();
-            List<Post> posts = postDAO. getAllPostByUserAndFollower(AppUtils.getLoginedUser(request.getSession()));
+            List<Post> posts = postDAO. getAllPostByUserAndFollower((User)request.getSession().getAttribute("loginedUser"));
             request.setAttribute("posts",posts);
              User currentUser = AppUtils.getLoginedUser(request.getSession());
             Set<User> userList = profileDAO.getOtherUser(currentUser);
             //using Lambda exp to remove user
 //            userList.removeIf( u-> u.getUserId()==currentUser.getUserId());
             request.setAttribute("userList", userList);
+
             //update the session
             int userId= ((User)request.getSession().getAttribute("loginedUser")).getUserId();
             User newUser = new ProfileDAO().getUserById(userId);

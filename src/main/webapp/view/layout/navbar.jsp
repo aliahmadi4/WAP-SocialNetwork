@@ -27,12 +27,14 @@
         </a>
         </li>
 
-        <%--<li>
-        <a href="#" title="">
-        <span><img src="../../images/icon5.png" alt=""></span>
-        Following
-        </a>
-        </li>--%>
+        <c:if test="${loginedUser.role.equals('ROLE_ADMIN')}">
+       <li>
+       <a href="<c:url value='/admin'/>" title="">
+       <span><img src="../../images/icon4.png" alt=""></span>
+       Manage
+       </a>
+       </li>
+        </c:if>
 
 
 
@@ -43,7 +45,7 @@
         </div><!--menu-btn end-->
         <div class="user-account">
         <div class="user-info">
-        <img src="<c:url value='/images/profile/${loginedUser.profilePic}' />" alt="" height="40px" width="40px">
+        <img src="<c:url value='/images/profile/${loginedUser.profilePic.length()>4 ? loginedUser.profilePic : "user.jpg"}' />" alt="" height="40px" width="40px">
         <a href="#" title="">${loginedUser.firstName}</a>
         <i class="la la-sort-down"></i>
         </div>

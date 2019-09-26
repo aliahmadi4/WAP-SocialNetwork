@@ -22,21 +22,22 @@ $(document).ready(function(){
         event.preventDefault();
         let firstName = $("#firstName").val();
         let lastName = $("#lastName").val();
+        let description = $("#description").val();
         let email = $("#email").val();
 
         let domain = document.URL;
         let url = domain.replace("view/user/editProfile.jsp","");
         url = url + "changeInfo";
 
-        $.post(url, {"firstName": firstName, "lastName": lastName, "email": email})
+        $.post(url, {"firstName": firstName, "lastName": lastName, "description": description, "email": email})
             .then(function (response) {
                 alert(response);
             })
 
     });
 
-
     $("#follow").on('click', 'span', function () {
+
         let self = $(this);
         let follower_id = self.attr("data-id");
         //get
@@ -44,10 +45,13 @@ $(document).ready(function(){
         let url = domain.replace("home","");
         url = url + "follow";
         $.get(url,{"follower_id": follower_id}).done(function (data) {
-            console.log(data);
+
+            self.append("<span>Followed</span>");
+
         }).fail(function (err) {
             console.log(err);
         })
     });
+
 
 });

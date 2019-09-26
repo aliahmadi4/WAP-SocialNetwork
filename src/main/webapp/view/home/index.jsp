@@ -12,6 +12,7 @@
 <!-- Mirrored from gambolthemes.net/workwise-new/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Sep 2019 14:24:44 GMT -->
 <head>
     <jsp:include page="../layout/head.jsp"/>
+    <script type="text/javascript" src="<c:url value='/js/scroll.js' />" ></script>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
                                     <div class="user-profile">
                                         <div class="username-dt">
                                             <div class="usr-pic">
-                                                <img src="<c:url value='/images/profile/${loginedUser.profilePic}' />"
+                                                <img src="<c:url value='/images/profile/${loginedUser.profilePic.length()>4 ? loginedUser.profilePic : "user.jpg"}' />"
                                                      alt="" height="120px" width="120px"/>
                                             </div>
                                         </div><!--username-dt end-->
@@ -63,7 +64,7 @@
 
                                         <c:forEach var="u" items="${userList}">
                                             <div class="suggestion-usd">
-                                                <img src="<c:url value='/images/profile/${u.profilePic}'/>" alt=""
+                                                <img src="<c:url value='/images/profile/${u.profilePic.length()>4 ? u.profilePic : "user.jpg"}'/>" alt=""
                                                      width="45px" height="45px">
                                                 <div class="sgt-text">
                                                     <h4>${u.firstName}</h4>
@@ -101,7 +102,7 @@
                             <div class="main-ws-sec">
                                 <div class="post-topbar">
                                     <div class="user-picy">
-                                        <img src="<c:url value='/images/profile/${loginedUser.profilePic}'/>" alt=""
+                                        <img src="<c:url value='/images/profile/${loginedUser.profilePic.length()>4 ? loginedUser.profilePic : "user.jpg"}'/>" alt=""
                                              height="50px" width="50px">
                                     </div>
                                     <div class="post-st">
@@ -117,7 +118,7 @@
                                         <div class="post-bar">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
-                                                    <img src="<c:url value='/images/profile/${i.user.profilePic}'/>"
+                                                    <img src="<c:url value='/images/profile/${i.user.profilePic.length()>4 ? i.user.profilePic : "user.jpg"}'/>"
                                                          alt="" width="45px" height="45px">
                                                     <div class="usy-name">
                                                         <a href="<c:url value='/profile?userId=${i.user.userId}' />">
@@ -153,13 +154,13 @@
                                     </c:forEach>
 
 
-                                    <div class="process-comm">
-                                        <div class="spinner">
-                                            <div class="bounce1"></div>
-                                            <div class="bounce2"></div>
-                                            <div class="bounce3"></div>
-                                        </div>
-                                    </div><!--process-comm end-->
+<%--                                    <div class="process-comm">--%>
+<%--                                        <div class="spinner">--%>
+<%--                                            <div class="bounce1"></div>--%>
+<%--                                            <div class="bounce2"></div>--%>
+<%--                                            <div class="bounce3"></div>--%>
+<%--                                        </div>--%>
+<%--                                    </div><!--process-comm end-->--%>
                                 </div><!--posts-section end-->
                             </div><!--main-ws-sec end-->
                         </div>
