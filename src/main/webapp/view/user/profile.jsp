@@ -17,10 +17,13 @@
         <div class="add-pic-box">
             <div class="container">
                 <div class="row no-gutters">
-                    <div class="col-lg-12 col-sm-12">
-                        <input type="file" id="file">
-                        <label for="file">Change Image</label>
-                    </div>
+                    <c:if test="${loginedUser.userId}==${user.userId}">
+                        <div class="col-lg-12 col-sm-12">
+                            <input type="file" id="file">
+                            <label for="file">Change Image</label>
+                        </div>
+                    </c:if>
+
                 </div>
             </div>
         </div>

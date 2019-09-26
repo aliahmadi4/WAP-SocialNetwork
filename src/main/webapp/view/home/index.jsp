@@ -116,7 +116,7 @@
                                                 <div class="usy-dt">
                                                     <img src="<c:url value='/images/profile/${i.user.profilePic}'/>" alt="" width="45px" height="45px">
                                                     <div class="usy-name">
-                                                        <h3>${i.user.firstName} ${i.user.lastName}</h3>
+                                                      <a href="<c:url value='/profile?userId=${i.user.userId}' />" >  <h3>${i.user.firstName} ${i.user.lastName}</h3> </a>
                                                         <span><img src="../../images/clock.png" alt="">3 min ago</span>
                                                     </div>
                                                 </div>
