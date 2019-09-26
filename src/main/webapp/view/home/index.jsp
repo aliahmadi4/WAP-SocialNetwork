@@ -12,7 +12,7 @@
 <!-- Mirrored from gambolthemes.net/workwise-new/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Sep 2019 14:24:44 GMT -->
 <head>
     <jsp:include page="../layout/head.jsp"/>
-    <script type="text/javascript" src="<c:url value='/js/scroll.js' />" ></script>
+    <script type="text/javascript" src="<c:url value='/js/scroll.js' />"></script>
 </head>
 
 <body>
@@ -58,13 +58,14 @@
                                 <div class="suggestions full-width">
                                     <div class="sd-title">
                                         <h3>Suggestions</h3>
-<%--                                        <i class="la la-ellipsis-v"></i>--%>
+                                        <%--                                        <i class="la la-ellipsis-v"></i>--%>
                                     </div><!--sd-title end-->
                                     <div id="follow" class="suggestions-list">
 
                                         <c:forEach var="u" items="${userList}">
                                             <div class="suggestion-usd">
-                                                <img src="<c:url value='/images/profile/${u.profilePic.length()>4 ? u.profilePic : "user.jpg"}'/>" alt=""
+                                                <img src="<c:url value='/images/profile/${u.profilePic.length()>4 ? u.profilePic : "user.jpg"}'/>"
+                                                     alt=""
                                                      width="45px" height="45px">
                                                 <div class="sgt-text">
                                                     <h4>${u.firstName}</h4>
@@ -75,34 +76,20 @@
                                             </div>
                                         </c:forEach>
 
-<%--                                        <div class="view-more">--%>
-<%--                                            <a href="#" title="">View More</a>--%>
-<%--                                        </div>--%>
+                                        <%--                                        <div class="view-more">--%>
+                                        <%--                                            <a href="#" title="">View More</a>--%>
+                                        <%--                                        </div>--%>
                                     </div><!--suggestions-list end-->
                                 </div><!--suggestions end-->
-                                <%--<div class="tags-sec full-width">
-                                    <ul>
-                                        <li><a href="#" title="">Help Center</a></li>
-                                        <li><a href="#" title="">About</a></li>
-                                        <li><a href="#" title="">Privacy Policy</a></li>
-                                        <li><a href="#" title="">Community Guidelines</a></li>
-                                        <li><a href="#" title="">Cookies Policy</a></li>
-                                        <li><a href="#" title="">Career</a></li>
-                                        <li><a href="#" title="">Language</a></li>
-                                        <li><a href="#" title="">Copyright Policy</a></li>
-                                    </ul>
-                                    <div class="cp-sec">
-                                        <img src="../../images/logo2.png" alt="">
-                                        <p><img src="../../images/cp.png" alt="">Copyright 2019</p>
-                                    </div>
-                                </div><!--tags-sec end-->--%>
+
                             </div><!--main-left-sidebar end-->
                         </div>
                         <div class="col-lg-6 col-md-8 no-pd">
                             <div class="main-ws-sec">
                                 <div class="post-topbar">
                                     <div class="user-picy">
-                                        <img src="<c:url value='/images/profile/${loginedUser.profilePic.length()>4 ? loginedUser.profilePic : "user.jpg"}'/>" alt=""
+                                        <img src="<c:url value='/images/profile/${loginedUser.profilePic.length()>4 ? loginedUser.profilePic : "user.jpg"}'/>"
+                                             alt=""
                                              height="50px" width="50px">
                                     </div>
                                     <div class="post-st">
@@ -123,16 +110,17 @@
                                                     <div class="usy-name">
                                                         <a href="<c:url value='/profile?userId=${i.user.userId}' />">
                                                             <h3>${i.user.firstName} ${i.user.lastName}</h3></a>
-                                                        <span><img src="../../images/clock.png" alt="">${loginedUser.description}</span>
+                                                        <span><img src="../../images/clock.png"
+                                                                   alt="">${i.user.description}</span>
                                                     </div>
                                                 </div>
-<%--                                                <div class="ed-opts">--%>
-<%--                                                    <a href="#" title="" class="ed-opts-open"><i--%>
-<%--                                                            class="la la-ellipsis-v"></i></a>--%>
-<%--                                                    <ul class="ed-options">--%>
-<%--                                                        <li><a href="#" title="">Delete</a></li>--%>
-<%--                                                    </ul>--%>
-<%--                                                </div>--%>
+                                                    <%--                                                <div class="ed-opts">--%>
+                                                    <%--                                                    <a href="#" title="" class="ed-opts-open"><i--%>
+                                                    <%--                                                            class="la la-ellipsis-v"></i></a>--%>
+                                                    <%--                                                    <ul class="ed-options">--%>
+                                                    <%--                                                        <li><a href="#" title="">Delete</a></li>--%>
+                                                    <%--                                                    </ul>--%>
+                                                    <%--                                                </div>--%>
                                             </div>
                                             <div class="epi-sec">
 
@@ -154,13 +142,13 @@
                                     </c:forEach>
 
 
-<%--                                    <div class="process-comm">--%>
-<%--                                        <div class="spinner">--%>
-<%--                                            <div class="bounce1"></div>--%>
-<%--                                            <div class="bounce2"></div>--%>
-<%--                                            <div class="bounce3"></div>--%>
-<%--                                        </div>--%>
-<%--                                    </div><!--process-comm end-->--%>
+                                    <div class="process-comm">
+                                        <div class="spinner">
+                                            <div class="bounce1"></div>
+                                            <div class="bounce2"></div>
+                                            <div class="bounce3"></div>
+                                        </div>
+                                    </div><!--process-comm end-->
                                 </div><!--posts-section end-->
                             </div><!--main-ws-sec end-->
                         </div>
@@ -190,7 +178,7 @@
 
     <div class="post-popup pst-pj">
         <div class="post-project">
-            <h3>New status</h3>
+            <h3>New Post</h3>
             <div class="post-project-fields">
                 <form method="post" action="<c:url value="/createpost" />" enctype="multipart/form-data">
                     <div class="row">
@@ -199,11 +187,19 @@
                         </div>
                         <div class="col-lg-12">
                             <ul>
-                                <li><input type="file" name="file"></li>
                                 <li>
                                     <button class="active" type="submit" value="post">Post</button>
                                 </li>
-                                <li><a href="#" title="">Cancel</a></li>
+                                <div class="add-pic-box">
+
+                                    <div class="row no-gutters">
+                                        <div class="col-lg-12 col-sm-12">
+                                            <input type="file" name="file" id="file">
+                                            <label for="file">Select Image</label>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </ul>
                         </div>
                     </div>

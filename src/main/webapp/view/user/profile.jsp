@@ -77,7 +77,7 @@
                         <div class="col-lg-6">
                             <div class="main-ws-sec">
                                 <div class="user-tab-sec rewivew">
-                                    <h3>${user.firstName}</h3>
+                                    <h3>${user.firstName} ${user.lastName}</h3>
                                     <div class="star-descp">
                                         <span>${user.description}</span>
                                         <ul>

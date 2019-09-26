@@ -28,7 +28,7 @@ To change this template use File | Settings | File Templates.
 </head>
 
 
-<body class="sign-in" oncontextmenu="return false;">
+<body>
 
 
 <div class="wrapper">
@@ -154,8 +154,8 @@ To change this template use File | Settings | File Templates.
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="custom-radio">
 
-                                                    <input type="radio"  name="gender" value="Male"> Male <br/>
-                                                    <input type="radio" name="gender" value="Female"> Female
+                                                    <input type="radio"  name="gender" value="Male" style="display: inline;width: 10px"> Male <br/>
+                                                    <input type="radio" name="gender" value="Female" style="display: inline;width: 10px"> Female
 
                                                 </div>
                                             </div>
