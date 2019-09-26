@@ -40,6 +40,24 @@ public class ProfileDAO {
         }
     }
 
+    public List<User> getAllUsersNotAdmin() {
+        try {
+            //get session object
+            Session session =  HibernateUtil.getSessionFactory().openSession();
+            //starting Transcation
+            Transaction transaction = session.beginTransaction();
+            List<User> users = new ArrayList<User>();
+            users = (List<User>) session.createQuery("FROM edu.mum.cs.wap.project.model.User as U where U.role != 'ROLE_ADMIN'").list();
+            transaction.commit();
+            System.out.println("User List Fetched");
+            session.close();
+            return users;
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
     public User getUserById(int id) {
         try {
             //get session object
@@ -116,6 +134,26 @@ public class ProfileDAO {
         } catch (HibernateException e) {
             System.out.println(e.getMessage());
             return 0;
+        }
+    }
+
+    // tungnd
+    public void updateUserStatus(Integer userId) {
+        try {
+            //get session object
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            //starting Transcation
+            Transaction transaction = session.beginTransaction();
+            User user = (User) session.get(User.class, userId);
+            user.setStatus(!user.isStatus());
+            session.update(user);
+            //session.save(ads);
+            transaction.commit();
+            System.out.println("User status update to DB");
+
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            System.out.println("error");
         }
     }
 

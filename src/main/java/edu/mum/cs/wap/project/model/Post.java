@@ -14,7 +14,7 @@ public class Post {
     private User user;
     private String description;
     private String postPic;
-
+    private boolean status;
 
 
     public Post(){}
@@ -58,5 +58,13 @@ public class Post {
 
     public void setPostPic(String postPic) {
         this.postPic = postPic;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

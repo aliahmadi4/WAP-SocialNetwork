@@ -25,6 +25,7 @@ public class User {
     private String role;
     private String profilePic;
     private String description;
+    private boolean status;
 
     @ManyToMany( fetch = FetchType.EAGER)
     @JoinTable(name="follower_user",
@@ -160,6 +161,14 @@ public class User {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
 

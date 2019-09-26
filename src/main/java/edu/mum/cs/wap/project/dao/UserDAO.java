@@ -28,6 +28,7 @@ public class UserDAO {
             Transaction transaction = session.beginTransaction();
             User user = new User(firstName, lastName, email, username, password, state, city, country, gender);
             user.setRole("ROLE_USER");
+            user.setStatus(true);
             session.save(user);
             transaction.commit();
             System.out.println("User registered");
