@@ -56,7 +56,45 @@ public class PostDAO {
         }
         return postList;
     }
+    //for getting all the posts by userId and followerId
+    public List<Post> getAllPostByUserAndFollower(User user) {
+        try {
+            //get session object
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            //starting Transcation
+            Transaction transaction = session.beginTransaction();
+            List<Post> posts = new ArrayList<Post>();
+            int userId = user.getUserId();
 
+            String ql = "FROM edu.mum.cs.wap.project.model.Post order by postId desc" ;
+
+
+            posts = (List<Post>) session.createQuery(ql).list();
+
+
+            transaction.commit();
+            System.out.println("Posts Loaded");
+            //closing the session
+            session.close();
+            //getting user's and friends post
+            List<User> followerList = user.getFriends();
+            if(!followerList.contains(user)){
+                followerList.add(user);
+            }
+            List<Post> filteredPost = new ArrayList<Post>();
+            for(User u: followerList){
+                for(Post p : posts){
+                    if(u.getUserId()==p.getUser().getUserId()){
+                        filteredPost.add(p);
+                    }
+                }
+            }
+            return filteredPost;
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
 
 
 

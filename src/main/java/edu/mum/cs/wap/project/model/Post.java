@@ -2,6 +2,7 @@ package edu.mum.cs.wap.project.model;
 
 import javax.persistence.*;
 import java.time.*;
+import java.util.Objects;
 
 @Entity
 public class Post {
@@ -16,8 +17,8 @@ public class Post {
     private String postPic;
 
 
-
-    public Post(){}
+    public Post() {
+    }
 
     public Post(String description) {
         this.description = description;
@@ -58,5 +59,23 @@ public class Post {
 
     public void setPostPic(String postPic) {
         this.postPic = postPic;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(postId, description, postPic);
+    }
+
+    @Override
+    public boolean equals(Object object)
+    {
+        boolean sameSame = false;
+
+        if (object != null && object instanceof Post)
+        {
+            sameSame = this.postId == ((Post) object).postId;
+        }
+
+        return sameSame;
     }
 }

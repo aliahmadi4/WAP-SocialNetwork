@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class User {
@@ -26,15 +27,14 @@ public class User {
     private String profilePic;
     private String description;
 
-    @ManyToMany( fetch = FetchType.EAGER)
-    @JoinTable(name="follower_user",
-            joinColumns={@JoinColumn(name="userId")},
-            inverseJoinColumns={@JoinColumn(name="friendId")})
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "follower_user",
+            joinColumns = {@JoinColumn(name = "userId")},
+            inverseJoinColumns = {@JoinColumn(name = "friendId")})
     private List<User> friends = new ArrayList<User>();
 //
 //    @ManyToMany(mappedBy="friends",  fetch = FetchType.EAGER)
 //    private List<User> friendOf = new ArrayList<User>();
-
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -51,7 +51,9 @@ public class User {
         this.country = country;
         this.gender = gender;
     }
-    public User(){}
+
+    public User() {
+    }
 
 
     public List<User> getFriends() {
@@ -107,7 +109,6 @@ public class User {
     }
 
 
-
     public String getState() {
         return state;
     }
@@ -139,10 +140,12 @@ public class User {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    public String getRole(){
+
+    public String getRole() {
         return role;
     }
-    public void setRole(String role){
+
+    public void setRole(String role) {
         this.role = role;
     }
 
@@ -162,5 +165,22 @@ public class User {
         this.description = description;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, email, username, password);
+    }
 
+
+    @Override
+    public boolean equals(Object object)
+    {
+        boolean sameSame = false;
+
+        if (object != null && object instanceof User)
+        {
+            sameSame = this.userId == ((User) object).userId;
+        }
+
+        return sameSame;
+    }
 }

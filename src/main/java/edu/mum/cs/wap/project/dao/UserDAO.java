@@ -36,7 +36,7 @@ public class UserDAO {
         }
     }
     //for following another user
-    public void follow(User user, int id){
+    public boolean follow(User user, int id){
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
@@ -45,45 +45,15 @@ public class UserDAO {
             session.saveOrUpdate(user);
 
             session.getTransaction().commit();
+            return true;
 
         }catch (Exception e){
             e.printStackTrace();
         }
+        return false;
     }
 
-    //for getting all the posts by userId and followerId
-    public List<Post> getAllPostByUserAndFollower(User user) {
-        try {
-            //get session object
-            Session session = HibernateUtil.getSessionFactory().openSession();
-            //starting Transcation
-            Transaction transaction = session.beginTransaction();
-            List<Post> posts = new ArrayList<Post>();
-            int userId = user.getUserId();
-            List<User> followerList = user.getFriends();
 
-            String ql = "FROM edu.mum.cs.wap.project.model.Post" ;
-
-
-            posts = (List<Post>) session.createQuery(ql).list();
-            List<Post> filteredPost = new ArrayList<Post>();
-            for(User u: followerList){
-                for(Post p : posts){
-                    if(p.getUser().equals(u) || p.getUser().equals(user)){
-                        filteredPost.add(p);
-                    }
-                }
-            }
-
-            transaction.commit();
-            System.out.println("Posts Loaded");
-            session.close();
-            return posts;
-        } catch (HibernateException e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
 
 
 }

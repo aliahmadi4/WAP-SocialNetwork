@@ -14,8 +14,8 @@ import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 
 import javax.jws.soap.SOAPBinding;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ProfileDAO {
     private static SessionFactory sessionFactory;
@@ -29,7 +29,7 @@ public class ProfileDAO {
             //starting Transcation
             Transaction transaction = session.beginTransaction();
             List<User> users = new ArrayList<User>();
-            users = (List<User>) session.createQuery("FROM edu.mum.cs.wap.project.model.User").list();
+            users = (List<User>) session.createQuery("FROM edu.mum.cs.wap.project.model.User order by userId desc").list();
             transaction.commit();
             System.out.println("User List Fetched");
             session.close();
@@ -39,6 +39,56 @@ public class ProfileDAO {
             return null;
         }
     }
+    public Set<User> getOtherUser(User user) {
+        try {
+            //get session object
+            Session session =  HibernateUtil.getSessionFactory().openSession();
+            //starting Transcation
+            Transaction transaction = session.beginTransaction();
+            List<User> users = new ArrayList<User>();
+
+
+            users = (List<User>) session.createQuery("FROM edu.mum.cs.wap.project.model.User").list();
+
+            transaction.commit();
+            System.out.println("User List Fetched");
+            session.close();
+
+            List<User> followerList = new ArrayList<>();
+            followerList = user.getFriends();
+            if(!followerList.contains(user)){
+                followerList.add(user);
+            }
+
+            List<User> otherUsers = new ArrayList<>();
+            HashMap<Integer, User> hashMap = new HashMap<>();
+
+            Set<User> set1 = new HashSet<User>();
+            set1.addAll(users);
+
+            Set<User> set2 = new HashSet<User>();
+            set2.addAll(followerList);
+
+            set1.removeAll(set2);
+
+
+//            for(User u : users){
+//                for(User f: followerList){
+//                    if(!u.equals(f) && e){
+//                        if(!hashMap.containsValue(u)){
+//                            hashMap.put(u.getUserId(),u);
+//                            otherUsers.add(u);
+//                    }
+//                    }
+//                }
+//            }
+            return set1;
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
 
     public User getUserById(int id) {
         try {
