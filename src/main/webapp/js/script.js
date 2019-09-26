@@ -5,6 +5,22 @@ $(window).on("load", function() {
 
     //  ============= POST PROJECT POPUP FUNCTION =========
 
+
+    $("#follow").on('click', 'span', function () {
+        let self = $(this);
+        let follower_id = self.attr("data-id");
+        //get
+        let domain = document.URL;
+        let url = domain.replace("home","");
+        url = url + "follow";
+        $.get(url,{"follower_id": follower_id}).done(function (data) {
+            console.log(data);
+        }).fail(function (err) {
+            console.log(err);
+        })
+    });
+
+
     $(".post_project").on("click", function(){
         $(".post-popup.pst-pj").addClass("active");
         $(".wrapper").addClass("overlay");

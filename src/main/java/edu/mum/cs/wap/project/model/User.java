@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class User {
@@ -172,4 +173,20 @@ public class User {
     }
 
 
+    @Override
+    public boolean equals(Object object)
+    {
+        boolean sameSame = false;
+
+        if (object != null && object instanceof User)
+        {
+            sameSame = this.userId == ((User) object).userId;
+        }
+
+        return sameSame;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, email, username, password);
+    }
 }

@@ -58,55 +58,20 @@
                                         <h3>Suggestions</h3>
                                         <i class="la la-ellipsis-v"></i>
                                     </div><!--sd-title end-->
-                                    <div class="suggestions-list">
-                                        <div class="suggestion-usd">
-                                            <img src="../../images/resources/s1.png" alt="">
+                                    <div id="follow" class="suggestions-list">
+
+                                    <c:forEach var="u" items="${userList}">
+                                        <div  class="suggestion-usd">
+                                            <img src="<c:url value='/images/profile/${u.profilePic}'/>" alt="" width="45px" height="45px">
                                             <div class="sgt-text">
-                                                <h4>Jessica William</h4>
-                                                <span>Graphic Designer</span>
+                                                <h4>${u.firstName}</h4>
+                                                <span>${u.lastName}</span>
                                             </div>
-                                            <span><i class="la la-plus"></i></span>
+                                                <span  data-id="${u.userId}"><i  class="la la-plus"></i></span>
+
                                         </div>
-                                        <div class="suggestion-usd">
-                                            <img src="../../images/resources/s2.png" alt="">
-                                            <div class="sgt-text">
-                                                <h4>John Doe</h4>
-                                                <span>PHP Developer</span>
-                                            </div>
-                                            <span><i class="la la-plus"></i></span>
-                                        </div>
-                                        <div class="suggestion-usd">
-                                            <img src="../../images/resources/s3.png" alt="">
-                                            <div class="sgt-text">
-                                                <h4>Poonam</h4>
-                                                <span>Wordpress Developer</span>
-                                            </div>
-                                            <span><i class="la la-plus"></i></span>
-                                        </div>
-                                        <div class="suggestion-usd">
-                                            <img src="../../images/resources/s4.png" alt="">
-                                            <div class="sgt-text">
-                                                <h4>Bill Gates</h4>
-                                                <span>C & C++ Developer</span>
-                                            </div>
-                                            <span><i class="la la-plus"></i></span>
-                                        </div>
-                                        <div class="suggestion-usd">
-                                            <img src="../../images/resources/s5.png" alt="">
-                                            <div class="sgt-text">
-                                                <h4>Jessica William</h4>
-                                                <span>Graphic Designer</span>
-                                            </div>
-                                            <span><i class="la la-plus"></i></span>
-                                        </div>
-                                        <div class="suggestion-usd">
-                                            <img src="../../images/resources/s6.png" alt="">
-                                            <div class="sgt-text">
-                                                <h4>John Doe</h4>
-                                                <span>PHP Developer</span>
-                                            </div>
-                                            <span><i class="la la-plus"></i></span>
-                                        </div>
+                                    </c:forEach>
+
                                         <div class="view-more">
                                             <a href="#" title="">View More</a>
                                         </div>
@@ -151,7 +116,7 @@
                                                 <div class="usy-dt">
                                                     <img src="<c:url value='/images/profile/${i.user.profilePic}'/>" alt="" width="45px" height="45px">
                                                     <div class="usy-name">
-                                                        <h3>${i.user.firstName} ${i.user.lastName}</h3>
+                                                      <a href="<c:url value='/profile?userId=${i.user.userId}' />" >  <h3>${i.user.firstName} ${i.user.lastName}</h3> </a>
                                                         <span><img src="../../images/clock.png" alt="">3 min ago</span>
                                                     </div>
                                                 </div>
