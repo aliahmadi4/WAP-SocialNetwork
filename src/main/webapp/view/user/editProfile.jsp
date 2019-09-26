@@ -9,7 +9,13 @@
 
 
 <body>
+<%
+    //allow access only if session exists
+    if (session.getAttribute("loginedUser") == null) {
 
+        response.sendRedirect("login");
+    }
+%>
 <div class="wrapper">
 
     <jsp:include page="../layout/navbar.jsp"/>
@@ -30,18 +36,19 @@
                                    href="#nav-notification" role="tab" aria-controls="nav-notification"
                                    aria-selected="false"><i class="fa fa-flash"></i>Profile Picture</a>
                                 <a class="nav-item nav-link" id="nav-privcy-tab" data-toggle="tab" href="#privcy"
-                                   role="tab" aria-controls="privacy" aria-selected="false"><i class="fa fa-group"></i>Requests</a>
-                                <a class="nav-item nav-link" id="security" data-toggle="tab" href="#security-login"
+                                   role="tab" aria-controls="privacy" aria-selected="false"><i class="fa fa-group"></i>Change
+                                    Info</a>
+                                <%--<a class="nav-item nav-link" id="security" data-toggle="tab" href="#security-login"
                                    role="tab" aria-controls="security-login" aria-selected="false"><i
-                                        class="fa fa-user-secret"></i>Security and Login</a>
-                                <a class="nav-item nav-link" id="nav-privacy-tab" data-toggle="tab" href="#privacy"
+                                        class="fa fa-user-secret"></i>Security and Login</a>--%>
+                               <%-- <a class="nav-item nav-link" id="nav-privacy-tab" data-toggle="tab" href="#privacy"
                                    role="tab" aria-controls="privacy" aria-selected="false"><i class="fa fa-paw"></i>Privacy</a>
                                 <a class="nav-item nav-link" id="nav-blockking-tab" data-toggle="tab" href="#blockking"
                                    role="tab" aria-controls="blockking" aria-selected="false"><i
                                         class="fa fa-cc-diners-club"></i>Blocking</a>
                                 <a class="nav-item nav-link" id="nav-deactivate-tab" data-toggle="tab"
                                    href="#nav-deactivate" role="tab" aria-controls="nav-deactivate"
-                                   aria-selected="false"><i class="fa fa-random"></i>Deactivate Account</a>
+                                   aria-selected="false"><i class="fa fa-random"></i>Deactivate Account</a>--%>
                             </div>
                         </div><!--acc-leftbar end-->
                     </div>
@@ -49,7 +56,7 @@
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-acc" role="tabpanel"
                                  aria-labelledby="nav-acc-tab">
-                                <div class="acc-setting">
+                                <%--<div class="acc-setting">
                                     <h3>Account Setting</h3>
                                     <form>
                                         <div class="notbar">
@@ -102,7 +109,7 @@
                                             </ul>
                                         </div><!--save-stngs end-->
                                     </form>
-                                </div><!--acc-setting end-->
+                                </div><!--acc-setting end-->--%>
                             </div>
                             <div class="tab-pane fade" id="nav-status" role="tabpanel" aria-labelledby="nav-status-tab">
                                 <div class="acc-setting">
@@ -173,34 +180,38 @@
                                         <div class="cp-field">
                                             <h5>Old Password</h5>
                                             <div class="cpp-fiel">
-                                                <input type="text" name="old-password" id="old-password" placeholder="Old Password" required>
+                                                <input type="text" name="old-password" id="old-password"
+                                                       placeholder="Old Password" required>
                                                 <i class="fa fa-lock"></i>
                                             </div>
                                         </div>
                                         <div class="cp-field">
                                             <h5>New Password</h5>
                                             <div class="cpp-fiel">
-                                                <input type="text" name="new-password" id="new-password" placeholder="New Password" required>
+                                                <input type="text" name="new-password" id="new-password"
+                                                       placeholder="New Password" required>
                                                 <i class="fa fa-lock"></i>
                                             </div>
                                         </div>
                                         <div class="cp-field">
                                             <h5>Repeat Password</h5>
                                             <div class="cpp-fiel">
-                                                <input type="text" name="repeat-password" id="repeat-password" placeholder="Repeat Password" required>
+                                                <input type="text" name="repeat-password" id="repeat-password"
+                                                       placeholder="Repeat Password" required>
                                                 <i class="fa fa-lock"></i>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="save-stngs pd2">
                                             <ul>
                                                 <li>
-                                                    <button type="submit" id="changePasswordBtn">Change Password</button>
+                                                    <button type="submit" id="changePasswordBtn">Change Password
+                                                    </button>
                                                 </li>
-                                                
+
                                             </ul>
                                         </div><!--save-stngs end-->
-                                        
+
                                     </form>
                                 </div><!--acc-setting end-->
                             </div>
@@ -210,7 +221,8 @@
                                     <h3>Change Profile Picture</h3>
                                     <div class="notifications-list">
                                         <div class="notfication-details">
-                                            <form action="<c:url value="/fileUpload"/>" method="post" enctype="multipart/form-data">
+                                            <form action="<c:url value="/fileUpload"/>" method="post"
+                                                  enctype="multipart/form-data">
                                                 <input type="file" id="changeProfilePic" name="file">
                                                 <div class="save-stngs pd2">
                                                     <ul>
@@ -228,134 +240,63 @@
 
                                 </div><!--acc-setting end-->
                             </div>
+
+
                             <div class="tab-pane fade" id="privcy" role="tabpanel" aria-labelledby="nav-privcy-tab">
                                 <div class="acc-setting">
-                                    <h3>Requests</h3>
-                                    <div class="requests-list">
-                                        <div class="request-details">
-                                            <div class="noty-user-img">
-                                                <img src="images/resources/r-img1.png" alt="">
+                                    <h3 style="margin-left: 10px">Change Info</h3>
+                                    <h4 style="margin: 10px; color: red" id="errorMsg"></h4>
+                                    <form method="POST" action="<c:url value='/changePassword' />">
+
+                                        <div class="cp-field">
+                                            <h5>First Name</h5>
+                                            <div class="cpp-fiel">
+                                                <input type="text" name="firstName" id="firstName"
+                                                       value="${loginedUser.firstName}" required>
+                                                <i class="fa fa-lock"></i>
                                             </div>
-                                            <div class="request-info">
-                                                <h3>Jessica William</h3>
-                                                <span>Graphic Designer</span>
+                                        </div>
+                                        <div class="cp-field">
+                                            <h5>Last Name</h5>
+                                            <div class="cpp-fiel">
+                                                <input type="text" name="lastName" id="lastName"
+                                                       value="${loginedUser.lastName}" required>
+                                                <i class="fa fa-lock"></i>
                                             </div>
-                                            <div class="accept-feat">
-                                                <ul>
-                                                    <li>
-                                                        <button type="submit" class="accept-req">Accept</button>
-                                                    </li>
-                                                    <li>
-                                                        <button type="submit" class="close-req"><i
-                                                                class="la la-close"></i></button>
-                                                    </li>
-                                                </ul>
-                                            </div><!--accept-feat end-->
-                                        </div><!--request-detailse end-->
-                                        <div class="request-details">
-                                            <div class="noty-user-img">
-                                                <img src="images/resources/r-img2.png" alt="">
+                                        </div>
+                                        <div class="cp-field">
+                                            <h5>Occupation</h5>
+                                            <div class="cpp-fiel">
+                                                <input type="text" name="description" id="description"
+                                                       value="${loginedUser.description}" required>
+                                                <i class="fa fa-lock"></i>
                                             </div>
-                                            <div class="request-info">
-                                                <h3>John Doe</h3>
-                                                <span>PHP Developer</span>
+                                        </div>
+                                        <div class="cp-field">
+                                            <h5>Email</h5>
+                                            <div class="cpp-fiel">
+                                                <input type="email" name="email" id="email"
+                                                       value="${loginedUser.email}" required>
+                                                <i class="fa fa-lock"></i>
                                             </div>
-                                            <div class="accept-feat">
-                                                <ul>
-                                                    <li>
-                                                        <button type="submit" class="accept-req">Accept</button>
-                                                    </li>
-                                                    <li>
-                                                        <button type="submit" class="close-req"><i
-                                                                class="la la-close"></i></button>
-                                                    </li>
-                                                </ul>
-                                            </div><!--accept-feat end-->
-                                        </div><!--request-detailse end-->
-                                        <div class="request-details">
-                                            <div class="noty-user-img">
-                                                <img src="images/resources/r-img3.png" alt="">
-                                            </div>
-                                            <div class="request-info">
-                                                <h3>Poonam</h3>
-                                                <span>Wordpress Developer</span>
-                                            </div>
-                                            <div class="accept-feat">
-                                                <ul>
-                                                    <li>
-                                                        <button type="submit" class="accept-req">Accept</button>
-                                                    </li>
-                                                    <li>
-                                                        <button type="submit" class="close-req"><i
-                                                                class="la la-close"></i></button>
-                                                    </li>
-                                                </ul>
-                                            </div><!--accept-feat end-->
-                                        </div><!--request-detailse end-->
-                                        <div class="request-details">
-                                            <div class="noty-user-img">
-                                                <img src="images/resources/r-img4.png" alt="">
-                                            </div>
-                                            <div class="request-info">
-                                                <h3>Bill Gates</h3>
-                                                <span>C & C++ Developer</span>
-                                            </div>
-                                            <div class="accept-feat">
-                                                <ul>
-                                                    <li>
-                                                        <button type="submit" class="accept-req">Accept</button>
-                                                    </li>
-                                                    <li>
-                                                        <button type="submit" class="close-req"><i
-                                                                class="la la-close"></i></button>
-                                                    </li>
-                                                </ul>
-                                            </div><!--accept-feat end-->
-                                        </div><!--request-detailse end-->
-                                        <div class="request-details">
-                                            <div class="noty-user-img">
-                                                <img src="images/resources/r-img5.png" alt="">
-                                            </div>
-                                            <div class="request-info">
-                                                <h3>Jessica William</h3>
-                                                <span>Graphic Designer</span>
-                                            </div>
-                                            <div class="accept-feat">
-                                                <ul>
-                                                    <li>
-                                                        <button type="submit" class="accept-req">Accept</button>
-                                                    </li>
-                                                    <li>
-                                                        <button type="submit" class="close-req"><i
-                                                                class="la la-close"></i></button>
-                                                    </li>
-                                                </ul>
-                                            </div><!--accept-feat end-->
-                                        </div><!--request-detailse end-->
-                                        <div class="request-details">
-                                            <div class="noty-user-img">
-                                                <img src="images/resources/r-img6.png" alt="">
-                                            </div>
-                                            <div class="request-info">
-                                                <h3>John Doe</h3>
-                                                <span>PHP Developer</span>
-                                            </div>
-                                            <div class="accept-feat">
-                                                <ul>
-                                                    <li>
-                                                        <button type="submit" class="accept-req">Accept</button>
-                                                    </li>
-                                                    <li>
-                                                        <button type="submit" class="close-req"><i
-                                                                class="la la-close"></i></button>
-                                                    </li>
-                                                </ul>
-                                            </div><!--accept-feat end-->
-                                        </div><!--request-detailse end-->
-                                    </div><!--requests-list end-->
+                                        </div>
+
+                                        <div class="save-stngs pd2">
+                                            <ul>
+                                                <li>
+                                                    <button type="submit" id="saveInfo">Save</button>
+                                                </li>
+
+                                            </ul>
+                                        </div><!--save-stngs end-->
+
+                                    </form>
                                 </div><!--acc-setting end-->
                             </div>
-                            <div class="tab-pane fade" id="security-login" role="tabpanel" aria-labelledby="security">
+
+
+
+                            <%--<div class="tab-pane fade" id="security-login" role="tabpanel" aria-labelledby="security">
                                 <div class="privacy security">
                                     <div class="row">
                                         <div class="col-12">
@@ -422,7 +363,7 @@
                                         <a href="#">Cancel</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--%>
                             <div class="tab-pane fade" id="blockking" role="tabpanel"
                                  aria-labelledby="nav-blockking-tab">
                                 <div class="helpforum">

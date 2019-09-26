@@ -43,6 +43,9 @@
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto navbar-right-top">
                     <li class="nav-item dropdown nav-user">
+                        <a class="nav-link" href="<c:url value='/home' />">Home</a>
+                    </li>
+                    <li class="nav-item dropdown nav-user">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">Administrator</a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
@@ -50,6 +53,7 @@
                             <a class="dropdown-item" href="logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
                     </li>
+
                 </ul>
             </div>
         </nav>

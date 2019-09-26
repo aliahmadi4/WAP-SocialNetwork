@@ -11,7 +11,7 @@ To change this template use File | Settings | File Templates.
 <!-- Mirrored from gambolthemes.net/workwise-new/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Sep 2019 14:25:26 GMT -->
 <head>
     <meta charset="UTF-8">
-    <title>WorkWise Html Template</title>
+    <title>MUMBook</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -28,7 +28,7 @@ To change this template use File | Settings | File Templates.
 </head>
 
 
-<body class="sign-in" oncontextmenu="return false;">
+<body>
 
 
 <div class="wrapper">
@@ -40,10 +40,9 @@ To change this template use File | Settings | File Templates.
                     <div class="col-lg-6">
                         <div class="cmp-info">
                             <div class="cm-logo">
-                                <img src="../../images/cm-logo.png" alt="">
-                                <p>Workwise,  is a global freelancing platform and social networking where businesses and independent professionals connect and collaborate remotely</p>
+                                <img style="width: 200px; height: 200px" src="images/logo.png" alt="">
                             </div><!--cm-logo end-->
-                            <img src="../../images/cm-main-img.png" alt="">
+                            <img src="images/cm-main-img.png" alt="">
                         </div><!--cmp-info end-->
                     </div>
                     <div class="col-lg-6">
@@ -72,31 +71,31 @@ To change this template use File | Settings | File Templates.
                                                 <i class="la la-lock"></i>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 no-pdd">
-                                            <div class="checky-sec">
-                                                <div class="fgt-sec">
-                                                    <input type="checkbox" name="cc" id="c1">
-                                                    <label for="c1">
-                                                        <span></span>
-                                                    </label>
-                                                    <small>Remember me</small>
-                                                </div><!--fgt-sec end-->
-                                                <a href="#" title="">Forgot Password?</a>
-                                            </div>
-                                        </div>
+<%--                                        <div class="col-lg-12 no-pdd">--%>
+<%--                                            <div class="checky-sec">--%>
+<%--                                                <div class="fgt-sec">--%>
+<%--                                                    <input type="checkbox" name="cc" id="c1">--%>
+<%--                                                    <label for="c1">--%>
+<%--                                                        <span></span>--%>
+<%--                                                    </label>--%>
+<%--                                                    <small>Remember me</small>--%>
+<%--                                                </div><!--fgt-sec end-->--%>
+<%--                                                <a href="#" title="">Forgot Password?</a>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
 
                                         <div class="col-lg-12 no-pdd">
                                             <button type="submit" value="submit">Sign in</button>
                                         </div>
                                     </div>
                                 </form>
-                                <div class="login-resources">
+                                <%--<div class="login-resources">
                                     <h4>Login Via Social Account</h4>
                                     <ul>
                                         <li><a href="#" title="" class="fb"><i class="fa fa-facebook"></i>Login Via Facebook</a></li>
                                         <li><a href="#" title="" class="tw"><i class="fa fa-twitter"></i>Login Via Twitter</a></li>
                                     </ul>
-                                </div><!--login-resources end-->
+                                </div><!--login-resources end-->--%>
                             </div><!--sign_in_sec end-->
                             <div class="sign_in_sec" id="tab-2">
 
@@ -105,58 +104,58 @@ To change this template use File | Settings | File Templates.
                                         <div class="row">
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="text" name="firstName" placeholder="First Name">
+                                                    <input type="text" name="firstName" required placeholder="First Name">
                                                     <i class="la la-user"></i>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="text" name="lastName" placeholder="Last Name">
+                                                    <input type="text" name="lastName" required placeholder="Last Name">
                                                     <i class="la la-user"></i>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="email" name="email" placeholder="email">
+                                                    <input type="email" name="email" placeholder="email" required>
                                                     <i class="la la-user"></i>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="text" name="username" placeholder="Username">
+                                                    <input type="text" name="username" placeholder="Username" required>
                                                     <i class="la la-user"></i>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="password" name="password" placeholder="Password">
+                                                    <input type="password" name="password" placeholder="Password" required>
                                                     <i class="la la-lock"></i>
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="text" name="state" placeholder="State">
+                                                    <input type="text" name="state" placeholder="State" required>
                                                     <i class="la la-lock"></i>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="text" name="city" placeholder="City">
+                                                    <input type="text" name="city" placeholder="City" required>
                                                     <i class="la la-lock"></i>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="text" name="country" placeholder="Country">
+                                                    <input type="text" name="country" placeholder="Country" required>
                                                     <i class="la la-globe"></i>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="custom-radio">
 
-                                                    <input type="radio"  name="gender" value="Male"> Male <br/>
-                                                    <input type="radio" name="gender" value="Female"> Female
+                                                    <input type="radio"  name="gender" value="Male" style="display: inline;width: 10px"> Male <br/>
+                                                    <input type="radio" name="gender" value="Female" style="display: inline;width: 10px"> Female
 
                                                 </div>
                                             </div>
@@ -229,22 +228,22 @@ To change this template use File | Settings | File Templates.
                 </div>
             </div><!--signin-pop end-->
         </div><!--signin-popup end-->
-        <div class="footy-sec">
-            <div class="container">
-                <ul>
-                    <li><a href="../../help-center.html" title="">Help Center</a></li>
-                    <li><a href="../../about.html" title="">About</a></li>
-                    <li><a href="#" title="">Privacy Policy</a></li>
-                    <li><a href="#" title="">Community Guidelines</a></li>
-                    <li><a href="#" title="">Cookies Policy</a></li>
-                    <li><a href="#" title="">Career</a></li>
-                    <li><a href="../../forum.html" title="">Forum</a></li>
-                    <li><a href="#" title="">Language</a></li>
-                    <li><a href="#" title="">Copyright Policy</a></li>
-                </ul>
-                <p><img src="../../images/copy-icon.png" alt="">Copyright 2019</p>
-            </div>
-        </div><!--footy-sec end-->
+<%--        <div class="footy-sec">--%>
+<%--            <div class="container">--%>
+<%--                <ul>--%>
+<%--                    <li><a href="../../help-center.html" title="">Help Center</a></li>--%>
+<%--                    <li><a href="../../about.html" title="">About</a></li>--%>
+<%--                    <li><a href="#" title="">Privacy Policy</a></li>--%>
+<%--                    <li><a href="#" title="">Community Guidelines</a></li>--%>
+<%--                    <li><a href="#" title="">Cookies Policy</a></li>--%>
+<%--                    <li><a href="#" title="">Career</a></li>--%>
+<%--                    <li><a href="../../forum.html" title="">Forum</a></li>--%>
+<%--                    <li><a href="#" title="">Language</a></li>--%>
+<%--                    <li><a href="#" title="">Copyright Policy</a></li>--%>
+<%--                </ul>--%>
+<%--                <p><img src="images/copy-icon.png" alt="">Copyright 2019</p>--%>
+<%--            </div>--%>
+<%--        </div><!--footy-sec end-->--%>
     </div><!--sign-in-page end-->
 
 

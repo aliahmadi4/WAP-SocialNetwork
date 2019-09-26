@@ -208,6 +208,33 @@ public class ProfileDAO {
     }
 
 
+    public int updateInfo(String firstName, String lastName, String description,String email,  int id) {
+        try {
+
+            //get session object
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            //starting Transcation
+            Transaction transaction = session.beginTransaction();
+            String ql = "Update edu.mum.cs.wap.project.model.User SET firstName = :firstName , lastName = :lastName , description = :description , email = :email WHERE userId = :id" ;
+            Query query =  session.createQuery(ql);
+            query.setParameter("firstName", firstName);
+            query.setParameter("lastName", lastName);
+            query.setParameter("description", description);
+            query.setParameter("email", email);
+            query.setParameter("id", id);
+
+            int result = query.executeUpdate();
+            transaction.commit();
+            System.out.println("Info Updated");
+            session.close();
+            return result;
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
+    }
+
+
 
 
 }

@@ -36,8 +36,6 @@ public class FollowController extends HttpServlet {
             //otherUsers = profileDAO.getOtherUser(AppUtils.getLoginedUser(request.getSession()));
             //postList = postDAO.getAllPostByUserAndFollower(AppUtils.getLoginedUser(request.getSession()));
 //            response.sendRedirect("home");
-
-            response.sendRedirect("home");
         }
 //        String userJSON;
 //        userJSON = new Gson().toJson(otherUsers);
