@@ -66,7 +66,7 @@ public class PostDAO {
             List<Post> posts = new ArrayList<Post>();
             int userId = user.getUserId();
 
-            String ql = "FROM edu.mum.cs.wap.project.model.Post order by postId desc" ;
+            String ql = "FROM edu.mum.cs.wap.project.model.Post P where P.status = 1 order by postId desc" ;
 
 
             posts = (List<Post>) session.createQuery(ql).list();

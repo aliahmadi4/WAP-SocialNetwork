@@ -17,7 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @WebServlet("/follow")
 public class FollowController extends HttpServlet {
@@ -29,15 +31,20 @@ public class FollowController extends HttpServlet {
         ProfileDAO profileDAO = new ProfileDAO();
         PostDAO postDAO = new PostDAO();
         List<User> otherUsers = new ArrayList<>();
-        List<Post> postList = new ArrayList<>();
+        Set<Post> postList = new HashSet<>();
         if(userDAO.follow(AppUtils.getLoginedUser(request.getSession()), follower_id)){
-         //   otherUsers = profileDAO.getOtherUser(AppUtils.getLoginedUser(request.getSession()));
-            postList = postDAO.getAllPostByUserAndFollower(AppUtils.getLoginedUser(request.getSession()));
+            //otherUsers = profileDAO.getOtherUser(AppUtils.getLoginedUser(request.getSession()));
+            //postList = postDAO.getAllPostByUserAndFollower(AppUtils.getLoginedUser(request.getSession()));
+//            response.sendRedirect("home");
+
+            response.sendRedirect("home");
         }
-        String userJSON;
-        userJSON = new Gson().toJson(otherUsers);
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        out.write(userJSON);
+//        String userJSON;
+//        userJSON = new Gson().toJson(otherUsers);
+//        response.setContentType("application/json");
+//        response.setCharacterEncoding("UTF-8");
+//        out.write(userJSON);
+
+
     }
 }
