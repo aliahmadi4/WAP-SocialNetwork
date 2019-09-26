@@ -35,7 +35,12 @@ public class LoginController extends HttpServlet {
         if(loginService.authenticateUser(userName, password)){
             User user = loginService.getUserByUserName(userName);
             AppUtils.storeLoginedUser(session, user);
-            response.sendRedirect("home");
+            if (user.getRole().equals("ROLE_ADMIN")) {
+                response.sendRedirect("admin");
+            } else {
+                response.sendRedirect("home");
+            }
+
         }
         else{
             String errorMessage = "Invalid userName or Password";

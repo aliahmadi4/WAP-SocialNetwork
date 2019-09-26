@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class User {
@@ -25,6 +26,7 @@ public class User {
     private String role;
     private String profilePic;
     private String description;
+    private boolean status;
 
     @ManyToMany( fetch = FetchType.EAGER)
     @JoinTable(name="follower_user",
@@ -162,5 +164,29 @@ public class User {
         this.description = description;
     }
 
+    public boolean isStatus() {
+        return status;
+    }
 
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+
+    @Override
+    public boolean equals(Object object)
+    {
+        boolean sameSame = false;
+
+        if (object != null && object instanceof User)
+        {
+            sameSame = this.userId == ((User) object).userId;
+        }
+
+        return sameSame;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, email, username, password);
+    }
 }
