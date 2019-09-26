@@ -18,6 +18,24 @@ $(document).ready(function(){
 
     });
 
+    $("#saveInfo").click(function (event) {
+        event.preventDefault();
+        let firstName = $("#firstName").val();
+        let lastName = $("#lastName").val();
+        let email = $("#email").val();
+
+        let domain = document.URL;
+        let url = domain.replace("view/user/editProfile.jsp","");
+        url = url + "changeInfo";
+
+        $.post(url, {"firstName": firstName, "lastName": lastName, "email": email})
+            .then(function (response) {
+                alert(response);
+            })
+
+    });
+
+
     $("#follow").on('click', 'span', function () {
         let self = $(this);
         let follower_id = self.attr("data-id");

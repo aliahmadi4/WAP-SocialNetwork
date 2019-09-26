@@ -1,8 +1,10 @@
 package edu.mum.cs.wap.project.controller;
 
+import edu.mum.cs.wap.project.dao.AdsDAO;
 import edu.mum.cs.wap.project.dao.PostDAO;
 import edu.mum.cs.wap.project.dao.ProfileDAO;
 import edu.mum.cs.wap.project.dao.UserDAO;
+import edu.mum.cs.wap.project.model.Ads;
 import edu.mum.cs.wap.project.model.Post;
 import edu.mum.cs.wap.project.model.User;
 import edu.mum.cs.wap.project.util.AppUtils;
@@ -40,7 +42,9 @@ public class HomeController extends HttpServlet {
             User newUser = new ProfileDAO().getUserById(userId);
             request.getSession().setAttribute("loginedUser", newUser);
 
-
+            // get all ads
+            Ads ads = new AdsDAO().loadAds();
+            request.setAttribute("ads", ads);
             request.getRequestDispatcher("/view/home/index.jsp").forward(request,response);
         }catch (Exception e){
             System.out.println("Could not fetch Posts! "+e.getStackTrace());

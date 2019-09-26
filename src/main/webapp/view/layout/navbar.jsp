@@ -3,13 +3,13 @@
         <div class="container">
         <div class="header-data">
         <div class="logo">
-        <a href="../../index.html" title=""><img src="<c:url value='/images/logo.png' />" alt="userPic"></a>
+        <a  href="<c:url value='/home'/>" title=""><img src="<c:url value='/images/logo.png' />" alt="userPic"></a>
         </div><!--logo end-->
         <div class="search-bar">
-        <form>
+        <%--<form>
         <input type="text" name="search" placeholder="Search...">
         <button type="submit"><i class="la la-search"></i></button>
-        </form>
+        </form>--%>
         </div><!--search-bar end-->
         <nav>
         <ul>
@@ -27,12 +27,12 @@
         </a>
         </li>
 
-        <li>
+        <%--<li>
         <a href="#" title="">
         <span><img src="../../images/icon5.png" alt=""></span>
         Following
         </a>
-        </li>
+        </li>--%>
 
 
 
@@ -52,10 +52,7 @@
 
         <h3>Setting</h3>
         <ul class="us-links">
-        <li><a href="../../profile-account-setting.html" title="">Account Setting</a></li>
-        <li><a href="#" title="">Privacy</a></li>
-        <li><a href="#" title="">Faqs</a></li>
-        <li><a href="#" title="">Terms & Conditions</a></li>
+        <li><a href="<c:url value="/editProfile" />" title="">Edit Profile</a></li>
         </ul>
         <h3 class="tc"><a href="logout" title="">Logout</a></h3>
         </div><!--user-account-settingss end-->
@@ -63,3 +60,10 @@
         </div><!--header-data end-->
         </div>
         </header><!--header end-->
+
+           <%
+    //allow access only if session exists
+    if (session.getAttribute("loginedUser") == null) {
+        response.sendRedirect("login");
+    }
+%>

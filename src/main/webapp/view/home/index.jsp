@@ -31,7 +31,8 @@
                                     <div class="user-profile">
                                         <div class="username-dt">
                                             <div class="usr-pic">
-                                                <img src="<c:url value='/images/profile/${loginedUser.profilePic}' />" alt="" height="120px" width="120px"/>
+                                                <img src="<c:url value='/images/profile/${loginedUser.profilePic}' />"
+                                                     alt="" height="120px" width="120px"/>
                                             </div>
                                         </div><!--username-dt end-->
                                         <div class="user-specs">
@@ -40,14 +41,14 @@
                                         </div>
                                     </div><!--user-profile end-->
                                     <ul class="user-fw-status">
-                                        <li>
+                                        <%--<li>
                                             <h4>Following</h4>
                                             <span>34</span>
                                         </li>
                                         <li>
                                             <h4>Followers</h4>
                                             <span>155</span>
-                                        </li>
+                                        </li>--%>
                                         <li>
                                             <a href="<c:url value='/profile' />" title="">View Profile</a>
                                         </li>
@@ -56,28 +57,29 @@
                                 <div class="suggestions full-width">
                                     <div class="sd-title">
                                         <h3>Suggestions</h3>
-                                        <i class="la la-ellipsis-v"></i>
+<%--                                        <i class="la la-ellipsis-v"></i>--%>
                                     </div><!--sd-title end-->
                                     <div id="follow" class="suggestions-list">
 
-                                    <c:forEach var="u" items="${userList}">
-                                        <div  class="suggestion-usd">
-                                            <img src="<c:url value='/images/profile/${u.profilePic}'/>" alt="" width="45px" height="45px">
-                                            <div class="sgt-text">
-                                                <h4>${u.firstName}</h4>
-                                                <span>${u.lastName}</span>
+                                        <c:forEach var="u" items="${userList}">
+                                            <div class="suggestion-usd">
+                                                <img src="<c:url value='/images/profile/${u.profilePic}'/>" alt=""
+                                                     width="45px" height="45px">
+                                                <div class="sgt-text">
+                                                    <h4>${u.firstName}</h4>
+                                                    <span>${u.lastName}</span>
+                                                </div>
+                                                <span data-id="${u.userId}"><i class="la la-plus"></i></span>
+
                                             </div>
-                                                <span  data-id="${u.userId}"><i  class="la la-plus"></i></span>
+                                        </c:forEach>
 
-                                        </div>
-                                    </c:forEach>
-
-                                        <div class="view-more">
-                                            <a href="#" title="">View More</a>
-                                        </div>
+<%--                                        <div class="view-more">--%>
+<%--                                            <a href="#" title="">View More</a>--%>
+<%--                                        </div>--%>
                                     </div><!--suggestions-list end-->
                                 </div><!--suggestions end-->
-                                <div class="tags-sec full-width">
+                                <%--<div class="tags-sec full-width">
                                     <ul>
                                         <li><a href="#" title="">Help Center</a></li>
                                         <li><a href="#" title="">About</a></li>
@@ -92,18 +94,19 @@
                                         <img src="../../images/logo2.png" alt="">
                                         <p><img src="../../images/cp.png" alt="">Copyright 2019</p>
                                     </div>
-                                </div><!--tags-sec end-->
+                                </div><!--tags-sec end-->--%>
                             </div><!--main-left-sidebar end-->
                         </div>
                         <div class="col-lg-6 col-md-8 no-pd">
                             <div class="main-ws-sec">
                                 <div class="post-topbar">
                                     <div class="user-picy">
-                                        <img src="<c:url value='/images/profile/${loginedUser.profilePic}'/>" alt="" height="50px" width="50px">
+                                        <img src="<c:url value='/images/profile/${loginedUser.profilePic}'/>" alt=""
+                                             height="50px" width="50px">
                                     </div>
                                     <div class="post-st">
                                         <ul>
-                                            <li><a class="post_project" href="#" title="">Post a Project</a></li>
+                                            <li><a class="post_project" href="#" title="">Post</a></li>
 
                                         </ul>
                                     </div><!--post-st end-->
@@ -114,19 +117,21 @@
                                         <div class="post-bar">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
-                                                    <img src="<c:url value='/images/profile/${i.user.profilePic}'/>" alt="" width="45px" height="45px">
+                                                    <img src="<c:url value='/images/profile/${i.user.profilePic}'/>"
+                                                         alt="" width="45px" height="45px">
                                                     <div class="usy-name">
-                                                      <a href="<c:url value='/profile?userId=${i.user.userId}' />" >  <h3>${i.user.firstName} ${i.user.lastName}</h3> </a>
-                                                        <span><img src="../../images/clock.png" alt="">3 min ago</span>
+                                                        <a href="<c:url value='/profile?userId=${i.user.userId}' />">
+                                                            <h3>${i.user.firstName} ${i.user.lastName}</h3></a>
+                                                        <span><img src="../../images/clock.png" alt="">${loginedUser.description}</span>
                                                     </div>
                                                 </div>
-                                                <div class="ed-opts">
-                                                    <a href="#" title="" class="ed-opts-open"><i
-                                                            class="la la-ellipsis-v"></i></a>
-                                                    <ul class="ed-options">
-                                                        <li><a href="#" title="">Delete</a></li>
-                                                    </ul>
-                                                </div>
+<%--                                                <div class="ed-opts">--%>
+<%--                                                    <a href="#" title="" class="ed-opts-open"><i--%>
+<%--                                                            class="la la-ellipsis-v"></i></a>--%>
+<%--                                                    <ul class="ed-options">--%>
+<%--                                                        <li><a href="#" title="">Delete</a></li>--%>
+<%--                                                    </ul>--%>
+<%--                                                </div>--%>
                                             </div>
                                             <div class="epi-sec">
 
@@ -137,7 +142,7 @@
                                                 <p>${i.description}</p>
 
                                             </div>
-                                            <c:if test="${i.postPic.length() >3}" >
+                                            <c:if test="${i.postPic.length() >3}">
                                                 <div class="job_descp">
                                                     <img src="<c:url value='/images/post/${i.postPic}' />"/>
                                                 </div>
@@ -160,162 +165,19 @@
                         </div>
                         <div class="col-lg-3 pd-right-none no-pd">
                             <div class="right-sidebar">
-                                <div class="widget widget-about">
-                                    <img src="../../images/wd-logo.png" alt="">
-                                    <h3>Track Time on Workwise</h3>
-                                    <span>Pay only for the Hours worked</span>
-                                    <div class="sign_link">
-                                        <h3><a href="../user/sign-in.html" title="">Sign up</a></h3>
-                                        <a href="#" title="">Learn More</a>
-                                    </div>
+
+                                <div class="widget widget-ads">
+                                    <div>${ads.adsTitle}</div>
+                                    <img src="${ads.imageURL}"/>
+                                </div><!--widget-jobs end-->
+                                <div class="widget widget-weather">
+                                    <a style="width: 200px; margin-left: auto; margin-right: auto"
+                                       class="weatherwidget-io" href="https://forecast7.com/en/41d01n91d96/fairfield/"
+                                       data-label_1="FAIRFIELD"
+                                       data-label_2="WEATHER" data-font="Roboto Slab" data-icons="Climacons Animated"
+                                       data-theme="clear">FAIRFIELD
+                                        WEATHER</a>
                                 </div><!--widget-about end-->
-                                <div class="widget widget-jobs">
-                                    <div class="sd-title">
-                                        <h3>Top Jobs</h3>
-                                        <i class="la la-ellipsis-v"></i>
-                                    </div>
-                                    <div class="jobs-list">
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior Product Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior UI / UX Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Junior Seo Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior PHP Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior Developer Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                    </div><!--jobs-list end-->
-                                </div><!--widget-jobs end-->
-                                <div class="widget widget-jobs">
-                                    <div class="sd-title">
-                                        <h3>Most Viewed This Week</h3>
-                                        <i class="la la-ellipsis-v"></i>
-                                    </div>
-                                    <div class="jobs-list">
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior Product Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior UI / UX Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Junior Seo Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                    </div><!--jobs-list end-->
-                                </div><!--widget-jobs end-->
-                                <div class="widget suggestions full-width">
-                                    <div class="sd-title">
-                                        <h3>Most Viewed People</h3>
-                                        <i class="la la-ellipsis-v"></i>
-                                    </div><!--sd-title end-->
-                                    <div class="suggestions-list">
-                                        <div class="suggestion-usd">
-                                            <img src="../../images/resources/s1.png" alt="">
-                                            <div class="sgt-text">
-                                                <h4>Jessica William</h4>
-                                                <span>Graphic Designer</span>
-                                            </div>
-                                            <span><i class="la la-plus"></i></span>
-                                        </div>
-                                        <div class="suggestion-usd">
-                                            <img src="../../images/resources/s2.png" alt="">
-                                            <div class="sgt-text">
-                                                <h4>John Doe</h4>
-                                                <span>PHP Developer</span>
-                                            </div>
-                                            <span><i class="la la-plus"></i></span>
-                                        </div>
-                                        <div class="suggestion-usd">
-                                            <img src="../../images/resources/s3.png" alt="">
-                                            <div class="sgt-text">
-                                                <h4>Poonam</h4>
-                                                <span>Wordpress Developer</span>
-                                            </div>
-                                            <span><i class="la la-plus"></i></span>
-                                        </div>
-                                        <div class="suggestion-usd">
-                                            <img src="../../images/resources/s4.png" alt="">
-                                            <div class="sgt-text">
-                                                <h4>Bill Gates</h4>
-                                                <span>C &amp; C++ Developer</span>
-                                            </div>
-                                            <span><i class="la la-plus"></i></span>
-                                        </div>
-                                        <div class="suggestion-usd">
-                                            <img src="../../images/resources/s5.png" alt="">
-                                            <div class="sgt-text">
-                                                <h4>Jessica William</h4>
-                                                <span>Graphic Designer</span>
-                                            </div>
-                                            <span><i class="la la-plus"></i></span>
-                                        </div>
-                                        <div class="suggestion-usd">
-                                            <img src="../../images/resources/s6.png" alt="">
-                                            <div class="sgt-text">
-                                                <h4>John Doe</h4>
-                                                <span>PHP Developer</span>
-                                            </div>
-                                            <span><i class="la la-plus"></i></span>
-                                        </div>
-                                        <div class="view-more">
-                                            <a href="#" title="">View More</a>
-                                        </div>
-                                    </div><!--suggestions-list end-->
-                                </div>
                             </div><!--right-sidebar end-->
                         </div>
                     </div>
@@ -327,7 +189,7 @@
 
     <div class="post-popup pst-pj">
         <div class="post-project">
-            <h3>Post a project</h3>
+            <h3>New status</h3>
             <div class="post-project-fields">
                 <form method="post" action="<c:url value="/createpost" />" enctype="multipart/form-data">
                     <div class="row">
@@ -405,8 +267,6 @@
     </div><!--post-project-popup end-->
 
 
-
-
 </div><!--theme-layout end-->
 
 
@@ -419,7 +279,17 @@
 <%--<script type="text/javascript" src="../../js/script.js"></script>--%>
 
 <jsp:include page="../layout/footerScript.jsp"/>
-
+<script>
+    !function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://weatherwidget.io/js/widget.min.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'weatherwidget-io-js');
+</script>
 </body>
 
 <!-- Mirrored from gambolthemes.net/workwise-new/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Sep 2019 14:24:55 GMT -->

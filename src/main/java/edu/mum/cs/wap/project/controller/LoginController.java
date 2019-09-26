@@ -43,7 +43,7 @@ public class LoginController extends HttpServlet {
 
         }
         else{
-            String errorMessage = "Invalid userName or Password";
+            String errorMessage = "Invalid UserName/Password or Account is locked!!!";
             request.setAttribute("errorMessage", errorMessage);
             request.getRequestDispatcher("view/user/login.jsp").forward(request, response);
         }

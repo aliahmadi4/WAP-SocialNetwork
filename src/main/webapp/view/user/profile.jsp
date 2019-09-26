@@ -42,23 +42,23 @@
                                 <div class="user_profile">
                                     <div class="user-pro-img">
                                         <img src="images/profile/${user.profilePic}" alt="">
-                                        <div class="add-dp" id="OpenImgUpload">
+                                        <%--<div class="add-dp" id="OpenImgUpload">
                                             <input type="file" id="profilePic">
                                             <label for="file"><i class="fas fa-camera"></i></label>
-                                        </div>
+                                        </div>--%>
                                     </div><!--user-pro-img end-->
-                                    <div class="user_pro_status">
-                                        <ul class="flw-status">
-                                            <li>
-                                                <span>Following</span>
-                                                <b>34</b>
-                                            </li>
-                                            <li>
-                                                <span>Followers</span>
-                                                <b>155</b>
-                                            </li>
-                                        </ul>
-                                    </div><!--user_pro_status end-->
+<%--                                    <div class="user_pro_status">--%>
+<%--                                        <ul class="flw-status">--%>
+<%--                                            <li>--%>
+<%--                                                <span>Following</span>--%>
+<%--                                                <b>34</b>--%>
+<%--                                            </li>--%>
+<%--                                            <li>--%>
+<%--                                                <span>Followers</span>--%>
+<%--                                                <b>155</b>--%>
+<%--                                            </li>--%>
+<%--                                        </ul>--%>
+<%--                                    </div><!--user_pro_status end-->--%>
                                     <ul class="social_links">
                                         <li><i class="la la-globe"></i> From <b>${user.country}</b></li>
                                         <li><i class="la la-globe"></i> Lives in <b>${user.state}, ${user.city}</b></li>
@@ -85,7 +85,7 @@
                                             <li><i class="fa fa-star"></i></li>
                                             <li><i class="fa fa-star-half-o"></i></li>
                                         </ul>
-                                        <a href="#" title="">Status</a>
+<%--                                        <a href="#" title="">Status</a>--%>
                                     </div><!--star-descp end-->
 
                                 </div><!--user-tab-sec end-->

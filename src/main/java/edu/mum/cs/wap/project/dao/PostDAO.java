@@ -101,7 +101,7 @@ public class PostDAO {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            postList = (List<Post>) session.createQuery("from  edu.mum.cs.wap.project.model.Post P WHERE P.status = 1 AND P.userId = "+userId+"  order by postId desc").list();
+            postList = (List<Post>) session.createQuery("from  edu.mum.cs.wap.project.model.Post WHERE status ="+1+" AND userId = "+userId+"  order by postId desc").list();
             System.out.println(" Displaying the post is running!");
             session.close();
 
