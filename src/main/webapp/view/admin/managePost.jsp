@@ -126,7 +126,7 @@
                                         <td scope="row"><c:out value="${post.postId}"/></td>
                                         <td><c:out value="${post.user.username}"/></td>
                                         <td><c:out value="${post.description}"/></td>
-                                        <td><img src="<c:url value='/images/post/${post.postPic}' />" alt="" height="40px" width="40px"></td>
+                                        <td><img src="<c:url value='/images/post/${post.postPic}' />" alt="" height="100px" width="100px"></td>
                                         <td><c:out value="${post.status? 'Active' : 'Inactive'}"/></td>
                                         <form action="managePost" method="post">
                                             <input type="hidden" value="${post.postId}" name="postId">
